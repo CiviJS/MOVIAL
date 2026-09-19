@@ -167,7 +167,7 @@ header{
    HERO
    ============================================================ */
 .hero{position:relative;background:var(--asfalto);color:#fff;overflow:hidden}
-.hero-foto{position:absolute;inset:0;background-image:url("images/hero-bg.jpg");background-size:cover;background-position:center 62%;opacity:.62}
+.hero-foto{position:absolute;inset:0;background-image:url("images/hero-bg.png");background-size:cover;background-position:center 62%;opacity:.62}
 .hero-velo{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,16,18,.94) 0%,rgba(14,16,18,.80) 44%,rgba(14,16,18,.30) 100%)}
 .hero .wrap{position:relative;padding-top:96px;padding-bottom:88px}
 .hero h1{max-width:16ch}
@@ -212,23 +212,12 @@ header{
 .tarjeta h3{margin:16px 20px 10px}
 .tarjeta ul{margin:0 20px 20px;padding-left:18px;color:var(--concreto);font-size:.95rem}
 .tarjeta li{margin-bottom:5px}
-
-/* ============================================================
-   PROJECTS
-   ============================================================ */
-.proyecto{
-  background:var(--blanco);border:1px solid var(--linea);
-  border-radius:var(--radius);overflow:hidden;
-  box-shadow:var(--shadow-sm);
-  transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
+.tarjeta-destacada{
+  border-top:5px solid var(--amarillo);
+  box-shadow:var(--shadow-md);
+  background:linear-gradient(180deg,var(--amarillo-suave) 0%,var(--blanco) 60%);
 }
-.proyecto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.proyecto-img{width:100%;height:180px;overflow:hidden}
-.proyecto-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
-.proyecto:hover .proyecto-img img{transform:scale(1.05)}
-.proyecto-info{padding:20px}
-.proyecto-info h3{margin:0 0 8px;font-size:1.1rem}
-.proyecto-info p{margin:0;color:var(--concreto);font-size:.95rem}
+.tarjeta-destacada:hover{box-shadow:var(--shadow-lg)}
 
 /* ============================================================
    SERVICES
@@ -270,7 +259,12 @@ header{
   transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
 }
 .producto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.producto .lienzo{background:var(--hueso);border-bottom:1px solid var(--linea);padding:26px 0;display:grid;place-items:center;min-height:150px}
+.producto-img{
+  width:100%;height:160px;overflow:hidden;
+  border-bottom:1px solid var(--linea);
+}
+.producto-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
+.producto:hover .producto-img img{transform:scale(1.05)}
 .producto h3{padding:20px 22px 8px}
 .producto p{padding:0 22px;color:var(--concreto);font-size:.95rem;margin:0}
 
@@ -353,49 +347,12 @@ footer .placa-logo img{max-width:160px}
 .salto:focus{left:10px;top:10px}
 
 /* ============================================================
-   TESTIMONIOS - From reference design
-   ============================================================ */
-.testimonios{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-@media(max-width:860px){.testimonios{grid-template-columns:1fr;gap:30px}}
-.testimonio{
-  background:var(--blanco);border:1px solid var(--linea);padding:28px;
-  border-radius:var(--radius);box-shadow:var(--shadow-sm);position:relative;
-}
-.testimonio::before{
-  content:"\201C";position:absolute;top:12px;left:20px;
-  font-size:4rem;font-family:var(--display);color:var(--amarillo);opacity:.3;line-height:1;
-}
-.testimonio p{font-style:italic;color:var(--concreto);margin:0 0 16px;padding-top:20px}
-.testimonio .autor{display:flex;align-items:center;gap:12px}
-.testimonio .autor-icono{
-  width:44px;height:44px;border-radius:50%;background:var(--asfalto);
-  display:grid;place-items:center;flex:0 0 auto;
-}
-.testimonio .autor-icono svg{width:20px;height:20px}
-.testimonio .autor-info{font-size:.9rem}
-.testimonio .autor-info strong{display:block;color:var(--asfalto)}
-.testimonio .autor-info span{color:var(--concreto)}
-
-/* ============================================================
-   CLIENTES - Logo carousel
-   ============================================================ */
-.clientes-logos{
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
-  gap:32px 48px;padding:24px 0;
-}
-.clientes-logos img{
-  height:52px;width:auto;filter:grayscale(100%);opacity:.5;
-  transition:filter .3s var(--ease-out),opacity .3s var(--ease-out);
-}
-.clientes-logos img:hover{filter:grayscale(0);opacity:1}
-
-/* ============================================================
    MAPA - Contact location
    ============================================================ */
 .mapa{
   background:var(--asfalto);position:relative;overflow:hidden;
   min-height:320px;display:grid;place-items:center;
-  background-image:url("images/hero-bg.jpg");background-size:cover;background-position:center;
+  background-image:url("images/equipo-trabajo.png");background-size:cover;background-position:center;
 }
 .mapa-overlay{
   position:absolute;inset:0;
@@ -425,6 +382,12 @@ footer .placa-logo img{max-width:160px}
 @keyframes fadeUp{
   to{opacity:1;transform:translateY(0)}
 }
+
+/* ============================================================
+   MODAL - Privacy Policy
+   ============================================================ */
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.6);place-items:center}
+.modal:target{display:grid}
 </style>
 </head>
 <body>
@@ -470,9 +433,9 @@ footer .placa-logo img{max-width:160px}
       </div>
       <div class="placas">
         <span class="placa">PESV · Resolución 40595 de 2022</span>
-        <span class="placa">Planes de manejo de tránsito</span>
-        <span class="placa">Estudios de tránsito</span>
-        <span class="placa">Inventarios georreferenciados</span>
+        <span class="placa">Planes de Manejo de Tránsito</span>
+        <span class="placa">Estudios de Tránsito</span>
+        <span class="placa">Inventarios Georreferenciados</span>
       </div>
     </div>
   </section>
@@ -487,81 +450,78 @@ footer .placa-logo img{max-width:160px}
         <p class="lead">Acompañamos el ciclo completo: levantamos la información en campo, hacemos el estudio, diseñamos la solución y la ejecutamos.</p>
       </div>
       <div class="rejilla g4">
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-estudios.jpg" alt="Equipo haciendo levantamiento en campo"></div>
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-img"><img src="images/servicios-estudios.png" alt="Equipo haciendo levantamiento en campo"></div>
           <h3>Estudios y consultoría</h3>
           <ul>
-            <li>Planes estratégicos de seguridad vial (PESV)</li>
-            <li>Planes de seguridad vial</li>
-            <li>Planes de movilidad</li>
-            <li>Estudios de tránsito</li>
-            <li>Planes de manejo de tránsito</li>
+            <li>Planes Estratégicos de Seguridad Vial (PESV) - Resolución 40595 de 2022</li>
+            <li>Planes de Movilidad</li>
+            <li>Estudios de Tránsito</li>
+            <li>Planes de Manejo de Tránsito (PMT)</li>
           </ul>
         </article>
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-diseno.jpg" alt="Diseño en AutoCAD"></div>
+        <article class="tarjeta tarjeta-destacada">
+          <div class="tarjeta-img"><img src="images/diseño.png" alt="Diseño en AutoCAD y modelación BIM"></div>
           <h3>Diseño y modelación</h3>
           <ul>
             <li>Diseño de señalización en AutoCAD y QGIS</li>
-            <li>Levantamiento y diseño arquitectónico</li>
+            <li>Modelación BIM (Revit) y SketchUp</li>
+            <li>Renders y visualización</li>
             <li>Diseños y remodelaciones de vivienda</li>
-            <li>Renders y modelación BIM</li>
-            <li>Costos y presupuestos</li>
           </ul>
         </article>
         <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-senializacion.jpg" alt="Señal de tránsito instalada"></div>
+          <div class="tarjeta-img"><img src="images/servicios-senializacion.png" alt="Señal de tránsito instalada"></div>
           <h3>Inventarios y diagnóstico</h3>
           <ul>
-            <li>Inventario de mobiliario urbano</li>
+            <li>Inventarios de mobiliario urbano</li>
             <li>Inventarios viales georreferenciados</li>
             <li>Diagnóstico de señalización horizontal y vertical</li>
-            <li>Necesidades de la red vial</li>
           </ul>
         </article>
         <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-obra.jpg" alt="Excavadora en obra"></div>
+          <div class="tarjeta-img"><img src="images/servicios-obra.png" alt="Excavadora en obra"></div>
           <h3>Suministro, instalación y obra</h3>
           <ul>
-            <li>Señales de tránsito y demarcación</li>
-            <li>Paraderos, resaltos, estoperoles y bolardos</li>
+            <li>Señales de tránsito y demarcación vial</li>
+            <li>Paraderos, resaltos y estoperoles</li>
             <li>Señalización interna de empresas</li>
-            <li>Rampas, andenes y adecuaciones</li>
+            <li>Obras Civiles en General (rampas, andenes, adecuaciones)</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PROYECTOS -->
-  <section class="seccion blanco" id="proyectos">
+  <!-- SEÑALIZACIÓN Y MOBILIARIO URBANO -->
+  <section class="seccion blanco" id="productos">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
-        <h2>Nuestros Proyectos</h2>
-        <p class="lead">Soluciones de seguridad vial implementadas en vías públicas y privadas.</p>
+        <h2>Señalización y mobiliario urbano</h2>
+        <p class="lead">Fabricamos e instalamos según el Manual de Señalización Vial vigente, en vías públicas, privadas e interiores de empresa.</p>
       </div>
       <div class="rejilla g3">
-        <article class="proyecto">
-          <div class="proyecto-img"><img src="images/proyecto-1.jpg" alt="Señalización completada en una vía"></div>
-          <div class="proyecto-info">
-            <h3>Señalización Vial</h3>
-            <p>Instalación completa de señalización preventiva, reglamentaria e informativa.</p>
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas">
           </div>
+          <h3>Señales</h3>
+          <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
         </article>
-        <article class="proyecto">
-          <div class="proyecto-img"><img src="images/proyecto-2.jpg" alt="Demarcación de líneas en carretera"></div>
-          <div class="proyecto-info">
-            <h3>Demarcación Horizontal</h3>
-            <p>Líneas, cebras y demarcación en vías y parqueaderos.</p>
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas">
           </div>
+          <h3>Demarcación</h3>
+          <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
         </article>
-        <article class="proyecto">
-          <div class="proyecto-img"><img src="images/proyecto-3.jpg" alt="Paradero o mobiliario urbano instalado"></div>
-          <div class="proyecto-info">
-            <h3>Mobiliario Urbano</h3>
-            <p>Paraderos, bolardos y dispositivos de seguridad.</p>
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos">
           </div>
+          <h3>Dispositivos</h3>
+          <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
         </article>
       </div>
     </div>
@@ -608,76 +568,6 @@ footer .placa-logo img{max-width:160px}
     </div>
   </section>
 
-  <!-- PRODUCTOS -->
-  <section class="seccion blanco" id="productos">
-    <span class="marcador" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="intro">
-        <h2>Señalización y mobiliario urbano</h2>
-        <p class="lead">Fabricamos e instalamos según el Manual de Señalización Vial vigente, en vías públicas, privadas e interiores de empresa.</p>
-      </div>
-      <div class="rejilla g3">
-
-        <article class="producto">
-          <div class="lienzo">
-            <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Señal preventiva, reglamentaria e informativa">
-              <g>
-                <path d="M32 8 60 78H4z" fill="#F3C218" stroke="#16181A" stroke-width="4" stroke-linejoin="round"/>
-                <path d="M26 34v24M38 34v24" stroke="#16181A" stroke-width="3"/>
-                <path d="M26 62l-5-8h10zM38 30l5 8H33z" fill="#16181A"/>
-              </g>
-              <g>
-                <circle cx="95" cy="48" r="30" fill="#fff" stroke="#D7262C" stroke-width="9"/>
-                <rect x="78" y="43" width="34" height="10" fill="#D7262C"/>
-              </g>
-              <g>
-                <rect x="140" y="18" width="46" height="58" rx="4" fill="#1B62B5" stroke="#fff" stroke-width="3"/>
-                <text x="163" y="63" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#fff" text-anchor="middle">P</text>
-              </g>
-            </svg>
-          </div>
-          <h3>Señales</h3>
-          <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
-        </article>
-
-        <article class="producto">
-          <div class="lienzo">
-            <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Demarcación horizontal sobre la vía">
-              <path d="M62 96 L128 96 L112 0 L78 0 Z" fill="#16181A"/>
-              <path d="M78 0 L62 96" stroke="#fff" stroke-width="3"/>
-              <path d="M112 0 L128 96" stroke="#fff" stroke-width="3"/>
-              <path d="M95 4v12M95 26v14M95 50v18M95 78v18" stroke="#fff" stroke-width="7"/>
-              <path d="M40 92c6-22 12-44 12-66" stroke="#F3C218" stroke-width="5" fill="none" stroke-dasharray="10 9"/>
-              <path d="M150 92c-6-22-12-44-12-66" stroke="#F3C218" stroke-width="5" fill="none" stroke-dasharray="10 9"/>
-            </svg>
-          </div>
-          <h3>Demarcación</h3>
-          <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
-        </article>
-
-        <article class="producto">
-          <div class="lienzo">
-            <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Dispositivos de seguridad vial">
-              <rect x="18" y="20" width="14" height="60" rx="7" fill="#F26522"/>
-              <rect x="18" y="34" width="14" height="9" fill="#fff"/>
-              <rect x="18" y="54" width="14" height="9" fill="#fff"/>
-              <ellipse cx="25" cy="82" rx="18" ry="6" fill="#16181A"/>
-              <path d="M62 74h56l-8-22H70z" fill="#F3C218" stroke="#16181A" stroke-width="3"/>
-              <path d="M74 60h10M96 60h10" stroke="#16181A" stroke-width="4"/>
-              <rect x="136" y="30" width="13" height="50" rx="6" fill="#B9BBBD"/>
-              <rect x="156" y="30" width="13" height="50" rx="6" fill="#B9BBBD"/>
-              <rect x="136" y="42" width="13" height="7" fill="#F3C218"/>
-              <rect x="156" y="42" width="13" height="7" fill="#F3C218"/>
-            </svg>
-          </div>
-          <h3>Dispositivos</h3>
-          <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
   <!-- PROCESO -->
   <section class="seccion claro" id="proceso">
     <span class="marcador" aria-hidden="true"></span>
@@ -702,13 +592,17 @@ footer .placa-logo img{max-width:160px}
       <div class="nosotros">
         <div>
           <h2>Quiénes somos</h2>
-          <p style="margin-top:18px;color:#D6D6D4">En Movial trabajamos para transformar la seguridad vial en una experiencia compartida, inclusiva y educativa. Creemos que todos merecen desplazarse tranquilos y seguros, sin importar cómo se muevan o el rol que tengan en la vía.</p>
-          <p style="color:#D6D6D4">Conocimiento, prevención e innovación al servicio de la comunidad.</p>
+          <p style="margin-top:18px;color:#D6D6D4">En MOVIAL SVA somos especialistas en seguridad vial y soluciones viales. Cumplimos con el Manual de Señalización Vial y todas las normativas de tránsito colombianas para garantizar que cada proyecto cumpla con los estándares de calidad y seguridad requeridos.</p>
+          <p style="color:#D6D6D4">Nuestro compromiso es proporcionar soluciones técnicas que protejan la vida de todos los usuarios de la vía.</p>
 
           <div style="margin-top:26px">
             <div class="diferencial">
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
-              <div><b>Enfoque moderno</b><p>Herramientas de diseño y georreferenciación aplicadas a problemas de siempre.</p></div>
+              <div><b>Cumplimiento normativo</b><p>Proyectos ajustados al Manual de Señalización Vial y Resolución 40595 de 2022.</p></div>
+            </div>
+            <div class="diferencial">
+              <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
+              <div><b>Enfoque técnico integral</b><p>Del diagnóstico en campo a la implementación, con herramientas de diseño y georreferenciación.</p></div>
             </div>
             <div class="diferencial">
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
@@ -716,74 +610,14 @@ footer .placa-logo img{max-width:160px}
             </div>
             <div class="diferencial">
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
-              <div><b>Comunicación clara, directa y visual</b><p>Entregamos documentos que el equipo técnico y el comité entienden igual de bien.</p></div>
-            </div>
-            <div class="diferencial">
-              <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
-              <div><b>Compromiso real con la seguridad y la vida</b><p>Diseñamos pensando en quien camina, pedalea, conduce y trabaja en la vía.</p></div>
+              <div><b>Compromiso con la seguridad</b><p>Diseñamos pensando en quien camina, pedalea, conduce y trabaja en la vía.</p></div>
             </div>
           </div>
         </div>
         <div>
         <div class="placa-logo"><img src="images/logo-movial-footer.png" alt="Movial Soluciones Viales y Arquitectura"></div>
-          <p class="frase">Conocimiento, prevención e innovación.</p>
+          <p class="frase">Seguridad vial con cumplimiento normativo.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section class="seccion blanco" id="testimonios">
-    <span class="marcador" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="intro">
-        <h2>Testimonios</h2>
-        <p class="lead">Lo que dicen nuestros clientes sobre nuestro trabajo.</p>
-      </div>
-      <div class="testimonios">
-        <article class="testimonio">
-          <p>"Movial nos apoyó con el estudio de tránsito para el proyecto de urbanización. Entendieron la necesidad y entregaron un documento técnico impecable, a tiempo y con una calidad que superó nuestras expectativas."</p>
-          <div class="autor">
-            <div class="autor-icono">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3C218" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <div class="autor-info">
-              <strong>Carlos Mendoza</strong>
-              <span>Ingeniero de Proyectos, Constructora Valle</span>
-            </div>
-          </div>
-        </article>
-        <article class="testimonio">
-          <p>"Trabajamos con Movial en el plan de seguridad vial de nuestra empresa. Su enfoque es integral: no solo cumplen la norma, sino que proponen soluciones reales para que la vía sea más segura."</p>
-          <div class="autor">
-            <div class="autor-icono">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3C218" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <div class="autor-info">
-              <strong>Laura Gutiérrez</strong>
-              <span>Gerente, Transportes Rápidos S.A.</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLIENTES -->
-  <section class="seccion claro" id="clientes">
-    <span class="marcador" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="intro">
-        <h2>Nuestros Clientes</h2>
-        <p class="lead">Empresas que confían en nosotros para sus proyectos de seguridad vial.</p>
-      </div>
-      <div class="clientes-logos">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+1" alt="Cliente 1">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+2" alt="Cliente 2">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+3" alt="Cliente 3">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+4" alt="Cliente 4">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+5" alt="Cliente 5">
-        <img src="https://via.placeholder.com/150x60?text=Cliente+6" alt="Cliente 6">
       </div>
     </div>
   </section>
@@ -793,7 +627,7 @@ footer .placa-logo img{max-width:160px}
     <div class="mapa-overlay">
       <div class="mapa-contenido">
         <h2>¿Dónde estamos?</h2>
-        <p>Barranquilla · Con presencia nacional</p>
+        <p>Atlantico - Barranquilla · Con presencia nacional</p>
         <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
       </div>
     </div>
@@ -809,8 +643,8 @@ footer .placa-logo img{max-width:160px}
           <p class="lead" style="margin-top:14px">Respondemos con una asesoría inicial sin costo: revisamos su caso y le decimos qué se necesita, aunque todavía no haya un contrato de por medio.</p>
           <div class="datos-contacto" style="margin-top:26px">
             <p><strong>WhatsApp</strong><br><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">+57 313 859 5695</a></p>
-            <p><strong>Correo</strong><br><a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a></p>
             <p><strong>Instagram</strong><br><a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a></p>
+            <p><strong>Correo</strong><br><a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a></p>
           </div>
         </div>
 
@@ -838,26 +672,49 @@ footer .placa-logo img{max-width:160px}
             </div>
           </div>
           <div class="campo">
-            <label for="servicio">¿En qué lo podemos asesorar?</label>
-            <select id="servicio" name="servicio">
-              <option>Plan estratégico de seguridad vial (PESV)</option>
-              <option>Plan de manejo de tránsito</option>
-              <option>Estudio de tránsito o plan de movilidad</option>
-              <option>Inventario vial o de mobiliario urbano</option>
-              <option>Señalización, demarcación y dispositivos</option>
-              <option>Obra civil, diseño o remodelación</option>
-              <option>Otro tema</option>
+            <label for="tipo-elemento">¿Qué tipo de elemento o servicio busca? <span class="req">*</span></label>
+            <select id="tipo-elemento" name="tipo-elemento" required>
+              <option value="">Seleccione una opción...</option>
+              <option value="Señales de tránsito">Señales de tránsito (preventivas, reglamentarias, informativas)</option>
+              <option value="Demarcación horizontal">Demarcación horizontal (líneas, cebras, flechas)</option>
+              <option value="Dispositivos de seguridad">Dispositivos de seguridad (delineadores, estoperoles, bolardos)</option>
+              <option value="Paraderos">Paraderos / mobiliario urbano</option>
+              <option value="Plan de seguridad vial (PESV)">Plan estratégico de seguridad vial (PESV)</option>
+              <option value="Plan de manejo de tránsito">Plan de manejo de tránsito</option>
+              <option value="Estudio de tránsito">Estudio de tránsito o plan de movilidad</option>
+              <option value="Inventario vial">Inventario vial georreferenciado</option>
+              <option value="Señalización interna empresa">Señalización interna de empresa</option>
+              <option value="Obra civil">Obra civil, rampas, andenes</option>
+              <option value="Otro">Otro</option>
             </select>
+            <span class="error">Seleccione el tipo de elemento o servicio.</span>
+          </div>
+          <div class="campo">
+            <label for="material">¿Qué tipo de material o especificaciones prefiere? <span class="req">*</span></label>
+            <select id="material" name="material" required>
+              <option value="">Seleccione una opción...</option>
+              <option value="Aluminio">Aluminio</option>
+              <option value="Plástico">Plástico</option>
+              <option value="Caucho">Caucho</option>
+              <option value="Lámina calibre">Lámina calibre con película retrorreflectiva</option>
+              <option value="Pintura en frío">Pintura en frío</option>
+              <option value="Termoplástico">Termoplástico</option>
+              <option value="Concreto">Concreto</option>
+              <option value="Gama Económica">Gama Económica</option>
+              <option value="Gama Alta">Gama Alta</option>
+              <option value="No especifico">No especifico / Necesito asesoría</option>
+            </select>
+            <span class="error">Seleccione el tipo de material o especificaciones.</span>
           </div>
           <div class="campo">
             <label for="mensaje">Cuéntenos brevemente</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Municipio, tipo de vía o proyecto, plazos..."></textarea>
+            <textarea id="mensaje" name="mensaje" placeholder="Cantidad, ubicación, plazos, detalles adicionales..."></textarea>
           </div>
           <label class="acepto">
             <input type="checkbox" id="acepto" required>
             <span>Autorizo el tratamiento de mis datos personales para ser contactado, conforme a la Ley 1581 de 2012.</span>
           </label>
-          <button class="btn btn-amarillo" type="submit" style="width:100%;justify-content:center">Enviar solicitud</button>
+          <button class="btn btn-amarillo" type="submit" style="width:100%;justify-content:center">Enviar solicitud por WhatsApp</button>
           <div class="listo" id="listo">
             <strong>Solicitud lista.</strong>
             <p style="margin:6px 0 0;font-size:.92rem">Abrimos WhatsApp con sus datos para que quede registrada la conversación. Si no se abrió, <a id="enlaceWa" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">toque aquí</a>.</p>
@@ -885,13 +742,13 @@ footer .placa-logo img{max-width:160px}
       <div>
         <h4>Contacto</h4>
         <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
-        <a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a><br>
-        <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a></p>
+        <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a><br>
+        <a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a></p>
       </div>
     </div>
     <div class="legal">
-      <span>© <span id="anio">2026</span> Movial SVA · Soluciones Viales y Arquitectura</span>
-      <span>Política de tratamiento de datos · pendiente</span>
+      <span>© <span id="anio">2026</span> MOVIAL SVA · Soluciones Viales y Arquitectura</span>
+      <a href="#politica-datos" style="color:var(--amarillo)">Política de tratamiento de datos</a>
     </div>
   </div>
 </footer>
@@ -933,6 +790,8 @@ form.addEventListener('submit', function(e){
   var entidad = document.getElementById('entidad');
   var correo = document.getElementById('correo');
   var telefono = document.getElementById('telefono');
+  var tipoElemento = document.getElementById('tipo-elemento');
+  var material = document.getElementById('material');
   var acepto = document.getElementById('acepto');
 
   var ok = true;
@@ -940,13 +799,15 @@ form.addEventListener('submit', function(e){
   ok = marcar(entidad, entidad.value.trim().length < 2) && ok;
   ok = marcar(correo, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo.value.trim())) && ok;
   ok = marcar(telefono, telefono.value.replace(/\D/g,'').length < 7) && ok;
+  ok = marcar(tipoElemento, !tipoElemento.value) && ok;
+  ok = marcar(material, !material.value) && ok;
 
   if(!acepto.checked){
     acepto.focus();
     ok = false;
   }
   if(!ok){
-    var primero = form.querySelector('.campo.malo input');
+    var primero = form.querySelector('.campo.malo input, .campo.malo select');
     if(primero) primero.focus();
     return;
   }
@@ -956,18 +817,20 @@ form.addEventListener('submit', function(e){
     entidad: entidad.value.trim(),
     correo: correo.value.trim(),
     telefono: telefono.value.trim(),
-    servicio: document.getElementById('servicio').value,
+    tipoElemento: tipoElemento.value,
+    material: material.value,
     mensaje: document.getElementById('mensaje').value.trim(),
     origen: 'web'
   };
 
   var texto = 'Hola Movial, quiero asesoría.\n\n'
-    + 'Nombre: ' + datos.nombre + '\n'
-    + 'Empresa o entidad: ' + datos.entidad + '\n'
-    + 'Correo: ' + datos.correo + '\n'
-    + 'Teléfono: ' + datos.telefono + '\n'
-    + 'Tema: ' + datos.servicio
-    + (datos.mensaje ? '\n\nDetalle: ' + datos.mensaje : '');
+    + '*Nombre:* ' + datos.nombre + '\n'
+    + '*Empresa o entidad:* ' + datos.entidad + '\n'
+    + '*Correo:* ' + datos.correo + '\n'
+    + '*Teléfono:* ' + datos.telefono + '\n\n'
+    + '*¿Qué tipo de elemento o servicio busca?*\n' + datos.tipoElemento + '\n\n'
+    + '*¿Qué tipo de material o especificaciones prefiere?*\n' + datos.material
+    + (datos.mensaje ? '\n\n*Detalle adicional:*\n' + datos.mensaje : '');
 
   var url = 'https://wa.me/' + NUMERO_WA + '?text=' + encodeURIComponent(texto);
   document.getElementById('enlaceWa').setAttribute('href', url);
@@ -991,5 +854,25 @@ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
   });
 }
 </script>
+
+<!-- Modal Política de Datos -->
+<div id="politica-datos" class="modal">
+  <div style="background:var(--blanco);max-width:600px;max-height:80vh;overflow-y:auto;padding:32px;border-radius:var(--radius);position:relative;margin:20px">
+    <a href="#" style="position:absolute;top:12px;right:16px;font-size:1.5rem;color:var(--concreto);text-decoration:none">&times;</a>
+    <h2 style="margin-bottom:16px">Política de Tratamiento de Datos Personales</h2>
+    <p><strong>MOVIAL SVA — Soluciones Viales y Arquitectura</strong></p>
+    <p><em>Razón social y NIT: Pendiente de confirmar por el cliente</em></p>
+    <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y seguridad, siendo utilizados únicamente para:</p>
+    <ul>
+      <li>Responder a su consulta o solicitud de servicio</li>
+      <li>Enviar información sobre nuestros servicios de seguridad vial</li>
+      <li>Gestionar la relación comercial y contractual</li>
+    </ul>
+    <p>Sus datos no serán compartidos con terceros sin su autorización expresa. Para ejercer sus derechos de acceso, rectificación, supresión o revocación, puede contactarnos a través de nuestro WhatsApp o correo electrónico.</p>
+    <p><em>Nota: Este texto es una proforma sujeto a la entrega de la Razón Social y NIT exactos de la empresa por parte del cliente.</em></p>
+    <a href="#" class="btn btn-amarillo" style="margin-top:16px;display:inline-block">Entendido</a>
+  </div>
+</div>
+
 </body>
 </html>
