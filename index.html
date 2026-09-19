@@ -117,7 +117,7 @@ header{
 .menu{margin-left:auto;display:flex;align-items:center;gap:26px}
 .menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out)}
 .menu a:hover,.menu a:focus-visible{border-bottom-color:var(--amarillo)}
-.menu .btn-nav{border-bottom:none;padding:0}
+.menu .btn-nav{border-bottom:none}
 
 /* ============================================================
    BUTTONS - Touch targets ≥44px
@@ -138,13 +138,24 @@ header{
 /* Nav CTA button */
 .btn-nav{
   background:var(--amarillo);color:var(--asfalto);
-  padding:10px 20px;border-radius:var(--radius);font-weight:700;
-  box-shadow:0 2px 8px rgba(243,194,24,.3);
+  padding:12px 40px;border-radius:var(--radius);font-weight:700;
+  box-shadow:0 2px 8px rgba(243,194,24,.35);
   display:inline-flex;align-items:center;gap:8px;
-  transition:background .18s var(--ease-out),box-shadow .18s var(--ease-out),transform .12s var(--ease-out);
+  transition:all .2s var(--ease-out);
+  position:relative;overflow:hidden;
 }
-.btn-nav:hover{background:var(--amarillo-hover);box-shadow:0 4px 16px rgba(243,194,24,.4);transform:translateY(-1px)}
-.btn-nav:active{transform:translateY(0)}
+.btn-nav::before{
+  content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transition:left .5s var(--ease-out);
+}
+.btn-nav:hover::before{left:100%}
+.btn-nav:hover{
+  background:var(--amarillo-hover);
+  box-shadow:0 4px 20px rgba(243,194,24,.5);
+  transform:translateY(-2px);
+}
+.btn-nav:active{transform:translateY(0);box-shadow:0 2px 8px rgba(243,194,24,.3)}
 .btn-nav svg{width:18px;height:18px;flex-shrink:0}
 @media(max-width:920px){
   .menu .btn-nav{margin-top:14px;justify-content:center;padding:14px 20px}
@@ -246,6 +257,26 @@ header{
   border-radius:var(--radius);
 }
 .paso p{margin:6px 0 0;color:var(--concreto);font-size:.95rem}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.proyecto{
+  background:var(--blanco);border:1px solid var(--linea);
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
+}
+.proyecto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.proyecto-img{
+  width:100%;height:180px;overflow:hidden;
+  border-bottom:1px solid var(--linea);
+}
+.proyecto-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
+.proyecto:hover .proyecto-img img{transform:scale(1.05)}
+.proyecto-info{padding:20px}
+.proyecto-info h3{margin:0 0 8px;font-size:1.1rem}
+.proyecto-info p{margin:0;color:var(--concreto);font-size:.95rem}
 
 /* ============================================================
    PRODUCTS
@@ -485,41 +516,48 @@ footer .placa-logo img{max-width:160px}
             <li>Paraderos, resaltos y estoperoles</li>
             <li>Señalización interna de empresas</li>
             <li>Obras Civiles en General (rampas, andenes, adecuaciones)</li>
+            <li>Mantenimientos Locativos</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- SEÑALIZACIÓN Y MOBILIARIO URBANO -->
-  <section class="seccion blanco" id="productos">
+  <!-- PROYECTOS -->
+  <section class="seccion claro" id="proyectos">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
-        <h2>Señalización y mobiliario urbano</h2>
-        <p class="lead">Fabricamos e instalamos según el Manual de Señalización Vial vigente, en vías públicas, privadas e interiores de empresa.</p>
+        <h2>Nuestros Proyectos</h2>
+        <p class="lead">Soluciones de seguridad vial implementadas en vías públicas y privadas.</p>
       </div>
       <div class="rejilla g3">
-        <article class="producto">
-          <div class="producto-img">
+        <article class="proyecto">
+          <div class="proyecto-img">
             <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas">
           </div>
-          <h3>Señales</h3>
-          <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
+          <div class="proyecto-info">
+            <h3>Señalización Vial</h3>
+            <p>Diseño, elaboración e instalación de señalización vertical y horizontal.</p>
+          </div>
         </article>
-        <article class="producto">
-          <div class="producto-img">
+        <article class="proyecto">
+          <div class="proyecto-img">
             <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas">
           </div>
-          <h3>Demarcación</h3>
-          <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
+          <div class="proyecto-info">
+            <h3>Demarcación Horizontal</h3>
+            <p>Marcas viales (incluye metros lineales, metros cuadrados, pictogramas).</p>
+          </div>
         </article>
-        <article class="producto">
-          <div class="producto-img">
+        <article class="proyecto">
+          <div class="proyecto-img">
             <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos">
           </div>
-          <h3>Dispositivos</h3>
-          <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
+          <div class="proyecto-info">
+            <h3>Mobiliario Urbano</h3>
+            <p>Paraderos, resaltos, estoperoles plásticos, hitos, dispositivos de seguridad vial incluidos en el manual de señalización vial vigente.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -562,6 +600,40 @@ footer .placa-logo img{max-width:160px}
 
       <div style="margin-top:36px">
         <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20necesito%20asesor%C3%ADa%20t%C3%A9cnica%20en%20estudios%20y%20dise%C3%B1os%20%28PESV%2C%20PMT%2C%20estudios%20de%20tr%C3%A1nsito%29." target="_blank" rel="noopener">Hablar con un asesor técnico</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÑALIZACIÓN Y MOBILIARIO URBANO -->
+  <section class="seccion blanco" id="productos">
+    <span class="marcador" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="intro">
+        <h2>Señalización y mobiliario urbano</h2>
+        <p class="lead">Fabricamos e instalamos según el Manual de Señalización Vial vigente, en vías públicas, privadas e interiores de empresa.</p>
+      </div>
+      <div class="rejilla g3">
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas">
+          </div>
+          <h3>Señales</h3>
+          <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
+        </article>
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas">
+          </div>
+          <h3>Demarcación</h3>
+          <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
+        </article>
+        <article class="producto">
+          <div class="producto-img">
+            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos">
+          </div>
+          <h3>Dispositivos</h3>
+          <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
+        </article>
       </div>
     </div>
   </section>
