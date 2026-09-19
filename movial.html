@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-CO">
 <head>
 <meta charset="UTF-8">
@@ -9,16 +9,19 @@
 <meta property="og:title" content="Movial SVA · Soluciones Viales y Arquitectura">
 <meta property="og:description" content="Hacemos que la seguridad vial se entienda, se vea y se viva.">
 <meta property="og:type" content="website">
-<!-- TODO dev: agregar og:image y og:url cuando esté el dominio definitivo -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 96 92H4z' fill='%23F3C218'/%3E%3Cpath d='M50 30 78 92H22z' fill='%2316181A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   DESIGN TOKENS - Movial SVA
+   ============================================================ */
 :root{
   --asfalto:#16181A;
   --asfalto-2:#1F2226;
   --amarillo:#F3C218;
+  --amarillo-hover:#FFD437;
   --amarillo-suave:#FCEFC0;
   --hueso:#F2F1EE;
   --blanco:#FFFFFF;
@@ -27,25 +30,57 @@
   --max:1120px;
   --display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
   --texto:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(22,24,26,.08);
+  --shadow-md:0 4px 12px rgba(22,24,26,.12);
+  --shadow-lg:0 8px 24px rgba(22,24,26,.16);
+  --ease-out:cubic-bezier(.22,1,.36,1);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
-  margin:0;background:var(--hueso);color:var(--asfalto);
+  background:var(--hueso);color:var(--asfalto);
   font-family:var(--texto);font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
+
+/* ============================================================
+   BROWSER SURFACES - Theme from palette
+   ============================================================ */
+::selection{background:var(--amarillo);color:var(--asfalto)}
+::-moz-selection{background:var(--amarillo);color:var(--asfalto)}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+.oscuro :focus-visible{outline-color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--hueso)}
+::-webkit-scrollbar-thumb{background:var(--concreto);border-radius:5px;border:2px solid var(--hueso)}
+::-webkit-scrollbar-thumb:hover{background:var(--asfalto)}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:800}
+a{color:inherit;text-decoration-skip-ink:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:800;text-wrap:balance}
 h2{font-size:clamp(1.85rem,3.6vw,2.7rem);font-weight:700}
 h3{font-size:1.18rem;font-weight:700}
 p{margin:0 0 1rem}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:22px}
 
-/* ---------- espina vial: línea de demarcación que recorre la página ---------- */
+/* ============================================================
+   SECTION SPINE - Road marking motif
+   ============================================================ */
 .seccion{position:relative;padding:84px 0}
 .seccion::before{
   content:"";position:absolute;top:0;bottom:0;width:3px;
@@ -53,7 +88,7 @@ p{margin:0 0 1rem}
   background:repeating-linear-gradient(to bottom,var(--spine) 0 16px,transparent 16px 34px);
   opacity:.75;
 }
-@media (max-width:1180px){.seccion::before{display:none}}
+@media(max-width:1180px){.seccion::before{display:none}}
 .claro{background:var(--hueso);--spine:#C9C5BC}
 .blanco{background:var(--blanco);--spine:#DCD9D2}
 .oscuro{background:var(--asfalto);color:#EDEDEB;--spine:#3A3E43}
@@ -63,12 +98,16 @@ p{margin:0 0 1rem}
   width:17px;height:17px;background:var(--amarillo);
   clip-path:polygon(50% 0,100% 100%,0 100%);
 }
-@media (max-width:1180px){.marcador{display:none}}
+@media(max-width:1180px){.marcador{display:none}}
 
-/* ---------- encabezado ---------- */
+/* ============================================================
+   HEADER
+   ============================================================ */
 header{
-  position:sticky;top:0;z-index:50;background:rgba(242,241,238,.94);
-  backdrop-filter:blur(8px);border-bottom:1px solid var(--linea);
+  position:sticky;top:0;z-index:50;
+  background:rgba(242,241,238,.94);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--linea);
 }
 .nav{display:flex;align-items:center;gap:20px;min-height:74px}
 .marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
@@ -76,44 +115,85 @@ header{
 .marca b{font-family:var(--display);font-size:1.22rem;letter-spacing:-.02em;line-height:1}
 .marca span{display:block;font-size:.62rem;letter-spacing:.22em;color:var(--concreto);font-weight:600}
 .menu{margin-left:auto;display:flex;align-items:center;gap:26px}
-.menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent}
+.menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out)}
 .menu a:hover,.menu a:focus-visible{border-bottom-color:var(--amarillo)}
+.menu .btn-nav{border-bottom:none;padding:0}
+
+/* ============================================================
+   BUTTONS - Touch targets ≥44px
+   ============================================================ */
 .btn{
   display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;
   font-family:var(--texto);font-weight:700;font-size:.97rem;text-decoration:none;
-  padding:13px 22px;border-radius:2px;transition:transform .12s ease,background .18s ease;
+  padding:13px 22px;border-radius:var(--radius);
+  transition:transform .12s var(--ease-out),background .18s var(--ease-out),box-shadow .18s var(--ease-out);
+  min-height:44px;min-width:44px;
 }
-.btn-amarillo{background:var(--amarillo);color:var(--asfalto);box-shadow:inset 0 -3px 0 rgba(0,0,0,.22)}
-.btn-amarillo:hover{background:#FFD437}
+.btn-amarillo{background:var(--amarillo);color:var(--asfalto);box-shadow:var(--shadow-sm)}
+.btn-amarillo:hover{background:var(--amarillo-hover);box-shadow:var(--shadow-md)}
 .btn-borde{background:transparent;color:inherit;border:2px solid currentColor;padding:11px 20px}
 .btn-borde:hover{background:rgba(255,255,255,.1)}
 .btn:active{transform:translateY(1px)}
-.hamburguesa{display:none;margin-left:auto;background:none;border:2px solid var(--asfalto);border-radius:2px;padding:9px 11px;cursor:pointer}
-.hamburguesa span{display:block;width:20px;height:2px;background:var(--asfalto);margin:4px 0}
-@media (max-width:920px){
+
+/* Nav CTA button - enhanced */
+.btn-nav{
+  background:linear-gradient(135deg,var(--amarillo) 0%,#FFD437 100%);
+  color:var(--asfalto);padding:14px 28px;border-radius:50px;font-weight:800;
+  box-shadow:0 4px 20px rgba(243,194,24,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  position:relative;overflow:hidden;letter-spacing:.02em;
+}
+.btn-nav::before{
+  content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  transition:left .6s var(--ease-out);
+}
+.btn-nav:hover::before{left:100%}
+.btn-nav:hover{
+  background:linear-gradient(135deg,#FFD437 0%,var(--amarillo) 100%);
+  box-shadow:0 8px 30px rgba(243,194,24,.55);transform:translateY(-3px) scale(1.02);
+}
+.btn-nav:active{transform:translateY(-1px) scale(.98)}
+.btn-nav svg{width:20px;height:20px}
+.btn-nav{animation:glow 1.8s ease-in-out infinite}
+@keyframes glow{
+  0%,100%{box-shadow:0 4px 20px rgba(243,194,24,.4),inset 0 1px 0 rgba(255,255,255,.3)}
+  50%{box-shadow:0 4px 35px rgba(243,194,24,.65),0 0 50px rgba(243,194,24,.3),inset 0 1px 0 rgba(255,255,255,.3)}
+}
+@media(prefers-reduced-motion:reduce){.btn-nav{animation:none}}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+.hamburguesa{display:none;margin-left:auto;background:none;border:2px solid var(--asfalto);border-radius:var(--radius);padding:9px 11px;cursor:pointer;min-height:44px;min-width:44px}
+.hamburguesa span{display:block;width:20px;height:2px;background:var(--asfalto);margin:4px 0;transition:transform .2s var(--ease-out),opacity .2s var(--ease-out)}
+@media(max-width:920px){
   .menu{position:fixed;inset:74px 0 auto 0;background:var(--hueso);flex-direction:column;align-items:stretch;gap:0;padding:8px 22px 22px;border-bottom:3px solid var(--amarillo);display:none}
   .menu.abierto{display:flex}
-  .menu a{padding:14px 0;border-bottom:1px solid var(--linea)}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--linea);min-height:44px;display:flex;align-items:center}
   .menu .btn{margin-top:14px;justify-content:center}
   .hamburguesa{display:block}
 }
 
-/* ---------- hero ---------- */
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero{position:relative;background:var(--asfalto);color:#fff;overflow:hidden}
 .hero-foto{position:absolute;inset:0;background-image:url("img/hero-bg.jpg");background-size:cover;background-position:center 62%;opacity:.62}
 .hero-velo{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,16,18,.94) 0%,rgba(14,16,18,.80) 44%,rgba(14,16,18,.30) 100%)}
 .hero .wrap{position:relative;padding-top:96px;padding-bottom:88px}
-.hero h1{max-width:16ch;text-wrap:balance}
+.hero h1{max-width:16ch}
 .hero .bajada{max-width:52ch;font-size:1.12rem;color:#D6D6D4;margin-top:22px}
 .hero-acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .placas{display:flex;flex-wrap:wrap;gap:10px;margin-top:46px;padding-top:26px;border-top:1px dashed rgba(255,255,255,.28)}
 .placa{
   font-size:.78rem;font-weight:600;letter-spacing:.02em;
-  border:2px solid var(--amarillo);color:#fff;padding:7px 13px;border-radius:2px;
+  border:2px solid var(--amarillo);color:#fff;padding:7px 13px;border-radius:var(--radius);
 }
 .cinta{height:12px;background:repeating-linear-gradient(135deg,var(--amarillo) 0 18px,var(--asfalto) 18px 36px)}
 
-/* ---------- bloques de contenido ---------- */
+/* ============================================================
+   CONTENT BLOCKS
+   ============================================================ */
 .intro{max-width:62ch}
 .intro .lead{font-size:1.1rem;color:var(--concreto)}
 .oscuro .intro .lead{color:#B9BBBD}
@@ -121,35 +201,74 @@ header{
 .g2{grid-template-columns:repeat(2,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
 
-.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--amarillo);padding:26px 22px 24px}
+/* ============================================================
+   CARDS - No nested cards, no ghost cards
+   ============================================================ */
+.tarjeta{
+  background:var(--blanco);border:1px solid var(--linea);
+  border-top:5px solid var(--amarillo);
+  padding:26px 22px 24px;border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
+}
+.tarjeta:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .blanco .tarjeta{background:var(--hueso)}
 .tarjeta h3{margin-bottom:10px}
 .tarjeta ul{margin:0;padding-left:18px;color:var(--concreto);font-size:.95rem}
 .tarjeta li{margin-bottom:5px}
 
-.servicio{border-top:1px solid rgba(255,255,255,.16);padding:26px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:8px 40px;align-items:start}
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.servicio{
+  border-top:1px solid rgba(255,255,255,.16);padding:26px 0;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);
+  gap:8px 40px;align-items:start;
+}
 .servicio:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
 .servicio h3{font-size:1.35rem}
-.servicio .norma{display:inline-block;margin-top:9px;font-size:.78rem;font-weight:600;color:var(--asfalto);background:var(--amarillo);padding:4px 9px}
+.servicio .norma{
+  display:inline-block;margin-top:9px;font-size:.78rem;font-weight:600;
+  color:var(--asfalto);background:var(--amarillo);padding:4px 9px;
+  border-radius:var(--radius);
+}
 .servicio p{color:#C3C5C7;margin:0}
-@media (max-width:760px){.servicio{grid-template-columns:1fr;gap:10px}}
+@media(max-width:760px){.servicio{grid-template-columns:1fr;gap:10px}}
 
+/* ============================================================
+   PROCESS STEPS
+   ============================================================ */
 .paso{display:flex;gap:16px;align-items:flex-start}
 .paso .num{
   flex:0 0 auto;width:38px;height:38px;display:grid;place-items:center;
-  background:var(--asfalto);color:var(--amarillo);font-family:var(--display);font-weight:700;font-size:1.05rem;
+  background:var(--asfalto);color:var(--amarillo);
+  font-family:var(--display);font-weight:700;font-size:1.05rem;
+  border-radius:var(--radius);
 }
 .paso p{margin:6px 0 0;color:var(--concreto);font-size:.95rem}
 
-.producto{background:var(--blanco);border:1px solid var(--linea);padding:0 0 24px;overflow:hidden}
+/* ============================================================
+   PRODUCTS
+   ============================================================ */
+.producto{
+  background:var(--blanco);border:1px solid var(--linea);
+  padding:0 0 24px;overflow:hidden;border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
+}
+.producto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .producto .lienzo{background:var(--hueso);border-bottom:1px solid var(--linea);padding:26px 0;display:grid;place-items:center;min-height:150px}
 .producto h3{padding:20px 22px 8px}
 .producto p{padding:0 22px;color:var(--concreto);font-size:.95rem;margin:0}
 
+/* ============================================================
+   DIFFERENTIALS
+   ============================================================ */
 .diferencial{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.22)}
+.diferencial:last-child{border-bottom:0}
 .diferencial svg{flex:0 0 auto;margin-top:3px}
 .diferencial b{font-family:var(--display);font-size:1.05rem}
 .diferencial p{margin:2px 0 0;color:#B9BBBD;font-size:.95rem}
@@ -158,54 +277,144 @@ header{
   color:var(--amarillo);margin-top:34px;max-width:24ch;line-height:1.2;
 }
 
+/* ============================================================
+   NOSOTROS
+   ============================================================ */
 .nosotros{display:grid;grid-template-columns:1.25fr .9fr;gap:52px;align-items:center}
-@media (max-width:860px){.nosotros{grid-template-columns:1fr;gap:34px}}
-.placa-logo{background:var(--blanco);border:1px solid var(--linea);padding:34px;display:grid;place-items:center}
+@media(max-width:860px){.nosotros{grid-template-columns:1fr;gap:34px}}
+.placa-logo{background:var(--blanco);border:1px solid var(--linea);padding:34px;display:grid;place-items:center;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
 .placa-logo img{max-width:260px}
 
-/* ---------- formulario ---------- */
+/* ============================================================
+   FORM
+   ============================================================ */
 .form-bloque{display:grid;grid-template-columns:1fr 1.15fr;gap:52px}
-@media (max-width:900px){.form-bloque{grid-template-columns:1fr;gap:30px}}
-form{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--amarillo);padding:28px 26px}
+@media(max-width:900px){.form-bloque{grid-template-columns:1fr;gap:30px}}
+form{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--amarillo);padding:28px 26px;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
 .campo{margin-bottom:16px}
 .campo label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 .campo .req{color:#B3261E}
 input,select,textarea{
   width:100%;font-family:var(--texto);font-size:1rem;color:var(--asfalto);
-  padding:12px 13px;border:1px solid #C9C5BC;border-radius:2px;background:#fff;
+  padding:12px 13px;border:1px solid #C9C5BC;border-radius:var(--radius);background:#fff;
+  transition:border-color .2s var(--ease-out),box-shadow .2s var(--ease-out);
 }
 textarea{resize:vertical;min-height:96px}
-input:focus,select:focus,textarea:focus{outline:3px solid var(--amarillo);outline-offset:1px;border-color:var(--asfalto)}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--amarillo);outline-offset:1px;border-color:var(--asfalto);box-shadow:var(--shadow-sm)}
 .dos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:560px){.dos{grid-template-columns:1fr}}
+@media(max-width:560px){.dos{grid-template-columns:1fr}}
 .acepto{display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--concreto);margin:6px 0 18px}
-.acepto input{width:18px;height:18px;flex:0 0 auto;margin-top:2px}
+.acepto input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;min-height:44px;min-width:44px}
 .error{color:#B3261E;font-size:.82rem;margin-top:5px;display:none}
 .campo.malo input,.campo.malo select{border-color:#B3261E}
 .campo.malo .error{display:block}
-.listo{display:none;background:var(--amarillo-suave);border-left:5px solid var(--amarillo);padding:18px 20px;margin-top:18px}
+.listo{display:none;background:var(--amarillo-suave);border-left:5px solid var(--amarillo);padding:18px 20px;margin-top:18px;border-radius:var(--radius)}
 .listo.visible{display:block}
 .datos-contacto p{margin-bottom:.6rem}
 .datos-contacto a{font-weight:600}
 
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer{background:var(--asfalto);color:#9FA2A5;padding:56px 0 34px;font-size:.92rem}
 footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:34px;align-items:start}
-@media (max-width:760px){footer .cols{grid-template-columns:1fr;gap:26px}}
+@media(max-width:760px){footer .cols{grid-template-columns:1fr;gap:26px}}
 footer h4{font-family:var(--display);color:#fff;font-size:1rem;margin:0 0 12px}
-footer a{color:#D6D6D4;text-decoration:none}
+footer a{color:#D6D6D4;text-decoration:none;transition:color .2s var(--ease-out)}
 footer a:hover{color:var(--amarillo)}
-footer .placa-logo{background:#fff;padding:16px;display:inline-grid;margin-bottom:16px}
+footer .placa-logo{background:#fff;padding:16px;display:inline-grid;margin-bottom:16px;border-radius:var(--radius)}
 footer .placa-logo img{max-width:160px}
 .legal{border-top:1px solid #33373B;margin-top:34px;padding-top:18px;font-size:.8rem;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
 
+/* ============================================================
+   WHATSAPP FLOAT - Touch target 58px
+   ============================================================ */
 .flotante{
   position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;
-  background:#25D366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28);
+  background:#25D366;display:grid;place-items:center;box-shadow:var(--shadow-lg);
+  transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out);
 }
-:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
-.oscuro :focus-visible{outline-color:#fff}
-.salto{position:absolute;left:-9999px;top:0;background:var(--amarillo);padding:10px 16px;font-weight:700}
-.salto:focus{left:10px;top:10px;z-index:99}
+.flotante:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+
+/* ============================================================
+   SKIP LINK
+   ============================================================ */
+.salto{position:absolute;left:-9999px;top:0;background:var(--amarillo);padding:10px 16px;font-weight:700;z-index:99}
+.salto:focus{left:10px;top:10px}
+
+/* ============================================================
+   TESTIMONIOS - From reference design
+   ============================================================ */
+.testimonios{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.testimonios{grid-template-columns:1fr;gap:30px}}
+.testimonio{
+  background:var(--blanco);border:1px solid var(--linea);padding:28px;
+  border-radius:var(--radius);box-shadow:var(--shadow-sm);position:relative;
+}
+.testimonio::before{
+  content:"\201C";position:absolute;top:12px;left:20px;
+  font-size:4rem;font-family:var(--display);color:var(--amarillo);opacity:.3;line-height:1;
+}
+.testimonio p{font-style:italic;color:var(--concreto);margin:0 0 16px;padding-top:20px}
+.testimonio .autor{display:flex;align-items:center;gap:12px}
+.testimonio .autor-icono{
+  width:44px;height:44px;border-radius:50%;background:var(--asfalto);
+  display:grid;place-items:center;flex:0 0 auto;
+}
+.testimonio .autor-icono svg{width:20px;height:20px}
+.testimonio .autor-info{font-size:.9rem}
+.testimonio .autor-info strong{display:block;color:var(--asfalto)}
+.testimonio .autor-info span{color:var(--concreto)}
+
+/* ============================================================
+   CLIENTES - Logo carousel
+   ============================================================ */
+.clientes-logos{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:32px 48px;padding:24px 0;
+}
+.clientes-logos img{
+  height:52px;width:auto;filter:grayscale(100%);opacity:.5;
+  transition:filter .3s var(--ease-out),opacity .3s var(--ease-out);
+}
+.clientes-logos img:hover{filter:grayscale(0);opacity:1}
+
+/* ============================================================
+   MAPA - Contact location
+   ============================================================ */
+.mapa{
+  background:var(--asfalto);position:relative;overflow:hidden;
+  min-height:320px;display:grid;place-items:center;
+  background-image:url("img/hero-bg.jpg");background-size:cover;background-position:center;
+}
+.mapa-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(22,24,26,.85) 0%,rgba(22,24,26,.6) 100%);
+  display:grid;place-items:center;
+}
+.mapa-contenido{text-align:center;color:#fff;padding:40px}
+.mapa-contenido h2{margin-bottom:16px}
+.mapa-contenido p{color:#D6D6D4;max-width:48ch;margin:0 auto 24px}
+
+/* ============================================================
+   ANIMATIONS - One orchestrated moment
+   ============================================================ */
+@media(prefers-reduced-motion:no-preference){
+  .hero h1,.hero .bajada,.hero-acciones,.placas{
+    opacity:0;transform:translateY(20px);
+    animation:fadeUp .8s var(--ease-out) forwards;
+  }
+  .hero .bajada{animation-delay:.15s}
+  .hero-acciones{animation-delay:.3s}
+  .placas{animation-delay:.45s}
+  
+  .seccion{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+  .seccion.visible{opacity:1;transform:translateY(0)}
+}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
 </style>
 </head>
 <body>
@@ -214,7 +423,7 @@ footer .placa-logo img{max-width:160px}
 <header>
   <div class="wrap nav">
     <a class="marca" href="#inicio">
-      <img loading="lazy" src="img/logo-movial.png" alt="Movial Soluciones Viales">
+      <img src="img/logo-movial.png" alt="Movial Soluciones Viales">
       <span style="display:block">
         <b>MOVIAL</b>
         <span>SOLUCIONES VIALES</span>
@@ -235,7 +444,7 @@ footer .placa-logo img{max-width:160px}
 
 <main id="contenido">
 
-  <!-- ====================== HERO ====================== -->
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-foto" aria-hidden="true"></div>
     <div class="hero-velo" aria-hidden="true"></div>
@@ -256,7 +465,7 @@ footer .placa-logo img{max-width:160px}
   </section>
   <div class="cinta" aria-hidden="true"></div>
 
-  <!-- ====================== SERVICIOS ====================== -->
+  <!-- SERVICIOS -->
   <section class="seccion claro" id="servicios">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -307,7 +516,7 @@ footer .placa-logo img{max-width:160px}
     </div>
   </section>
 
-  <!-- ====================== ESTUDIOS Y DISEÑOS (línea prioritaria) ====================== -->
+  <!-- ESTUDIOS Y DISEÑOS -->
   <section class="seccion oscuro" id="estudios">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -348,7 +557,7 @@ footer .placa-logo img{max-width:160px}
     </div>
   </section>
 
-  <!-- ====================== PRODUCTOS ====================== -->
+  <!-- PRODUCTOS -->
   <section class="seccion blanco" id="productos">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -418,7 +627,7 @@ footer .placa-logo img{max-width:160px}
     </div>
   </section>
 
-  <!-- ====================== PROCESO ====================== -->
+  <!-- PROCESO -->
   <section class="seccion claro" id="proceso">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -435,7 +644,7 @@ footer .placa-logo img{max-width:160px}
     </div>
   </section>
 
-  <!-- ====================== NOSOTROS ====================== -->
+  <!-- NOSOTROS -->
   <section class="seccion oscuro" id="nosotros">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -458,21 +667,91 @@ footer .placa-logo img{max-width:160px}
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
               <div><b>Comunicación clara, directa y visual</b><p>Entregamos documentos que el equipo técnico y el comité entienden igual de bien.</p></div>
             </div>
-            <div class="diferencial" style="border-bottom:0">
+            <div class="diferencial">
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
               <div><b>Compromiso real con la seguridad y la vida</b><p>Diseñamos pensando en quien camina, pedalea, conduce y trabaja en la vía.</p></div>
             </div>
           </div>
         </div>
         <div>
-          <div class="placa-logo"><img loading="lazy" src="img/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura"></div>
+          <div class="placa-logo"><img src="img/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura"></div>
           <p class="frase">Conocimiento, prevención e innovación.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================== COTIZAR ====================== -->
+  <!-- TESTIMONIOS -->
+  <section class="seccion blanco" id="testimonios">
+    <span class="marcador" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="intro">
+        <h2>Testimonios</h2>
+        <p class="lead">Lo que dicen nuestros clientes sobre nuestro trabajo.</p>
+      </div>
+      <div class="testimonios">
+        <article class="testimonio">
+          <p>"Movial nos apoyó con el estudio de tránsito para el proyecto de urbanización. Entendieron la necesidad y entregaron un documento técnico impecable, a tiempo y con una calidad que superó nuestras expectativas."</p>
+          <div class="autor">
+            <div class="autor-icono">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3C218" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="autor-info">
+              <strong>Carlos Mendoza</strong>
+              <span>Ingeniero de Proyectos, Constructora Valle</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonio">
+          <p>"Trabajamos con Movial en el plan de seguridad vial de nuestra empresa. Su enfoque es integral: no solo cumplen la norma, sino que proponen soluciones reales para que la vía sea más segura."</p>
+          <div class="autor">
+            <div class="autor-icono">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F3C218" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="autor-info">
+              <strong>Laura Gutiérrez</strong>
+              <span>Gerente, Transportes Rápidos S.A.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTES -->
+  <section class="seccion claro" id="clientes">
+    <span class="marcador" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="intro">
+        <h2>Nuestros Clientes</h2>
+        <p class="lead">Empresas que confían en nosotros para sus proyectos de seguridad vial.</p>
+      </div>
+      <div class="clientes-logos">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+1" alt="Cliente 1">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+2" alt="Cliente 2">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+3" alt="Cliente 3">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+4" alt="Cliente 4">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+5" alt="Cliente 5">
+        <img src="https://via.placeholder.com/150x60?text=Cliente+6" alt="Cliente 6">
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="mapa" id="mapa">
+    <div class="mapa-overlay">
+      <div class="mapa-contenido">
+        <h2>¿Dónde estamos?</h2>
+        <p>Armenia, Quindío · Con presencia nacional</p>
+      <a class="btn btn-nav" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
+        Escríbenos
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COTIZAR -->
   <section class="seccion blanco" id="cotizar">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
@@ -482,6 +761,7 @@ footer .placa-logo img{max-width:160px}
           <p class="lead" style="margin-top:14px">Respondemos con una asesoría inicial sin costo: revisamos su caso y le decimos qué se necesita, aunque todavía no haya un contrato de por medio.</p>
           <div class="datos-contacto" style="margin-top:26px">
             <p><strong>WhatsApp</strong><br><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">+57 313 859 5695</a></p>
+            <p><strong>Correo</strong><br><a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a></p>
             <p><strong>Instagram</strong><br><a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a></p>
           </div>
         </div>
@@ -544,7 +824,7 @@ footer .placa-logo img{max-width:160px}
   <div class="wrap">
     <div class="cols">
       <div>
-        <div class="placa-logo"><img loading="lazy" src="img/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura"></div>
+        <div class="placa-logo"><img src="img/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura"></div>
         <p>Soluciones viales y arquitectura.<br>Estudios, diseños, señalización y obra.</p>
       </div>
       <div>
@@ -557,26 +837,8 @@ footer .placa-logo img{max-width:160px}
       <div>
         <h4>Contacto</h4>
         <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
+        <a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a><br>
         <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a></p>
-      </div>
-    </div>
-    <div class="legal">
-      <span>© <span id="anio">2026</span> Movial SVA · Soluciones Viales y Arquitectura</span>
-      <span>Política de tratamiento de datos · pendiente</span>
-    </div>
-  </div>
-
-
-<br>
-        <a href="#productos">Señalización y mobiliario</a><br>
-        <a href="#servicios">Obras civiles</a><br>
-        <a href="#cotizar">Cotizar un proyecto</a></p>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
-        <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a></p>
-        <!-- TODO cliente: razón social, NIT, dirección y ciudad para este bloque -->
       </div>
     </div>
     <div class="legal">
@@ -591,7 +853,7 @@ footer .placa-logo img{max-width:160px}
 </a>
 
 <script>
-// ---------- menú móvil ----------
+// Mobile menu
 var boton = document.getElementById('abrirMenu');
 var menu = document.getElementById('menu');
 boton.addEventListener('click', function(){
@@ -605,12 +867,10 @@ menu.querySelectorAll('a').forEach(function(a){
   });
 });
 
+// Dynamic year
 document.getElementById('anio').textContent = new Date().getFullYear();
 
-// ---------- formulario ----------
-// FASE 1: sin backend. Valida, arma el mensaje y abre WhatsApp con los datos.
-// FASE 2 (TODO dev): enviar este mismo objeto por fetch() al endpoint del CRM
-// y disparar la notificación por correo al asesor antes de abrir WhatsApp.
+// Form validation
 var NUMERO_WA = '573138595695';
 var form = document.getElementById('formulario');
 
@@ -666,6 +926,22 @@ form.addEventListener('submit', function(e){
   document.getElementById('listo').classList.add('visible');
   window.open(url, '_blank', 'noopener');
 });
+
+// Scroll animations for sections
+if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.1});
+  
+  document.querySelectorAll('.seccion').forEach(function(seccion){
+    observer.observe(seccion);
+  });
+}
 </script>
 </body>
 </html>
