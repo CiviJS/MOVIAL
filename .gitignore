@@ -1,8 +1,5 @@
 # Ignorar todo por defecto
-*
 
-# Excepciones: no ignorar .gitignore, la carpeta img y el archivo html
-!.gitignore
-!movial.html
-!img/
-!img/**
+.agents/
+~/
+skills-lock.json
