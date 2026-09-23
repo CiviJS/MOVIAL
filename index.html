@@ -9,6 +9,7 @@
 <meta property="og:title" content="Movial SVA · Soluciones Viales y Arquitectura">
 <meta property="og:description" content="Hacemos que la seguridad vial se entienda, se vea y se viva.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="images/logo-movial-grande.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 96 92H4z' fill='%23F3C218'/%3E%3Cpath d='M50 30 78 92H22z' fill='%2316181A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +49,7 @@ body{
   font-family:var(--texto);font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  overflow-x:hidden;
 }
 
 /* ============================================================
@@ -167,7 +169,7 @@ header{
 .hamburguesa{display:none;margin-left:auto;background:none;border:2px solid var(--asfalto);border-radius:var(--radius);padding:9px 11px;cursor:pointer;min-height:44px;min-width:44px}
 .hamburguesa span{display:block;width:20px;height:2px;background:var(--asfalto);margin:4px 0;transition:transform .2s var(--ease-out),opacity .2s var(--ease-out)}
 @media(max-width:920px){
-  .menu{position:fixed;inset:74px 0 auto 0;background:var(--hueso);flex-direction:column;align-items:stretch;gap:0;padding:8px 22px 22px;border-bottom:3px solid var(--amarillo);display:none}
+  .menu{position:fixed;inset:74px 0 auto 0;background:var(--hueso);flex-direction:column;align-items:stretch;gap:0;padding:8px 22px 22px;border-bottom:3px solid var(--amarillo);display:none;max-height:calc(100vh - 74px);overflow-y:auto}
   .menu.abierto{display:flex}
   .menu a{padding:14px 0;border-bottom:1px solid var(--linea);min-height:44px;display:flex;align-items:center}
   .menu .btn{margin-top:14px;justify-content:center}
@@ -181,8 +183,13 @@ header{
 .hero-foto{position:absolute;inset:0;background-image:url("images/hero-bg.png");background-size:cover;background-position:center 62%;opacity:.62}
 .hero-velo{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,16,18,.94) 0%,rgba(14,16,18,.80) 44%,rgba(14,16,18,.30) 100%)}
 .hero .wrap{position:relative;padding-top:96px;padding-bottom:88px}
-.hero h1{max-width:16ch}
-.hero .bajada{max-width:52ch;font-size:1.12rem;color:#D6D6D4;margin-top:22px}
+.hero h1{max-width:18ch}
+.frase-marca{
+  font-family:var(--display);font-size:clamp(1.05rem,2vw,1.35rem);
+  font-weight:700;color:var(--amarillo);margin:18px 0 0;
+  max-width:40ch;line-height:1.3;
+}
+.hero .bajada{max-width:54ch;font-size:1.12rem;color:#D6D6D4;margin-top:16px}
 .hero-acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .placas{display:flex;flex-wrap:wrap;gap:10px;margin-top:46px;padding-top:26px;border-top:1px dashed rgba(255,255,255,.28)}
 .placa{
@@ -205,6 +212,21 @@ header{
 @media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
 
 /* ============================================================
+   CTA BLOCKS
+   ============================================================ */
+.cta-bloque{
+  margin-top:44px;padding:28px 32px;
+  background:var(--asfalto);color:#fff;border-radius:var(--radius);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+}
+.cta-bloque p{margin:0;font-family:var(--display);font-size:1.25rem;font-weight:700;color:#fff;max-width:36ch}
+.cta-centro{margin-top:44px;text-align:center}
+@media(max-width:600px){
+  .cta-bloque{flex-direction:column;text-align:center}
+  .cta-bloque p{max-width:none}
+}
+
+/* ============================================================
    CARDS - No nested cards, no ghost cards
    ============================================================ */
 .tarjeta{
@@ -216,20 +238,16 @@ header{
 }
 .tarjeta:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .blanco .tarjeta{background:var(--hueso)}
-.tarjeta-img{width:100%;height:140px;overflow:hidden}
+.tarjeta-img{width:100%;height:150px;overflow:hidden}
 .tarjeta-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
 .tarjeta:hover .tarjeta-img img{transform:scale(1.05)}
 .tarjeta h3{margin:16px 20px 10px}
 .tarjeta ul{margin:0 20px 20px;padding-left:18px;color:var(--concreto);font-size:.95rem}
 .tarjeta li{margin-bottom:5px}
-.tarjeta-destacada{
-  box-shadow:var(--shadow-md);
-  background:linear-gradient(180deg,var(--amarillo-suave) 0%,var(--blanco) 60%);
-}
-.tarjeta-destacada:hover{box-shadow:var(--shadow-lg)}
+.tarjeta li::marker{color:var(--amarillo)}
 
 /* ============================================================
-   SERVICES
+   SERVICES LIST
    ============================================================ */
 .servicio{
   border-top:1px solid rgba(255,255,255,.16);padding:26px 0;
@@ -247,39 +265,77 @@ header{
 @media(max-width:760px){.servicio{grid-template-columns:1fr;gap:10px}}
 
 /* ============================================================
-   PROCESS STEPS
+   PROCESS - Connected steps
    ============================================================ */
-.paso{display:flex;gap:16px;align-items:flex-start}
-.paso .num{
-  flex:0 0 auto;width:38px;height:38px;display:grid;place-items:center;
-  background:var(--asfalto);color:var(--amarillo);
-  font-family:var(--display);font-weight:700;font-size:1.05rem;
-  border-radius:var(--radius);
+.proceso-pasos{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  position:relative;margin-top:44px;
 }
-.paso p{margin:6px 0 0;color:var(--concreto);font-size:.95rem}
+.proceso-pasos::before{
+  content:"";position:absolute;top:21px;left:6%;right:6%;height:3px;
+  background:var(--linea);z-index:0;
+}
+.paso{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.paso .num{
+  flex:0 0 auto;width:44px;height:44px;display:grid;place-items:center;
+  background:var(--asfalto);color:var(--amarillo);
+  font-family:var(--display);font-weight:700;font-size:1.1rem;
+  border-radius:50%;border:3px solid var(--hueso);
+  box-shadow:0 0 0 3px var(--linea);
+}
+.paso b{font-family:var(--display);font-size:1.05rem;display:block}
+.paso p{margin:4px 0 0;color:var(--concreto);font-size:.95rem}
+@media(max-width:900px){
+  .proceso-pasos{grid-template-columns:repeat(2,1fr);gap:32px 24px}
+  .proceso-pasos::before{display:none}
+}
+@media(max-width:520px){
+  .proceso-pasos{grid-template-columns:1fr;gap:24px}
+  .paso{flex-direction:row;align-items:flex-start}
+  .paso>div:last-child{flex:1}
+}
 
 /* ============================================================
-   PROJECTS
+   PROJECTS - Editorial case layout
    ============================================================ */
-.proyecto{
-  background:var(--blanco);border:1px solid var(--linea);
-  border-radius:var(--radius);overflow:hidden;
-  box-shadow:var(--shadow-sm);
+.caso-destacado{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:0;
+  border:1px solid var(--linea);border-radius:var(--radius);overflow:hidden;
+  margin-top:40px;background:var(--hueso);
+  transition:box-shadow .2s var(--ease-out);
+}
+.caso-destacado:hover{box-shadow:var(--shadow-md)}
+.caso-destacado .caso-img{min-height:340px;overflow:hidden}
+.caso-destacado .caso-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease-out)}
+.caso-destacado:hover .caso-img img{transform:scale(1.03)}
+.caso-destacado .caso-info{padding:40px 36px;display:flex;flex-direction:column;justify-content:center}
+.casos-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.caso{
+  border:1px solid var(--linea);border-radius:var(--radius);overflow:hidden;
+  background:var(--hueso);
   transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
 }
-.proyecto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.proyecto-img{
-  width:100%;height:180px;overflow:hidden;
-  border-bottom:1px solid var(--linea);
+.caso:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.caso .caso-img{height:230px;overflow:hidden}
+.caso .caso-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
+.caso:hover .caso-img img{transform:scale(1.04)}
+.caso .caso-info{padding:24px}
+.caso-etiqueta{
+  display:inline-block;font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--concreto);
+  margin-bottom:8px;
 }
-.proyecto-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
-.proyecto:hover .proyecto-img img{transform:scale(1.05)}
-.proyecto-info{padding:20px}
-.proyecto-info h3{margin:0 0 8px;font-size:1.1rem}
-.proyecto-info p{margin:0;color:var(--concreto);font-size:.95rem}
+.caso-info h3{margin:0 0 10px;font-size:1.25rem}
+.caso-info p{margin:0;color:var(--concreto);font-size:.97rem}
+@media(max-width:800px){
+  .caso-destacado{grid-template-columns:1fr}
+  .caso-destacado .caso-img{min-height:240px}
+  .caso-destacado .caso-info{padding:28px 24px}
+  .casos-grid{grid-template-columns:1fr}
+}
 
 /* ============================================================
-   PRODUCTS
+   PRODUCTS - Bigger imagery
    ============================================================ */
 .producto{
   background:var(--blanco);border:1px solid var(--linea);
@@ -289,7 +345,7 @@ header{
 }
 .producto:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .producto-img{
-  width:100%;height:160px;overflow:hidden;
+  width:100%;height:210px;overflow:hidden;
   border-bottom:1px solid var(--linea);
 }
 .producto-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
@@ -298,20 +354,68 @@ header{
 .producto p{padding:0 22px;color:var(--concreto);font-size:.95rem;margin:0}
 
 /* ============================================================
+   TRUST BAND - Confianza
+   ============================================================ */
+.confianza{background:var(--amarillo);color:var(--asfalto);padding:52px 0}
+.confianza-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.confianza-item{text-align:left}
+.confianza-item svg{margin-bottom:14px}
+.confianza-item h3{font-size:1.05rem;margin:0 0 6px;color:var(--asfalto)}
+.confianza-item p{margin:0;font-size:.9rem;color:#3A3D40;line-height:1.5}
+@media(max-width:900px){.confianza-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
+@media(max-width:520px){.confianza-grid{grid-template-columns:1fr;gap:24px}}
+
+/* ============================================================
+   FIELD COLLAGE - Editorial gallery
+   ============================================================ */
+.collage{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:190px;gap:10px;margin-top:40px;
+}
+.collage-item{
+  position:relative;overflow:hidden;border-radius:var(--radius);margin:0;
+}
+.collage-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease-out)}
+.collage-item:hover img{transform:scale(1.04)}
+.collage-item figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:32px 16px 12px;
+  background:linear-gradient(transparent,rgba(22,24,26,.88));
+  color:#fff;font-size:.85rem;font-weight:500;line-height:1.35;
+}
+.collage-item.c1{grid-column:span 2;grid-row:span 2}
+.collage-item.c2{grid-column:span 2}
+.collage-item.c5,.collage-item.c6{grid-column:span 2}
+@media(max-width:760px){
+  .collage{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .collage-item.c1{grid-column:span 2;grid-row:span 2}
+  .collage-item.c2,.collage-item.c5,.collage-item.c6{grid-column:span 2}
+  .collage-item.c3,.collage-item.c4{grid-column:span 1}
+}
+@media(max-width:480px){
+  .collage{grid-template-columns:1fr;grid-auto-rows:210px}
+  .collage-item.c1,.collage-item.c2,.collage-item.c3,
+  .collage-item.c4,.collage-item.c5,.collage-item.c6{grid-column:span 1;grid-row:span 1}
+}
+
+/* ============================================================
    DIFFERENTIALS
    ============================================================ */
-.diferencial{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.22)}
-.diferencial:last-child{border-bottom:0}
+.nosotros-texto>p{color:#D6D6D4}
+.nosotros-texto>h2{margin-bottom:0}
+.diferenciales{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin-top:28px}
+.diferencial{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px dashed rgba(255,255,255,.22)}
 .diferencial svg{flex:0 0 auto;margin-top:3px}
-.diferencial b{font-family:var(--display);font-size:1.05rem}
-.diferencial p{margin:2px 0 0;color:#B9BBBD;font-size:.95rem}
+.diferencial b{font-family:var(--display);font-size:1.02rem;color:#fff}
+.diferencial p{margin:4px 0 0;color:#B9BBBD;font-size:.92rem}
 .frase{
   font-family:var(--display);font-size:clamp(1.3rem,2.8vw,1.95rem);font-weight:700;
   color:var(--amarillo);margin-top:34px;max-width:24ch;line-height:1.2;
 }
+@media(max-width:640px){.diferenciales{grid-template-columns:1fr}}
 
 /* ============================================================
-   NOSOTROS
+   NOSOTROS LAYOUT
    ============================================================ */
 .nosotros{display:grid;grid-template-columns:1.25fr .9fr;gap:52px;align-items:center}
 @media(max-width:860px){.nosotros{grid-template-columns:1fr;gap:34px}}
@@ -324,6 +428,7 @@ header{
 .form-bloque{display:grid;grid-template-columns:1fr 1.15fr;gap:52px}
 @media(max-width:900px){.form-bloque{grid-template-columns:1fr;gap:30px}}
 form{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--amarillo);padding:28px 26px;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.blanco form{background:var(--hueso)}
 .campo{margin-bottom:16px}
 .campo label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 .campo .req{color:#B3261E}
@@ -334,10 +439,8 @@ input,select,textarea{
 }
 textarea{resize:vertical;min-height:96px}
 input:focus,select:focus,textarea:focus{outline:3px solid var(--amarillo);outline-offset:1px;border-color:var(--asfalto);box-shadow:var(--shadow-sm)}
-.dos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:560px){.dos{grid-template-columns:1fr}}
 .acepto{display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--concreto);margin:6px 0 18px}
-.acepto input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;min-height:44px;min-width:44px}
+.acepto input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;min-height:auto;min-width:auto}
 .error{color:#B3261E;font-size:.82rem;margin-top:5px;display:none}
 .campo.malo input,.campo.malo select{border-color:#B3261E}
 .campo.malo .error{display:block}
@@ -345,6 +448,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--amarillo);outlin
 .listo.visible{display:block}
 .datos-contacto p{margin-bottom:.6rem}
 .datos-contacto a{font-weight:600}
+.btn-ancho{width:100%;justify-content:center}
 
 /* ============================================================
    FOOTER
@@ -396,14 +500,15 @@ footer .placa-logo img{max-width:160px}
    ANIMATIONS - One orchestrated moment
    ============================================================ */
 @media(prefers-reduced-motion:no-preference){
-  .hero h1,.hero .bajada,.hero-acciones,.placas{
+  .hero h1,.frase-marca,.hero .bajada,.hero-acciones,.placas{
     opacity:0;transform:translateY(20px);
     animation:fadeUp .8s var(--ease-out) forwards;
   }
-  .hero .bajada{animation-delay:.15s}
-  .hero-acciones{animation-delay:.3s}
-  .placas{animation-delay:.45s}
-  
+  .frase-marca{animation-delay:.1s}
+  .hero .bajada{animation-delay:.2s}
+  .hero-acciones{animation-delay:.35s}
+  .placas{animation-delay:.5s}
+
   .seccion{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
   .seccion.visible{opacity:1;transform:translateY(0)}
 }
@@ -417,6 +522,15 @@ footer .placa-logo img{max-width:160px}
    ============================================================ */
 .modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.6);place-items:center}
 .modal:target{display:grid}
+.modal-caja{
+  background:var(--blanco);max-width:600px;max-height:80vh;overflow-y:auto;
+  padding:32px;border-radius:var(--radius);position:relative;margin:20px;
+}
+.modal-cerrar{
+  position:absolute;top:12px;right:16px;font-size:1.5rem;color:var(--concreto);
+  text-decoration:none;line-height:1;padding:4px 8px;
+}
+.modal-caja h2{margin-bottom:16px;font-size:1.4rem}
 </style>
 </head>
 <body>
@@ -425,7 +539,7 @@ footer .placa-logo img{max-width:160px}
 <header>
   <div class="wrap nav">
     <a class="marca" href="#inicio">
-      <img src="images/logo-movial.png" alt="Movial Soluciones Viales">
+      <img src="images/logo-movial.png" alt="Movial Soluciones Viales" width="44" height="44">
       <span style="display:block">
         <b>MOVIAL</b>
         <span>SOLUCIONES VIALES</span>
@@ -434,14 +548,14 @@ footer .placa-logo img{max-width:160px}
     <button class="hamburguesa" id="abrirMenu" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="menu">
+    <nav class="menu" id="menu" aria-label="Menú principal">
       <a href="#servicios">Servicios</a>
-      <a href="#estudios">Estudios y diseños</a>
-      <a href="#productos">Señalización</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="#nosotros">Nosotros</a>
-      <a class="btn btn-nav" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
-        Escríbenos
+      <a href="#cotizar">Contacto</a>
+      <a class="btn btn-nav" href="#cotizar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        Cotizar
       </a>
     </nav>
   </div>
@@ -454,10 +568,14 @@ footer .placa-logo img{max-width:160px}
     <div class="hero-foto" aria-hidden="true"></div>
     <div class="hero-velo" aria-hidden="true"></div>
     <div class="wrap">
-      <h1>Hacemos que la seguridad vial se entienda, se vea y se viva.</h1>
-      <p class="bajada">Estudios, diseños e implementación de seguridad vial para municipios, concesiones, contratistas y empresas privadas. Del diagnóstico en campo a la señal instalada.</p>
+      <h1>Soluciones integrales de seguridad vial</h1>
+      <p class="frase-marca">"Hacemos que la seguridad vial se entienda, se vea y se viva."</p>
+      <p class="bajada">Estudios, diseños, señalización, demarcación, implementación y obra para municipios, concesiones, contratistas y empresas privadas. Del diagnóstico en campo a la señal instalada.</p>
       <div class="hero-acciones">
-        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">Solicitar asesoría</a>
+        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
+          Solicitar asesoría
+        </a>
         <a class="btn btn-borde" href="#cotizar">Cotizar un proyecto</a>
       </div>
       <div class="placas">
@@ -479,18 +597,18 @@ footer .placa-logo img{max-width:160px}
         <p class="lead">Acompañamos el ciclo completo: levantamos la información en campo, hacemos el estudio, diseñamos la solución y la ejecutamos.</p>
       </div>
       <div class="rejilla g4">
-        <article class="tarjeta tarjeta-destacada">
-          <div class="tarjeta-img"><img src="images/servicios-estudios.png" alt="Equipo haciendo levantamiento en campo"></div>
+        <article class="tarjeta">
+          <div class="tarjeta-img"><img src="images/servicios-estudios.png" alt="Equipo haciendo levantamiento en campo" loading="lazy" decoding="async"></div>
           <h3>Estudios y consultoría</h3>
           <ul>
-            <li>Planes Estratégicos de Seguridad Vial (PESV) - Resolución 40595 de 2022</li>
+            <li>Planes Estratégicos de Seguridad Vial (PESV) — Resolución 40595 de 2022</li>
             <li>Planes de Movilidad</li>
             <li>Estudios de Tránsito</li>
             <li>Planes de Manejo de Tránsito (PMT)</li>
           </ul>
         </article>
-        <article class="tarjeta tarjeta-destacada">
-          <div class="tarjeta-img"><img src="images/diseño.png" alt="Diseño en AutoCAD y modelación BIM"></div>
+        <article class="tarjeta">
+          <div class="tarjeta-img"><img src="images/diseño.png" alt="Diseño en AutoCAD y modelación BIM" loading="lazy" decoding="async"></div>
           <h3>Diseño y modelación</h3>
           <ul>
             <li>Diseño de señalización en AutoCAD y QGIS</li>
@@ -500,7 +618,7 @@ footer .placa-logo img{max-width:160px}
           </ul>
         </article>
         <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-senializacion.png" alt="Señal de tránsito instalada"></div>
+          <div class="tarjeta-img"><img src="images/servicios-senializacion.png" alt="Señal de tránsito instalada" loading="lazy" decoding="async"></div>
           <h3>Inventarios y diagnóstico</h3>
           <ul>
             <li>Inventarios de mobiliario urbano</li>
@@ -509,7 +627,7 @@ footer .placa-logo img{max-width:160px}
           </ul>
         </article>
         <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/servicios-obra.png" alt="Excavadora en obra"></div>
+          <div class="tarjeta-img"><img src="images/servicios-obra.png" alt="Excavadora en obra" loading="lazy" decoding="async"></div>
           <h3>Suministro, instalación y obra</h3>
           <ul>
             <li>Señales de tránsito y demarcación vial</li>
@@ -520,45 +638,89 @@ footer .placa-logo img{max-width:160px}
           </ul>
         </article>
       </div>
+      <div class="cta-bloque">
+        <p>¿Necesita una solución vial para su proyecto?</p>
+        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20necesito%20una%20soluci%C3%B3n%20vial%20para%20mi%20proyecto." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
+          Solicitar asesoría
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- PROYECTOS -->
-  <section class="seccion claro" id="proyectos">
+  <section class="seccion blanco" id="proyectos">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
-        <h2>Nuestros Proyectos</h2>
-        <p class="lead">Soluciones de seguridad vial implementadas en vías públicas y privadas.</p>
+        <h2>Proyectos realizados</h2>
+        <p class="lead">Trabajo real en vías públicas y privadas: señalización, demarcación y mobiliario urbano.</p>
       </div>
-      <div class="rejilla g3">
-        <article class="proyecto">
-          <div class="proyecto-img">
-            <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas">
+
+      <article class="caso-destacado">
+        <div class="caso-img">
+          <img src="images/trabajos/trabajadorPoniendoSeñal.jpeg" alt="Trabajador instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
+        </div>
+        <div class="caso-info">
+          <span class="caso-etiqueta">Señalización vial</span>
+          <h3>Señalización vertical y horizontal</h3>
+          <p>Diseño, elaboración e instalación de señalización vertical y horizontal en vías públicas y privadas, según el Manual de Señalización Vial vigente.</p>
+        </div>
+      </article>
+
+      <div class="casos-grid">
+        <article class="caso">
+          <div class="caso-img">
+            <img src="images/demarcacion.png" alt="Demarcación horizontal: marcas viales, cebras y pictogramas" loading="lazy" decoding="async">
           </div>
-          <div class="proyecto-info">
-            <h3>Señalización Vial</h3>
-            <p>Diseño, elaboración e instalación de señalización vertical y horizontal.</p>
-          </div>
-        </article>
-        <article class="proyecto">
-          <div class="proyecto-img">
-            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas">
-          </div>
-          <div class="proyecto-info">
-            <h3>Demarcación Horizontal</h3>
-            <p>Marcas viales (incluye metros lineales, metros cuadrados, pictogramas).</p>
-          </div>
-        </article>
-        <article class="proyecto">
-          <div class="proyecto-img">
-            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos">
-          </div>
-          <div class="proyecto-info">
-            <h3>Mobiliario Urbano</h3>
-            <p>Paraderos, resaltos, estoperoles plásticos, hitos, dispositivos de seguridad vial incluidos en el manual de señalización vial vigente.</p>
+          <div class="caso-info">
+            <span class="caso-etiqueta">Demarcación horizontal</span>
+            <h3>Marcas viales</h3>
+            <p>Marcas viales en metros lineales, metros cuadrados y pictogramas: líneas, cebras, flechas y logos viales en pintura en frío o termoplástico.</p>
           </div>
         </article>
+        <article class="caso">
+          <div class="caso-img">
+            <img src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.jpeg" alt="Cuatro trabajadores instalando reductores de velocidad en vía" loading="lazy" decoding="async">
+          </div>
+          <div class="caso-info">
+            <span class="caso-etiqueta">Mobiliario urbano</span>
+            <h3>Dispositivos de seguridad vial</h3>
+            <p>Paraderos, resaltos, estoperoles plásticos, hitos y dispositivos de seguridad vial incluidos en el Manual de Señalización Vial vigente.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-centro">
+        <a class="btn btn-amarillo" href="#cotizar">Cotizar un proyecto similar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIANZA -->
+  <section class="confianza" id="confianza" aria-label="Por qué confiar en Movial">
+    <div class="wrap">
+      <div class="confianza-grid">
+        <div class="confianza-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#16181A" stroke-width="2.5" aria-hidden="true"><path d="M16 3l11 5v8c0 7-4.5 12-11 14C9.5 28 5 23 5 16V8l11-5z"/><path d="M11 16l3.5 3.5L21 13"/></svg>
+          <h3>Cumplimiento normativo</h3>
+          <p>Resolución 40595 de 2022 y Manual de Señalización Vial vigente.</p>
+        </div>
+        <div class="confianza-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#16181A" stroke-width="2.5" aria-hidden="true"><rect x="4" y="4" width="24" height="18" rx="2"/><path d="M4 10h24M10 28h12M16 22v6"/></svg>
+          <h3>Enfoque técnico</h3>
+          <p>AutoCAD, QGIS, Revit BIM, SketchUp y georreferenciación.</p>
+        </div>
+        <div class="confianza-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#16181A" stroke-width="2.5" aria-hidden="true"><path d="M16 4v10l6 4"/><circle cx="16" cy="16" r="12"/></svg>
+          <h3>Trabajo en campo</h3>
+          <p>Personal propio en intervenciones de señalización y obra vial.</p>
+        </div>
+        <div class="confianza-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#16181A" stroke-width="2.5" aria-hidden="true"><path d="M4 26L16 4l12 22H4z"/><path d="M16 14v6M16 24v.5"/></svg>
+          <h3>Soluciones integrales</h3>
+          <p>Del estudio y diseño a la instalación y la obra civil.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -569,7 +731,7 @@ footer .placa-logo img{max-width:160px}
     <div class="wrap">
       <div class="intro">
         <h2>Estudios y diseños</h2>
-        <p class="lead">Es donde más aportamos: documentos técnicos que sustentan decisiones, cumplen la norma y se pueden implementar. Cada entrega queda lista para radicar ante la autoridad competente.</p>
+        <p class="lead">Documentos técnicos que sustentan decisiones, cumplen la norma y se pueden implementar. Cada entrega queda lista para radicar ante la autoridad competente.</p>
       </div>
 
       <div style="margin-top:38px">
@@ -578,23 +740,23 @@ footer .placa-logo img{max-width:160px}
             <h3>Plan Estratégico de Seguridad Vial</h3>
             <span class="norma">Resolución 40595 de 2022</span>
           </div>
-          <p>Diagnóstico, formulación e implementación del PESV con la metodología vigente, ajustado al nivel que le corresponde a su organización según flota y riesgo. Incluye acompañamiento para la verificación.</p>
+          <p>Formulación e implementación del PESV con la metodología vigente, ajustada al nivel de su organización. Acompañamiento para la verificación.</p>
         </article>
         <article class="servicio">
           <div><h3>Plan de Manejo de Tránsito</h3></div>
-          <p>Señalización temporal, desvíos y control de obra para intervenir la vía sin paralizar la ciudad. Planos, memorias y cronograma de implementación.</p>
+          <p>Señalización temporal, desvíos y control de obra para intervenir la vía sin paralizar la ciudad. Planos, memorias y cronograma.</p>
         </article>
         <article class="servicio">
           <div><h3>Estudios de tránsito</h3></div>
-          <p>Aforos vehiculares y peatonales, capacidad y nivel de servicio. La base técnica para sustentar un proyecto, un trámite o una decisión de inversión.</p>
+          <p>Aforos vehiculares y peatonales, capacidad y nivel de servicio. La base técnica para sustentar un proyecto o una decisión de inversión.</p>
         </article>
         <article class="servicio">
           <div><h3>Planes de movilidad</h3></div>
-          <p>Diagnóstico y propuestas para ordenar el tránsito de un municipio, una zona industrial o un centro logístico, con priorización de intervenciones.</p>
+          <p>Diagnóstico y propuestas para ordenar el tránsito de un municipio, zona industrial o centro logístico, con priorización de intervenciones.</p>
         </article>
         <article class="servicio">
           <div><h3>Inventarios viales georreferenciados</h3></div>
-          <p>Levantamiento en campo del estado de la señalización horizontal y vertical, con ubicación geográfica, registro fotográfico y necesidades priorizadas.</p>
+          <p>Levantamiento en campo del estado de la señalización, con ubicación geográfica, registro fotográfico y necesidades priorizadas.</p>
         </article>
       </div>
 
@@ -615,21 +777,21 @@ footer .placa-logo img{max-width:160px}
       <div class="rejilla g3">
         <article class="producto">
           <div class="producto-img">
-            <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas">
+            <img src="images/señales.png" alt="Señales de tránsito preventivas, reglamentarias e informativas" loading="lazy" decoding="async">
           </div>
           <h3>Señales</h3>
           <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
         </article>
         <article class="producto">
           <div class="producto-img">
-            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas">
+            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas" loading="lazy" decoding="async">
           </div>
           <h3>Demarcación</h3>
           <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
         </article>
         <article class="producto">
           <div class="producto-img">
-            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos">
+            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos" loading="lazy" decoding="async">
           </div>
           <h3>Dispositivos</h3>
           <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
@@ -640,57 +802,66 @@ footer .placa-logo img{max-width:160px}
 
   <!-- NUESTRO TRABAJO -->
   <section class="seccion claro" id="trabajo">
+    <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
-        <h2>Nuestro Trabajo</h2>
-        <p class="lead">Fotografías de nuestros intervenciones en campo, mostrando el compromiso humano detrás de cada proyecto de seguridad vial.</p>
+        <h2>Nuestro trabajo en campo</h2>
+        <p class="lead">Fotografías de nuestras intervenciones: el compromiso humano detrás de cada proyecto de seguridad vial.</p>
       </div>
-      <div class="rejilla g4">
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/trabajos/trabajadorPoniendoSeñal.jpeg" alt="Trabajador poniendo señal de tránsito"></div>
-          <div class="tarjeta-body">
-            <h3>Señalización en campo</h3>
-            <p>Instalación de señalización vertical y horizontal.</p>
-          </div>
-        </article>
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.jpeg" alt="4 trabajadores poniendo reductores de velocidad"></div>
-          <div class="tarjeta-body">
-            <h3>Reductores de velocidad</h3>
-            <p>Implementación de dispositivos de seguridad vial.</p>
-          </div>
-        </article>
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Calle con reductores de velocidad al fondo"></div>
-          <div class="tarjeta-body">
-            <h3>Obra en progreso</h3>
-            <p>Vía pública con dispositivos de reducción de velocidad.</p>
-          </div>
-        </article>
-        <article class="tarjeta">
-          <div class="tarjeta-img"><img src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando generador de energía"></div>
-          <div class="tarjeta-body">
-            <h3>Seguridad y energía</h3>
-            <p>Trabajo en campo con equipos de trabajo.</p>
-          </div>
-        </article>
+      <div class="collage">
+        <figure class="collage-item c1">
+          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
+          <figcaption>Equipo en intervención de campo</figcaption>
+        </figure>
+        <figure class="collage-item c2">
+          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
+          <figcaption>Vía acondicionada con reductores de velocidad</figcaption>
+        </figure>
+        <figure class="collage-item c3">
+          <img src="images/trabajos/trabajadorPoniendo1Señal.jpeg" alt="Trabajador instalando una señal de tránsito" loading="lazy" decoding="async">
+          <figcaption>Instalación de señal</figcaption>
+        </figure>
+        <figure class="collage-item c4">
+          <img src="images/trabajos/4TrabjadoresIniciandoAponerReductores.jpeg" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
+          <figcaption>Inicio de instalación de reductores</figcaption>
+        </figure>
+        <figure class="collage-item c5">
+          <img src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la vía" loading="lazy" decoding="async">
+          <figcaption>Reductores de velocidad instalados</figcaption>
+        </figure>
+        <figure class="collage-item c6">
+          <img src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando generador de energía para obra en campo" loading="lazy" decoding="async">
+          <figcaption>Equipamiento para obra en campo</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <!-- PROCESO -->
-  <section class="seccion claro" id="proceso">
+  <section class="seccion blanco" id="proceso">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
         <h2>Cómo trabajamos</h2>
         <p class="lead">Un proyecto de seguridad vial no empieza con la señal, empieza con el dato.</p>
       </div>
-      <div class="rejilla g4">
-        <div class="paso"><div class="num">1</div><div><b>Diagnóstico</b><p>Visita, inventario y revisión del estado actual de la vía o de la organización.</p></div></div>
-        <div class="paso"><div class="num">2</div><div><b>Estudio y diseño</b><p>Documento técnico y planos con la solución, las cantidades y el presupuesto.</p></div></div>
-        <div class="paso"><div class="num">3</div><div><b>Implementación</b><p>Fabricación, instalación y obra civil complementaria con personal propio.</p></div></div>
-        <div class="paso"><div class="num">4</div><div><b>Acompañamiento</b><p>Seguimiento, actualización del inventario y ajustes cuando la vía cambia.</p></div></div>
+      <div class="proceso-pasos">
+        <div class="paso">
+          <div class="num" aria-hidden="true">1</div>
+          <div><b>Diagnóstico</b><p>Visita, inventario y revisión del estado actual de la vía o de la organización.</p></div>
+        </div>
+        <div class="paso">
+          <div class="num" aria-hidden="true">2</div>
+          <div><b>Estudio y diseño</b><p>Documento técnico y planos con la solución, las cantidades y el presupuesto.</p></div>
+        </div>
+        <div class="paso">
+          <div class="num" aria-hidden="true">3</div>
+          <div><b>Implementación</b><p>Fabricación, instalación y obra civil complementaria con personal propio.</p></div>
+        </div>
+        <div class="paso">
+          <div class="num" aria-hidden="true">4</div>
+          <div><b>Acompañamiento</b><p>Seguimiento, actualización del inventario y ajustes cuando la vía cambia.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -700,12 +871,12 @@ footer .placa-logo img{max-width:160px}
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="nosotros">
-        <div>
+        <div class="nosotros-texto">
           <h2>Quiénes somos</h2>
-          <p style="margin-top:18px;color:#D6D6D4">En MOVIAL SVA somos especialistas en seguridad vial y soluciones viales. Cumplimos con el Manual de Señalización Vial y todas las normativas de tránsito colombianas para garantizar que cada proyecto cumpla con los estándares de calidad y seguridad requeridos.</p>
-          <p style="color:#D6D6D4">Nuestro compromiso es proporcionar soluciones técnicas que protejan la vida de todos los usuarios de la vía.</p>
+          <p style="margin-top:18px">En MOVIAL SVA somos especialistas en seguridad vial y soluciones viales. Cumplimos con el Manual de Señalización Vial y las normativas de tránsito colombianas para garantizar que cada proyecto cumpla con los estándares de calidad y seguridad requeridos.</p>
+          <p>Nuestro compromiso es proporcionar soluciones técnicas que protejan la vida de todos los usuarios de la vía.</p>
 
-          <div style="margin-top:26px">
+          <div class="diferenciales">
             <div class="diferencial">
               <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h16M15 7l7 6-7 6" stroke="#F3C218" stroke-width="3" fill="none"/></svg>
               <div><b>Cumplimiento normativo</b><p>Proyectos ajustados al Manual de Señalización Vial y Resolución 40595 de 2022.</p></div>
@@ -725,7 +896,7 @@ footer .placa-logo img{max-width:160px}
           </div>
         </div>
         <div>
-        <div class="placa-logo"><img src="images/logo-movial-footer.png" alt="Movial Soluciones Viales y Arquitectura"></div>
+          <div class="placa-logo"><img src="images/logo-movial-footer.png" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
           <p class="frase">Seguridad vial con cumplimiento normativo.</p>
         </div>
       </div>
@@ -737,8 +908,11 @@ footer .placa-logo img{max-width:160px}
     <div class="mapa-overlay">
       <div class="mapa-contenido">
         <h2>¿Dónde estamos?</h2>
-        <p>Atlantico - Barranquilla · Con presencia nacional</p>
-        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        <p>Atlántico — Barranquilla · Con presencia nacional</p>
+        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -765,24 +939,17 @@ footer .placa-logo img{max-width:160px}
             <span class="error">Escriba su nombre completo.</span>
           </div>
           <div class="campo">
-            <label for="entidad">Empresa o entidad donde labora <span class="req">*</span></label>
+            <label for="entidad">Empresa o entidad <span class="req">*</span></label>
             <input id="entidad" name="entidad" type="text" autocomplete="organization" required>
             <span class="error">Indique la empresa o entidad.</span>
           </div>
-          <div class="dos">
-            <div class="campo">
-              <label for="correo">Correo <span class="req">*</span></label>
-              <input id="correo" name="correo" type="email" autocomplete="email" required>
-              <span class="error">Revise el correo, parece incompleto.</span>
-            </div>
-            <div class="campo">
-              <label for="telefono">Teléfono <span class="req">*</span></label>
-              <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
-              <span class="error">Escriba un número de contacto.</span>
-            </div>
+          <div class="campo">
+            <label for="telefono">WhatsApp o teléfono <span class="req">*</span></label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
+            <span class="error">Escriba un número de contacto.</span>
           </div>
           <div class="campo">
-            <label for="tipo-elemento">¿Qué tipo de elemento o servicio busca? <span class="req">*</span></label>
+            <label for="tipo-elemento">Servicio que necesita <span class="req">*</span></label>
             <select id="tipo-elemento" name="tipo-elemento" required>
               <option value="">Seleccione una opción...</option>
               <option value="Señales de tránsito">Señales de tránsito (preventivas, reglamentarias, informativas)</option>
@@ -797,24 +964,7 @@ footer .placa-logo img{max-width:160px}
               <option value="Obra civil">Obra civil, rampas, andenes</option>
               <option value="Otro">Otro</option>
             </select>
-            <span class="error">Seleccione el tipo de elemento o servicio.</span>
-          </div>
-          <div class="campo">
-            <label for="material">¿Qué tipo de material o especificaciones prefiere? <span class="req">*</span></label>
-            <select id="material" name="material" required>
-              <option value="">Seleccione una opción...</option>
-              <option value="Aluminio">Aluminio</option>
-              <option value="Plástico">Plástico</option>
-              <option value="Caucho">Caucho</option>
-              <option value="Lámina calibre">Lámina calibre con película retrorreflectiva</option>
-              <option value="Pintura en frío">Pintura en frío</option>
-              <option value="Termoplástico">Termoplástico</option>
-              <option value="Concreto">Concreto</option>
-              <option value="Gama Económica">Gama Económica</option>
-              <option value="Gama Alta">Gama Alta</option>
-              <option value="No especifico">No especifico / Necesito asesoría</option>
-            </select>
-            <span class="error">Seleccione el tipo de material o especificaciones.</span>
+            <span class="error">Seleccione el servicio que necesita.</span>
           </div>
           <div class="campo">
             <label for="mensaje">Cuéntenos brevemente</label>
@@ -824,7 +974,7 @@ footer .placa-logo img{max-width:160px}
             <input type="checkbox" id="acepto" required>
             <span>Autorizo el tratamiento de mis datos personales para ser contactado, conforme a la Ley 1581 de 2012.</span>
           </label>
-          <button class="btn btn-amarillo" type="submit" style="width:100%;justify-content:center">Enviar solicitud por WhatsApp</button>
+          <button class="btn btn-amarillo btn-ancho" type="submit">Enviar solicitud por WhatsApp</button>
           <div class="listo" id="listo">
             <strong>Solicitud lista.</strong>
             <p style="margin:6px 0 0;font-size:.92rem">Abrimos WhatsApp con sus datos para que quede registrada la conversación. Si no se abrió, <a id="enlaceWa" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">toque aquí</a>.</p>
@@ -839,15 +989,15 @@ footer .placa-logo img{max-width:160px}
   <div class="wrap">
     <div class="cols">
       <div>
-        <div class="placa-logo"><img src="images/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura"></div>
+        <div class="placa-logo"><img src="images/logo-movial-grande.png" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
         <p>Soluciones viales y arquitectura.<br>Estudios, diseños, señalización y obra.</p>
       </div>
       <div>
         <h4>Servicios</h4>
-        <p><a href="#estudios">Estudios y diseños</a><br>
-        <a href="#productos">Señalización y mobiliario</a><br>
-        <a href="#servicios">Obras civiles</a><br>
-        <a href="#cotizar">Cotizar un proyecto</a></p>
+        <p><a href="#servicios">Qué hacemos</a><br>
+        <a href="#proyectos">Proyectos realizados</a><br>
+        <a href="#estudios">Estudios y diseños</a><br>
+        <a href="#productos">Señalización y mobiliario</a></p>
       </div>
       <div>
         <h4>Contacto</h4>
@@ -898,19 +1048,15 @@ form.addEventListener('submit', function(e){
   e.preventDefault();
   var nombre = document.getElementById('nombre');
   var entidad = document.getElementById('entidad');
-  var correo = document.getElementById('correo');
   var telefono = document.getElementById('telefono');
   var tipoElemento = document.getElementById('tipo-elemento');
-  var material = document.getElementById('material');
   var acepto = document.getElementById('acepto');
 
   var ok = true;
   ok = marcar(nombre, nombre.value.trim().length < 3) && ok;
   ok = marcar(entidad, entidad.value.trim().length < 2) && ok;
-  ok = marcar(correo, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo.value.trim())) && ok;
   ok = marcar(telefono, telefono.value.replace(/\D/g,'').length < 7) && ok;
   ok = marcar(tipoElemento, !tipoElemento.value) && ok;
-  ok = marcar(material, !material.value) && ok;
 
   if(!acepto.checked){
     acepto.focus();
@@ -922,25 +1068,14 @@ form.addEventListener('submit', function(e){
     return;
   }
 
-  var datos = {
-    nombre: nombre.value.trim(),
-    entidad: entidad.value.trim(),
-    correo: correo.value.trim(),
-    telefono: telefono.value.trim(),
-    tipoElemento: tipoElemento.value,
-    material: material.value,
-    mensaje: document.getElementById('mensaje').value.trim(),
-    origen: 'web'
-  };
+  var mensaje = document.getElementById('mensaje').value.trim();
 
   var texto = 'Hola Movial, quiero asesoría.\n\n'
-    + '*Nombre:* ' + datos.nombre + '\n'
-    + '*Empresa o entidad:* ' + datos.entidad + '\n'
-    + '*Correo:* ' + datos.correo + '\n'
-    + '*Teléfono:* ' + datos.telefono + '\n\n'
-    + '*¿Qué tipo de elemento o servicio busca?*\n' + datos.tipoElemento + '\n\n'
-    + '*¿Qué tipo de material o especificaciones prefiere?*\n' + datos.material
-    + (datos.mensaje ? '\n\n*Detalle adicional:*\n' + datos.mensaje : '');
+    + '*Nombre:* ' + nombre.value.trim() + '\n'
+    + '*Empresa o entidad:* ' + entidad.value.trim() + '\n'
+    + '*WhatsApp/Teléfono:* ' + telefono.value.trim() + '\n\n'
+    + '*Servicio que necesita:*\n' + tipoElemento.value
+    + (mensaje ? '\n\n*Mensaje:*\n' + mensaje : '');
 
   var url = 'https://wa.me/' + NUMERO_WA + '?text=' + encodeURIComponent(texto);
   document.getElementById('enlaceWa').setAttribute('href', url);
@@ -958,7 +1093,7 @@ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
       }
     });
   }, {threshold: 0.1});
-  
+
   document.querySelectorAll('.seccion').forEach(function(seccion){
     observer.observe(seccion);
   });
@@ -966,13 +1101,13 @@ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
 </script>
 
 <!-- Modal Política de Datos -->
-<div id="politica-datos" class="modal">
-  <div style="background:var(--blanco);max-width:600px;max-height:80vh;overflow-y:auto;padding:32px;border-radius:var(--radius);position:relative;margin:20px">
-    <a href="#" style="position:absolute;top:12px;right:16px;font-size:1.5rem;color:var(--concreto);text-decoration:none">&times;</a>
-    <h2 style="margin-bottom:16px">Política de Tratamiento de Datos Personales</h2>
+<div id="politica-datos" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-politica">
+  <div class="modal-caja">
+    <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+    <h2 id="titulo-politica">Política de Tratamiento de Datos Personales</h2>
     <p><strong>MOVIAL SVA — Soluciones Viales y Arquitectura</strong></p>
     <p><em>Razón social y NIT: Pendiente de confirmar por el cliente</em></p>
-    <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y seguridad, siendo utilizados únicamente para:</p>
+    <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y segura, siendo utilizados únicamente para:</p>
     <ul>
       <li>Responder a su consulta o solicitud de servicio</li>
       <li>Enviar información sobre nuestros servicios de seguridad vial</li>
