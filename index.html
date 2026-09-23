@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 /* ============================================================
    DESIGN TOKENS - Movial SVA
@@ -36,13 +37,15 @@
   --shadow-md:0 4px 12px rgba(22,24,26,.12);
   --shadow-lg:0 8px 24px rgba(22,24,26,.16);
   --ease-out:cubic-bezier(.22,1,.36,1);
+  --header-h:74px;
 }
+@media(max-width:920px){:root{--header-h:64px}}
 
 /* ============================================================
    RESET & BASE
    ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 8px)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
   background:var(--hueso);color:var(--asfalto);
@@ -51,6 +54,7 @@ body{
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
+body.menu-abierto{overflow:hidden}
 
 /* ============================================================
    BROWSER SURFACES - Theme from palette
@@ -74,11 +78,18 @@ h1{font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:800;text-wrap:balance}
 h2{font-size:clamp(1.85rem,3.6vw,2.7rem);font-weight:700}
 h3{font-size:1.18rem;font-weight:700}
 p{margin:0 0 1rem}
+@media(max-width:640px){
+  h1{font-size:clamp(2.05rem,7.2vw,3.2rem);line-height:1.1}
+  h2{font-size:clamp(1.65rem,6.2vw,2.2rem)}
+  h3{font-size:1.12rem}
+  p{margin-bottom:.85rem}
+}
 
 /* ============================================================
    LAYOUT
    ============================================================ */
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:22px}
+@media(max-width:400px){.wrap{padding-inline:16px}}
 
 /* ============================================================
    SECTION SPINE - Road marking motif
@@ -91,6 +102,9 @@ p{margin:0 0 1rem}
   opacity:.75;
 }
 @media(max-width:1180px){.seccion::before{display:none}}
+@media(max-width:920px){.seccion{padding:64px 0}}
+@media(max-width:640px){.seccion{padding:52px 0}}
+@media(max-width:360px){.seccion{padding:46px 0}}
 .claro{background:var(--hueso);--spine:#C9C5BC}
 .blanco{background:var(--blanco);--spine:#DCD9D2}
 .oscuro{background:var(--asfalto);color:#EDEDEB;--spine:#3A3E43}
@@ -111,15 +125,26 @@ header{
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--linea);
 }
-.nav{display:flex;align-items:center;gap:20px;min-height:74px}
-.marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
+@media(max-width:920px){
+  /* Solid bg on phones: cheaper than backdrop-filter while scrolling */
+  header{background:rgba(242,241,238,.98);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+.nav{display:flex;align-items:center;gap:20px;min-height:var(--header-h)}
+@media(max-width:920px){.nav{gap:12px}}
+.marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto;min-width:0}
 .marca img{height:44px;width:auto}
+@media(max-width:920px){.marca img{height:38px;width:38px}}
 .marca b{font-family:var(--display);font-size:1.22rem;letter-spacing:-.02em;line-height:1}
 .marca span{display:block;font-size:.62rem;letter-spacing:.22em;color:var(--concreto);font-weight:600}
+@media(max-width:360px){
+  .marca{gap:8px}
+  .marca b{font-size:1.1rem}
+  .marca span span,.marca>span>span{display:none}
+}
 .menu{margin-left:auto;display:flex;align-items:center;gap:26px}
 .menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out)}
 .menu a:hover,.menu a:focus-visible{border-bottom-color:var(--amarillo)}
-.menu .btn-nav{border-bottom:none}
+.menu a.btn-nav{border-bottom:none;padding:12px 40px}
 
 /* ============================================================
    BUTTONS - Touch targets ≥44px
@@ -160,7 +185,7 @@ header{
 .btn-nav:active{transform:translateY(0);box-shadow:0 2px 8px rgba(243,194,24,.3)}
 .btn-nav svg{width:18px;height:18px;flex-shrink:0}
 @media(max-width:920px){
-  .menu .btn-nav{margin-top:14px;justify-content:center;padding:14px 20px}
+  .menu a.btn-nav{margin-top:14px;justify-content:center;padding:14px 20px}
 }
 
 /* ============================================================
@@ -168,11 +193,23 @@ header{
    ============================================================ */
 .hamburguesa{display:none;margin-left:auto;background:none;border:2px solid var(--asfalto);border-radius:var(--radius);padding:9px 11px;cursor:pointer;min-height:44px;min-width:44px}
 .hamburguesa span{display:block;width:20px;height:2px;background:var(--asfalto);margin:4px 0;transition:transform .2s var(--ease-out),opacity .2s var(--ease-out)}
+.hamburguesa[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburguesa[aria-expanded="true"] span:nth-child(2){opacity:0}
+.hamburguesa[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media(max-width:920px){
-  .menu{position:fixed;inset:74px 0 auto 0;background:var(--hueso);flex-direction:column;align-items:stretch;gap:0;padding:8px 22px 22px;border-bottom:3px solid var(--amarillo);display:none;max-height:calc(100vh - 74px);overflow-y:auto}
+  .menu{
+    position:fixed;inset:var(--header-h) 0 auto 0;background:var(--hueso);
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:6px 22px calc(18px + env(safe-area-inset-bottom,0px));
+    border-bottom:3px solid var(--amarillo);display:none;
+    max-height:calc(100vh - var(--header-h));max-height:calc(100dvh - var(--header-h));
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    box-shadow:0 12px 28px rgba(22,24,26,.14);
+  }
   .menu.abierto{display:flex}
-  .menu a{padding:14px 0;border-bottom:1px solid var(--linea);min-height:44px;display:flex;align-items:center}
-  .menu .btn{margin-top:14px;justify-content:center}
+  .menu a{padding:13px 0;border-bottom:1px solid var(--linea);min-height:48px;display:flex;align-items:center;font-size:1rem}
+  .menu a:last-of-type{border-bottom:none}
+  .menu a.btn,.menu a.btn-nav{margin-top:12px;justify-content:center;border-bottom:none;min-height:48px}
   .hamburguesa{display:block}
 }
 
@@ -196,6 +233,22 @@ header{
   font-size:.78rem;font-weight:600;letter-spacing:.02em;
   border:2px solid var(--amarillo);color:#fff;padding:7px 13px;border-radius:var(--radius);
 }
+@media(max-width:920px){
+  .hero .wrap{padding-top:64px;padding-bottom:56px}
+  .hero h1{max-width:14ch}
+  .hero .bajada{font-size:1.05rem;margin-top:14px}
+  .frase-marca{margin-top:14px;font-size:1.05rem}
+  .hero-acciones{margin-top:26px;gap:12px}
+  .placas{margin-top:30px;padding-top:20px;gap:8px}
+  .placa{font-size:.74rem;padding:6px 11px}
+}
+@media(max-width:480px){
+  .hero .wrap{padding-top:52px;padding-bottom:48px}
+  .hero h1{max-width:none}
+  .hero-acciones{flex-direction:column;gap:10px}
+  .hero-acciones .btn{width:100%;justify-content:center;min-height:48px}
+  .placas{margin-top:26px}
+}
 .cinta{height:12px;background:repeating-linear-gradient(135deg,var(--amarillo) 0 18px,var(--asfalto) 18px 36px)}
 
 /* ============================================================
@@ -210,6 +263,10 @@ header{
 .g4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .rejilla{gap:14px;margin-top:26px}
+  .intro .lead{font-size:1.02rem}
+}
 
 /* ============================================================
    CTA BLOCKS
@@ -222,8 +279,11 @@ header{
 .cta-bloque p{margin:0;font-family:var(--display);font-size:1.25rem;font-weight:700;color:#fff;max-width:36ch}
 .cta-centro{margin-top:44px;text-align:center}
 @media(max-width:600px){
-  .cta-bloque{flex-direction:column;text-align:center}
-  .cta-bloque p{max-width:none}
+  .cta-bloque{flex-direction:column;text-align:center;margin-top:30px;padding:22px 18px;gap:14px}
+  .cta-bloque p{max-width:none;font-size:1.12rem}
+  .cta-bloque .btn{width:100%;justify-content:center;min-height:48px}
+  .cta-centro{margin-top:30px}
+  .cta-centro .btn{width:100%;justify-content:center;min-height:48px}
 }
 
 /* ============================================================
@@ -245,6 +305,12 @@ header{
 .tarjeta ul{margin:0 20px 20px;padding-left:18px;color:var(--concreto);font-size:.95rem}
 .tarjeta li{margin-bottom:5px}
 .tarjeta li::marker{color:var(--amarillo)}
+@media(max-width:640px){
+  .tarjeta-img{height:140px}
+  .tarjeta h3{margin:14px 16px 8px;font-size:1.1rem}
+  .tarjeta ul{margin:0 16px 16px;font-size:.94rem;padding-left:16px}
+  .tarjeta li{margin-bottom:4px}
+}
 
 /* ============================================================
    SERVICES LIST
@@ -263,6 +329,11 @@ header{
 }
 .servicio p{color:#C3C5C7;margin:0}
 @media(max-width:760px){.servicio{grid-template-columns:1fr;gap:10px}}
+@media(max-width:640px){
+  .servicio{padding:20px 0;gap:8px}
+  .servicio h3{font-size:1.2rem}
+  .servicio p{font-size:.98rem}
+}
 
 /* ============================================================
    PROCESS - Connected steps
@@ -290,9 +361,12 @@ header{
   .proceso-pasos::before{display:none}
 }
 @media(max-width:520px){
-  .proceso-pasos{grid-template-columns:1fr;gap:24px}
-  .paso{flex-direction:row;align-items:flex-start}
+  .proceso-pasos{grid-template-columns:1fr;gap:20px}
+  .paso{flex-direction:row;align-items:flex-start;gap:14px}
   .paso>div:last-child{flex:1}
+  .paso .num{width:40px;height:40px;font-size:1rem}
+  .paso b{font-size:1rem}
+  .paso p{font-size:.94rem}
 }
 
 /* ============================================================
@@ -329,9 +403,14 @@ header{
 .caso-info p{margin:0;color:var(--concreto);font-size:.97rem}
 @media(max-width:800px){
   .caso-destacado{grid-template-columns:1fr}
-  .caso-destacado .caso-img{min-height:240px}
-  .caso-destacado .caso-info{padding:28px 24px}
-  .casos-grid{grid-template-columns:1fr}
+  .caso-destacado .caso-img{min-height:220px;max-height:260px}
+  .caso-destacado .caso-info{padding:24px 20px}
+  .casos-grid{grid-template-columns:1fr;gap:14px;margin-top:14px}
+  .caso .caso-img{height:200px}
+  .caso .caso-info{padding:20px}
+  .caso-info h3{font-size:1.15rem}
+  .caso-info p{font-size:.95rem}
+  .caso-destacado{margin-top:28px}
 }
 
 /* ============================================================
@@ -352,6 +431,12 @@ header{
 .producto:hover .producto-img img{transform:scale(1.05)}
 .producto h3{padding:20px 22px 8px}
 .producto p{padding:0 22px;color:var(--concreto);font-size:.95rem;margin:0}
+@media(max-width:640px){
+  .producto{padding-bottom:18px}
+  .producto-img{height:180px}
+  .producto h3{padding:16px 16px 6px;font-size:1.1rem}
+  .producto p{padding:0 16px;font-size:.94rem}
+}
 
 /* ============================================================
    TRUST BAND - Confianza
@@ -362,40 +447,107 @@ header{
 .confianza-item svg{margin-bottom:14px}
 .confianza-item h3{font-size:1.05rem;margin:0 0 6px;color:var(--asfalto)}
 .confianza-item p{margin:0;font-size:.9rem;color:#3A3D40;line-height:1.5}
-@media(max-width:900px){.confianza-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
-@media(max-width:520px){.confianza-grid{grid-template-columns:1fr;gap:24px}}
+@media(max-width:900px){.confianza-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+@media(max-width:420px){.confianza-grid{grid-template-columns:1fr;gap:20px}}
+@media(max-width:640px){
+  .confianza{padding:40px 0}
+  .confianza-item h3{font-size:1rem}
+  .confianza-item p{font-size:.88rem}
+  .confianza-item svg{margin-bottom:10px}
+}
 
 /* ============================================================
    FIELD COLLAGE - Editorial gallery
    ============================================================ */
 .collage{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:190px;gap:10px;margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(3,170px);
+  grid-template-areas:
+    "inicio inicio senal equipo"
+    "inicio inicio senal via"
+    "reduct reduct gener gener";
+  gap:12px;margin-top:40px;
 }
 .collage-item{
   position:relative;overflow:hidden;border-radius:var(--radius);margin:0;
+  background:var(--asfalto);
 }
-.collage-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease-out)}
-.collage-item:hover img{transform:scale(1.04)}
+.collage-item img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .45s var(--ease-out)}
+.collage-item:hover img{transform:scale(1.045)}
+/* Portrait crop: keep sign + worker in frame */
+.collage-item.alto img{object-position:center 42%}
 .collage-item figcaption{
   position:absolute;left:0;right:0;bottom:0;
-  padding:32px 16px 12px;
-  background:linear-gradient(transparent,rgba(22,24,26,.88));
-  color:#fff;font-size:.85rem;font-weight:500;line-height:1.35;
+  padding:36px 16px 14px;
+  background:linear-gradient(to top,rgba(22,24,26,.92) 0%,rgba(22,24,26,.55) 55%,transparent 100%);
+  color:#fff;font-size:.86rem;font-weight:600;line-height:1.35;
+  letter-spacing:.01em;
 }
-.collage-item.c1{grid-column:span 2;grid-row:span 2}
-.collage-item.c2{grid-column:span 2}
-.collage-item.c5,.collage-item.c6{grid-column:span 2}
+.collage-item figcaption::before{
+  content:"";display:block;width:22px;height:3px;
+  background:var(--amarillo);border-radius:2px;margin-bottom:8px;
+}
+/* Named areas — proportions match each photo */
+.collage-item.hero{grid-area:inicio}
+.collage-item.alto{grid-area:senal}
+.collage-item.chico.a-equipo{grid-area:equipo}
+.collage-item.chico.a-via{grid-area:via}
+.collage-item.wide.a-reduct{grid-area:reduct}
+.collage-item.wide.a-gener{grid-area:gener}
+.collage-item.hero figcaption{
+  font-size:1.05rem;font-weight:700;padding:48px 22px 20px;
+}
+.collage-item.hero figcaption::before{width:36px;height:4px}
+.collage-item.alto figcaption{
+  font-size:.88rem;font-weight:700;padding:36px 14px 14px;
+}
+.collage-item.alto figcaption::before{width:28px;height:3px}
+.collage-item.chico figcaption{
+  font-size:.78rem;padding:28px 10px 10px;font-weight:600;
+}
+.collage-item.chico figcaption::before{width:14px;height:2px;margin-bottom:6px}
 @media(max-width:760px){
-  .collage{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
-  .collage-item.c1{grid-column:span 2;grid-row:span 2}
-  .collage-item.c2,.collage-item.c5,.collage-item.c6{grid-column:span 2}
-  .collage-item.c3,.collage-item.c4{grid-column:span 1}
+  .collage{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:150px 150px 150px 150px 150px;
+    grid-template-areas:
+      "inicio inicio"
+      "senal equipo"
+      "senal via"
+      "reduct reduct"
+      "gener gener";
+    gap:10px;margin-top:28px;
+  }
+  .collage-item.hero figcaption{font-size:.95rem;padding:40px 16px 16px}
 }
 @media(max-width:480px){
-  .collage{grid-template-columns:1fr;grid-auto-rows:210px}
-  .collage-item.c1,.collage-item.c2,.collage-item.c3,
-  .collage-item.c4,.collage-item.c5,.collage-item.c6{grid-column:span 1;grid-row:span 1}
+  /* Keep editorial 2-col composition on phones — do not flatten to 1-col */
+  .collage{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:118px 118px 118px 118px 118px;
+    grid-template-areas:
+      "inicio inicio"
+      "senal equipo"
+      "senal via"
+      "reduct reduct"
+      "gener gener";
+    gap:8px;
+  }
+  .collage-item figcaption{font-size:.74rem;padding:24px 10px 9px;line-height:1.3}
+  .collage-item.hero figcaption{font-size:.88rem;padding:32px 12px 12px}
+  .collage-item.alto figcaption{font-size:.72rem;padding:24px 10px 10px}
+  .collage-item.chico figcaption{font-size:.7rem;padding:20px 8px 8px}
+}
+@media(max-width:360px){
+  .collage{
+    grid-template-rows:102px 102px 102px 102px 102px;
+    gap:6px;
+  }
+  .collage-item figcaption{font-size:.68rem;padding:18px 8px 7px}
+  .collage-item.hero figcaption{font-size:.8rem;padding:26px 10px 10px}
+  .collage-item.alto figcaption{font-size:.68rem;padding:20px 8px 8px}
+  .collage-item.chico figcaption{font-size:.66rem}
 }
 
 /* ============================================================
@@ -412,15 +564,27 @@ header{
   font-family:var(--display);font-size:clamp(1.3rem,2.8vw,1.95rem);font-weight:700;
   color:var(--amarillo);margin-top:34px;max-width:24ch;line-height:1.2;
 }
-@media(max-width:640px){.diferenciales{grid-template-columns:1fr}}
+@media(max-width:640px){.diferenciales{grid-template-columns:1fr;gap:0}}
+@media(max-width:640px){
+  .diferencial{padding:14px 0;gap:12px}
+  .diferencial b{font-size:1rem}
+  .diferencial p{font-size:.9rem}
+  .frase{margin-top:26px;font-size:clamp(1.2rem,5vw,1.6rem)}
+  .nosotros-texto>p{font-size:.98rem}
+}
 
 /* ============================================================
    NOSOTROS LAYOUT
    ============================================================ */
 .nosotros{display:grid;grid-template-columns:1.25fr .9fr;gap:52px;align-items:center}
 @media(max-width:860px){.nosotros{grid-template-columns:1fr;gap:34px}}
+@media(max-width:640px){.nosotros{gap:26px}}
 .placa-logo{background:var(--blanco);border:1px solid var(--linea);padding:34px;display:grid;place-items:center;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
 .placa-logo img{max-width:260px}
+@media(max-width:640px){
+  .placa-logo{padding:22px}
+  .placa-logo img{max-width:200px}
+}
 
 /* ============================================================
    FORM
@@ -449,19 +613,43 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--amarillo);outlin
 .datos-contacto p{margin-bottom:.6rem}
 .datos-contacto a{font-weight:600}
 .btn-ancho{width:100%;justify-content:center}
+@media(max-width:640px){
+  form{padding:22px 16px}
+  .campo{margin-bottom:14px}
+  .campo label{font-size:.9rem;margin-bottom:7px}
+  input,select,textarea{padding:14px 12px;font-size:16px;min-height:48px}
+  textarea{min-height:110px}
+  .acepto{font-size:.86rem;margin:8px 0 16px;padding:6px 0;min-height:44px;align-items:flex-start}
+  .acepto input{width:22px;height:22px;margin-top:1px}
+  .btn-ancho{min-height:52px;font-size:1rem}
+  .listo{padding:16px 14px}
+  .datos-contacto a{word-break:break-all}
+}
 
 /* ============================================================
    FOOTER
    ============================================================ */
 footer{background:var(--asfalto);color:#9FA2A5;padding:56px 0 34px;font-size:.92rem}
 footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:34px;align-items:start}
-@media(max-width:760px){footer .cols{grid-template-columns:1fr;gap:26px}}
+@media(max-width:760px){
+  footer{padding:40px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+  footer .cols{grid-template-columns:1fr;gap:22px}
+}
 footer h4{font-family:var(--display);color:#fff;font-size:1rem;margin:0 0 12px}
 footer a{color:#D6D6D4;text-decoration:none;transition:color .2s var(--ease-out)}
 footer a:hover{color:var(--amarillo)}
+@media(max-width:760px){
+  footer a{display:inline-block;padding:5px 0}
+  footer p{margin-bottom:0}
+  footer .placa-logo{margin-bottom:12px}
+}
 footer .placa-logo{background:#fff;padding:16px;display:inline-grid;margin-bottom:16px;border-radius:var(--radius)}
 footer .placa-logo img{max-width:160px}
 .legal{border-top:1px solid #33373B;margin-top:34px;padding-top:18px;font-size:.8rem;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+@media(max-width:760px){
+  .legal{margin-top:24px;padding-top:16px;gap:10px}
+  .legal a{padding:6px 0;min-height:32px;display:inline-flex;align-items:center}
+}
 
 /* ============================================================
    WHATSAPP FLOAT - Touch target 58px
@@ -469,9 +657,20 @@ footer .placa-logo img{max-width:160px}
 .flotante{
   position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;
   background:#25D366;display:grid;place-items:center;box-shadow:var(--shadow-lg);
-  transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out);
+  transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out),opacity .2s var(--ease-out);
 }
 .flotante:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+.flotante.oculto{opacity:0;pointer-events:none;transform:scale(.85)}
+@media(max-width:640px){
+  .flotante{
+    width:54px;height:54px;right:14px;
+    bottom:max(14px,env(safe-area-inset-bottom,14px));
+  }
+}
+@media(max-width:920px){
+  /* Keep clear of open mobile menu */
+  body.menu-abierto .flotante{opacity:0;pointer-events:none}
+}
 
 /* ============================================================
    SKIP LINK
@@ -495,6 +694,12 @@ footer .placa-logo img{max-width:160px}
 .mapa-contenido{text-align:center;color:#fff;padding:40px}
 .mapa-contenido h2{margin-bottom:16px}
 .mapa-contenido p{color:#D6D6D4;max-width:48ch;margin:0 auto 24px}
+@media(max-width:640px){
+  .mapa{min-height:280px}
+  .mapa-contenido{padding:32px 18px}
+  .mapa-contenido p{margin-bottom:18px}
+  .mapa-contenido .btn{width:100%;justify-content:center;min-height:48px}
+}
 
 /* ============================================================
    ANIMATIONS - One orchestrated moment
@@ -509,8 +714,8 @@ footer .placa-logo img{max-width:160px}
   .hero-acciones{animation-delay:.35s}
   .placas{animation-delay:.5s}
 
-  .seccion{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
-  .seccion.visible{opacity:1;transform:translateY(0)}
+  html.js .seccion{opacity:0;transform:translateY(30px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+  html.js .seccion.visible{opacity:1;transform:translateY(0)}
 }
 
 @keyframes fadeUp{
@@ -531,6 +736,44 @@ footer .placa-logo img{max-width:160px}
   text-decoration:none;line-height:1;padding:4px 8px;
 }
 .modal-caja h2{margin-bottom:16px;font-size:1.4rem}
+@media(max-width:640px){
+  .modal-caja{padding:26px 16px 20px;margin:12px;max-height:86vh}
+  .modal-caja h2{font-size:1.2rem;padding-right:36px}
+  .modal-cerrar{
+    top:6px;right:6px;padding:10px 12px;min-width:44px;min-height:44px;
+    display:grid;place-items:center;border-radius:8px;
+  }
+  .modal-caja .btn{width:100%;justify-content:center;min-height:48px}
+}
+
+/* ============================================================
+   TOUCH / HOVER — avoid sticky hover states on coarse pointers
+   ============================================================ */
+@media(hover:none){
+  .tarjeta:hover,.caso:hover,.producto:hover,.caso-destacado:hover,
+  .btn-nav:hover,.flotante:hover,.collage-item:hover img,
+  .tarjeta:hover .tarjeta-img img,.caso:hover .caso-img img,
+  .producto:hover .producto-img img,.caso-destacado:hover .caso-img img,
+  .btn-nav:hover{transform:none}
+  .tarjeta:hover,.caso:hover,.producto:hover,.caso-destacado:hover{box-shadow:var(--shadow-sm)}
+}
+
+/* ============================================================
+   MOBILE CTA WIDTHS — full-width primary actions on small screens
+   ============================================================ */
+@media(max-width:640px){
+  #estudios .btn,.mapa-contenido .btn,.cta-centro .btn{width:100%;justify-content:center;min-height:48px}
+  .btn{min-height:46px}
+}
+
+/* ============================================================
+   REDUCED MOTION — skip section slide on small devices for fluency
+   ============================================================ */
+@media(max-width:640px) and (prefers-reduced-motion:no-preference){
+  html.js .seccion{transform:none;transition:opacity .35s var(--ease-out)}
+  html.js .seccion.visible{transform:none}
+  .hero h1,.frase-marca,.hero .bajada,.hero-acciones,.placas{animation-duration:.5s}
+}
 </style>
 </head>
 <body>
@@ -809,29 +1052,29 @@ footer .placa-logo img{max-width:160px}
         <p class="lead">Fotografías de nuestras intervenciones: el compromiso humano detrás de cada proyecto de seguridad vial.</p>
       </div>
       <div class="collage">
-        <figure class="collage-item c1">
-          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
-          <figcaption>Equipo en intervención de campo</figcaption>
-        </figure>
-        <figure class="collage-item c2">
-          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
-          <figcaption>Vía acondicionada con reductores de velocidad</figcaption>
-        </figure>
-        <figure class="collage-item c3">
-          <img src="images/trabajos/trabajadorPoniendo1Señal.jpeg" alt="Trabajador instalando una señal de tránsito" loading="lazy" decoding="async">
-          <figcaption>Instalación de señal</figcaption>
-        </figure>
-        <figure class="collage-item c4">
+        <figure class="collage-item hero">
           <img src="images/trabajos/4TrabjadoresIniciandoAponerReductores.jpeg" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
-          <figcaption>Inicio de instalación de reductores</figcaption>
+          <figcaption>Arrancamos la instalación de reductores</figcaption>
         </figure>
-        <figure class="collage-item c5">
+        <figure class="collage-item alto">
+          <img src="images/trabajos/trabajadorPoniendo1Señal.jpeg" alt="Trabajador instalando una señal de tránsito" loading="lazy" decoding="async">
+          <figcaption>Señalética lista para operar</figcaption>
+        </figure>
+        <figure class="collage-item chico a-equipo">
+          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
+          <figcaption>Personal en faena</figcaption>
+        </figure>
+        <figure class="collage-item chico a-via">
+          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
+          <figcaption>Vía con tramos acondicionados</figcaption>
+        </figure>
+        <figure class="collage-item wide a-reduct">
           <img src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la vía" loading="lazy" decoding="async">
-          <figcaption>Reductores de velocidad instalados</figcaption>
+          <figcaption>Reductores ya en servicio</figcaption>
         </figure>
-        <figure class="collage-item c6">
+        <figure class="collage-item wide a-gener">
           <img src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando generador de energía para obra en campo" loading="lazy" decoding="async">
-          <figcaption>Equipamiento para obra en campo</figcaption>
+          <figcaption>Apoyo logístico en sitio</figcaption>
         </figure>
       </div>
     </div>
@@ -1021,15 +1264,27 @@ footer .placa-logo img{max-width:160px}
 // Mobile menu
 var boton = document.getElementById('abrirMenu');
 var menu = document.getElementById('menu');
-boton.addEventListener('click', function(){
-  var abierto = menu.classList.toggle('abierto');
+var flotante = document.querySelector('.flotante');
+
+function setMenu(abierto){
+  menu.classList.toggle('abierto', abierto);
   boton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  document.body.classList.toggle('menu-abierto', abierto);
+}
+boton.addEventListener('click', function(){
+  setMenu(!menu.classList.contains('abierto'));
 });
 menu.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click', function(){
-    menu.classList.remove('abierto');
-    boton.setAttribute('aria-expanded','false');
+    setMenu(false);
   });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && menu.classList.contains('abierto')){
+    setMenu(false);
+    boton.focus();
+  }
 });
 
 // Dynamic year
@@ -1038,6 +1293,16 @@ document.getElementById('anio').textContent = new Date().getFullYear();
 // Form validation
 var NUMERO_WA = '573138595695';
 var form = document.getElementById('formulario');
+
+// Hide floating WhatsApp while typing (keyboard clashes with fixed button)
+if(form && flotante){
+  form.addEventListener('focusin', function(){ flotante.classList.add('oculto'); });
+  form.addEventListener('focusout', function(){
+    setTimeout(function(){
+      if(!form.contains(document.activeElement)) flotante.classList.remove('oculto');
+    }, 120);
+  });
+}
 
 function marcar(campo, malo){
   campo.closest('.campo').classList.toggle('malo', malo);
@@ -1084,7 +1349,7 @@ form.addEventListener('submit', function(e){
 });
 
 // Scroll animations for sections
-if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window){
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
@@ -1096,6 +1361,10 @@ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
 
   document.querySelectorAll('.seccion').forEach(function(seccion){
     observer.observe(seccion);
+  });
+} else {
+  document.querySelectorAll('.seccion').forEach(function(seccion){
+    seccion.classList.add('visible');
   });
 }
 </script>
