@@ -5,3 +5,8 @@
 skills-lock.json
 __dom.html
 __diag.html
+
+.git/
+.wrangler/
+node_modules/
+.agents/
