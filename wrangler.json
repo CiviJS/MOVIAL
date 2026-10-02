@@ -5,18 +5,6 @@
     "enabled": true
   },
   "assets": {
-    "directory": "."
-  },
-  "rules": [
-    {
-      "type": "Text",
-      "globs": [
-        ".git/**",
-        ".wrangler/**",
-        "node_modules/**",
-        ".agents/**"
-      ],
-      "fallthrough": true
-    }
-  ]
+    "directory": "./public"
+  }
 }
