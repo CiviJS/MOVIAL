@@ -80,7 +80,7 @@
     <div class="wrap">
       <div class="intro">
         <h2>Qué hacemos</h2>
-        <p class="lead">Acompañamos el ciclo integral de cada proyecto: gestionamos el levantamiento de información, elaboramos el estudio técnico, diseñamos la solución estratégica y ejecutamos su implementación.</p>
+        <p class="lead">Acompañamos el ciclo completo: levantamos la información en campo, hacemos el estudio, diseñamos la solución y la ejecutamos.</p>
       </div>
       <div class="rejilla g4">
         <article class="tarjeta">
@@ -284,7 +284,7 @@
         </article>
       </div>
 
-      <!-- CATÁLOGO INTERACTIVO — Preventivas / Reglamentarias / Informativas -->
+      <!-- CATÁLOGO INTERACTIVO — Señalización Vertical / Reglamentarias -->
       <div class="cat-bloque">
         <div class="cat-cab">
           <h3>Catálogo de señales</h3>
@@ -295,7 +295,6 @@
           <div class="cat-pest" role="tablist" aria-label="Categoría del catálogo">
             <button type="button" class="cat-pest-b" role="tab" id="catTabPrev" aria-selected="true" aria-controls="catGrid" data-cat="prev">Señales Preventivas <b>87</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabReg" aria-selected="false" aria-controls="catGrid" data-cat="reg">Señalización Vertical · Reglamentarias <b>60</b></button>
-            <button type="button" class="cat-pest-b" role="tab" id="catTabInfo" aria-selected="false" aria-controls="catGrid" data-cat="info">Señales Informativas <b>59</b></button>
           </div>
           <p class="cat-ruta"><span>Catálogo</span> <i>/</i> <b id="catRuta">Señales Preventivas</b></p>
           <div class="cat-buscar">
@@ -613,5 +612,43 @@
 <!-- ============================================================
      CATÁLOGO INTERACTIVO — carrito de cotización
      ============================================================ -->
+<script>
+(function(){
+  var out=[];function say(s){out.push(s);}
+  function dump(){
+    var p=document.createElement("pre");p.id="M";p.textContent=out.join("\n");document.body.appendChild(p);
+  }
+  window.addEventListener("load",function(){
+    say("=== rAF: el observer dispara con render real? ===");
+    var secs=document.querySelectorAll(".seccion");
+    var frames=0;
+    function tick(){
+      frames++;
+      // forzar reflow y "scrollear" por toda la pagina como lo haria un usuario
+      document.body.getBoundingClientRect();
+      if(frames<40){ window.scrollTo(0, frames*document.body.scrollHeight/40); requestAnimationFrame(tick); return; }
+      window.scrollTo(0,0);
+      setTimeout(function(){
+        var vis=document.querySelectorAll(".seccion.visible");
+        say("  frames rAF ejecutados: "+frames);
+        say("  .seccion.visible: "+vis.length+"/"+secs.length);
+        for(var i=0;i<secs.length;i++){
+          say("    "+(secs[i].classList.contains("visible")?"[visible]":"[OCULTA  ]")+" opacity="+getComputedStyle(secs[i]).opacity);
+        }
+        say("");
+        say(vis.length===secs.length ? "  >>> las 7 secciones se revelan: OK <<<" : "  >>> RIESGO: quedan "+(secs.length-vis.length)+" en opacity:0 <<<");
+        say("");
+        say("=== IMAGENES tras scroll ===");
+        var imgs=[].slice.call(document.querySelectorAll("#catGrid img"));
+        var rotas=imgs.filter(function(i){return !i.complete||i.naturalWidth===0;});
+        say("  img rotas: "+rotas.length+"/"+imgs.length);
+        rotas.slice(0,5).forEach(function(i){say("    ROTA: "+i.getAttribute("src"));});
+        dump();
+      },800);
+    }
+    requestAnimationFrame(tick);
+  });
+})();
+</script>
 </body>
 </html>
