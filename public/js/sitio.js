@@ -39,6 +39,9 @@ if(modalEnvioEl && flotante){
 }
 
 // Scroll animations for sections
+// threshold is a RATIO, so a section taller than 10x the viewport could never reach it
+// (the catalog is ~14,000px tall on mobile) and stayed permanently at opacity:0.
+// threshold:0 + a negative bottom rootMargin reveals on entry regardless of height.
 if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window){
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -47,7 +50,7 @@ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'Inte
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold: 0.1});
+  }, {threshold: 0, rootMargin: '0px 0px -12% 0px'});
 
   document.querySelectorAll('.seccion').forEach(function(seccion){
     observer.observe(seccion);
