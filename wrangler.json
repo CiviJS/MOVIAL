@@ -5,13 +5,18 @@
     "enabled": true
   },
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS",
-    "exclude": [
-      "node_modules",
-      ".git",
-      ".wrangler",
-      ".agents"
-    ]
-  }
+    "directory": "."
+  },
+  "rules": [
+    {
+      "type": "Text",
+      "globs": [
+        ".git/**",
+        ".wrangler/**",
+        "node_modules/**",
+        ".agents/**"
+      ],
+      "fallthrough": true
+    }
+  ]
 }
