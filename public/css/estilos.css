@@ -797,9 +797,20 @@ html:not(.js) .cat-cab-nota{display:none}
 .cat-conteo b{color:var(--asfalto);font-weight:700;font-variant-numeric:tabular-nums}
 
 /* Category tabs — Señalización Vertical / Señales Preventivas */
-.cat-pest{display:flex;gap:8px;flex-wrap:wrap;flex:1 1 100%;margin-bottom:2px}
+/* Una sola fila con desplazamiento horizontal: 6 pestañas no caben en un
+   teléfono y envolverlas en 2-3 líneas empuja el contenido hacia abajo. */
+.cat-pest-wrap{position:relative;flex:1 1 100%;min-width:0;margin-bottom:2px}
+.cat-pest{
+  display:flex;gap:10px;flex-wrap:nowrap;align-items:center;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
+  /* el padding vertical evita que overflow-y:hidden recorte el anillo de foco */
+  padding:7px 38px 9px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.cat-pest::-webkit-scrollbar{display:none}
 .cat-pest-b{
-  display:inline-flex;align-items:center;gap:9px;
+  display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;white-space:nowrap;
   border:1px solid var(--linea);background:var(--blanco);color:var(--concreto);
   font-family:var(--texto);font-size:.87rem;font-weight:600;cursor:pointer;
   padding:0 16px;min-height:44px;border-radius:999px;
@@ -815,6 +826,39 @@ html:not(.js) .cat-cab-nota{display:none}
 .cat-pest-b[aria-selected="true"]{background:var(--asfalto);border-color:var(--asfalto);color:var(--blanco)}
 .cat-pest-b[aria-selected="true"] b{background:var(--amarillo);color:var(--asfalto)}
 .cat-pest-b:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+
+/* Flechas de desplazamiento + degradado que avisan de que hay más categorías.
+   El círculo se ve pequeño (34px) para no comerse las pastillas, pero el área
+   sensible sigue siendo de 44px gracias al ::after. */
+.cat-pest-flecha{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:34px;height:34px;display:grid;place-items:center;padding:0;
+  border:1px solid rgba(22,24,26,.24);border-radius:50%;
+  background:var(--blanco);color:var(--asfalto);cursor:pointer;z-index:2;
+  box-shadow:0 2px 7px rgba(0,0,0,.16);
+  transition:background .18s var(--ease-out),color .18s var(--ease-out);
+}
+.cat-pest-flecha::after{content:'';position:absolute;inset:-5px;border-radius:50%}
+.cat-pest-flecha:hover{background:var(--asfalto);color:var(--blanco)}
+.cat-pest-flecha:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+.cat-pest-flecha[hidden]{display:none}
+.cat-pest-flecha svg{width:17px;height:17px;display:block}
+.cat-pest-flecha-izq{left:2px}
+.cat-pest-flecha-der{right:2px}
+.cat-pest-wrap::after,.cat-pest-wrap::before{
+  content:'';position:absolute;top:7px;bottom:9px;width:38px;
+  pointer-events:none;opacity:0;transition:opacity .2s var(--ease-out);
+}
+.cat-pest-wrap::after{
+  right:0;border-radius:0 var(--radius) var(--radius) 0;
+  background:linear-gradient(to right,rgba(255,255,255,0),var(--hueso) 82%);
+}
+.cat-pest-wrap::before{
+  left:0;border-radius:var(--radius) 0 0 var(--radius);
+  background:linear-gradient(to left,rgba(255,255,255,0),var(--hueso) 82%);
+}
+.cat-pest-wrap.mas-dcha::after{opacity:1}
+.cat-pest-wrap.mas-izq::before{opacity:1}
 
 .cat-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));
@@ -853,6 +897,114 @@ html:not(.js) .cat-cab-nota{display:none}
 }
 .cat-card-btn:focus-visible{outline:3px solid var(--asfalto);outline-offset:3px}
 .cat-card:has(.cat-card-btn:focus-visible){outline:3px solid var(--amarillo);outline-offset:2px}
+
+/* --- Demarcación vial: tarjetas sin fotografía, dibujadas con SVG --- */
+/* El fondo sugiere el asfalto con una trama diagonal en CSS puro */
+.dem-fondo{
+  display:grid;place-items:center;position:relative;
+  background-color:#3A3D40;
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 9px);
+}
+.dem-ico{width:62%;height:62%;color:#F4F2ED;stroke-width:1.8}
+.cat-card:hover .dem-ico{transform:scale(1.07)}
+.dem-ico{transition:transform .3s var(--ease-out)}
+/* La unidad es lo que diferencia un tipo de otro: va como distintivo grande
+   sobre el ícono y con el nombre completo debajo del producto. */
+.dem-uni-sim{
+  position:absolute;top:10px;left:10px;
+  background:var(--amarillo);color:var(--asfalto);
+  font-family:var(--display);font-size:1rem;font-weight:800;letter-spacing:.01em;
+  line-height:1;padding:6px 11px;border-radius:9px;
+  box-shadow:0 2px 7px rgba(0,0,0,.28);
+}
+.dem-uni{
+  margin:0;padding:8px 12px 0;
+  font-size:.81rem;font-weight:600;color:var(--asfalto);letter-spacing:0;
+}
+/* Ícono del modal de demarcación */
+.mjs-ico{display:grid;place-items:center;width:100%;padding:4px 0}
+.dem-ico-modal{width:150px;height:150px;color:#3A3D40}
+/* Unidad fija junto al campo de cantidad */
+.mjs-q{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mjs-uni{
+  font-size:.8rem;font-weight:600;color:var(--concreto);
+  background:var(--hueso);border:1px solid var(--linea);
+  border-radius:999px;padding:5px 12px;
+}
+/* Bloque opcional de demarcación: salida de "no sé" + especificaciones rápidas */
+.mjs-dem{margin:0 0 4px}
+.asesoria{
+  display:flex;gap:11px;align-items:flex-start;cursor:pointer;
+  border:1px solid var(--linea);border-left:4px solid var(--amarillo);
+  border-radius:var(--radius);background:var(--hueso);
+  padding:12px 14px;margin-bottom:14px;
+  transition:border-color .18s var(--ease-out),background .18s var(--ease-out);
+}
+.asesoria:hover{background:#EFEDE8}
+.asesoria input{
+  width:22px;height:22px;flex:0 0 auto;margin-top:1px;
+  min-height:auto;min-width:auto;accent-color:var(--asfalto);
+}
+.asesoria:has(input:checked){background:#fff;border-color:var(--asfalto)}
+.asesoria:has(input:focus-visible){outline:3px solid var(--amarillo);outline-offset:2px}
+.asesoria-txt{display:block}
+.asesoria-txt b{display:block;font-size:.9rem;font-weight:700;color:var(--asfalto);line-height:1.3}
+.asesoria-txt small{display:block;margin-top:3px;font-size:.78rem;color:var(--concreto);line-height:1.4}
+.asesoria-nota{
+  margin:0 0 16px;padding:10px 13px;border-radius:10px;
+  background:#FFF8E1;border:1px solid #E8D9A8;
+  font-size:.79rem;line-height:1.45;color:#5A4A12;
+}
+/* Campos técnicos desactivados cuando se pide asesoría: se siguen viendo,
+   pero queda claro que no son obligatorios. */
+.mjs-opc:disabled{opacity:.5}
+.mjs-opc:disabled .dem-op{pointer-events:none;cursor:not-allowed}
+/* Selector de color: radios nativos estilizados como muestras de pintura */
+.mjs-opc{border:0;padding:0;margin:0 0 18px}
+.mjs-opc legend{
+  padding:0;font-size:.85rem;font-weight:600;margin-bottom:9px;color:var(--asfalto);
+}
+.mjs-opc-opts{display:flex;flex-wrap:wrap;gap:8px}
+.mjs-color{border:0;padding:0;margin:0 0 18px}
+.mjs-color legend{
+  padding:0;font-size:.85rem;font-weight:600;margin-bottom:9px;color:var(--asfalto);
+}
+.mjs-color-opts{display:flex;flex-wrap:wrap;gap:8px}
+.dem-op{
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  border:1px solid #C9C5BC;border-radius:999px;padding:7px 13px 7px 9px;
+  font-size:.79rem;font-weight:600;color:var(--concreto);
+  min-height:40px;transition:border-color .18s var(--ease-out),background .18s var(--ease-out);
+}
+.dem-op:hover{border-color:var(--asfalto)}
+.dem-op input{position:absolute;opacity:0;width:0;height:0}
+.dem-chip{
+  width:20px;height:20px;border-radius:50%;background:var(--c);
+  border:1px solid var(--b);flex-shrink:0;
+}
+.dem-op:has(input:checked){border-color:var(--asfalto);background:var(--asfalto);color:var(--blanco)}
+.dem-op:has(input:checked) .dem-chip{box-shadow:0 0 0 2px var(--blanco),0 0 0 4px var(--asfalto)}
+.dem-op:has(input:focus-visible){outline:3px solid var(--amarillo);outline-offset:2px}
+/* Muestra de color dentro del carrito */
+.dem-col{
+  display:inline-block;width:11px;height:11px;border-radius:50%;
+  background:var(--c);border:1px solid var(--b);vertical-align:middle;
+}
+/* Línea de specs en el carrito: la asesoría se destaca para que no pase
+   inadvertida y el asesor sepa que no debe esperar detalles técnicos. */
+.dem-asesoria{font-style:normal;font-weight:700;color:var(--asfalto)}
+/* Miniatura y Thumb de un ítem de demarcación: sin <img> */
+.dem-mini,.dem-ci{
+  display:grid;place-items:center;position:relative;
+  background-color:#3A3D40;
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 9px);
+  border-color:#3A3D40;
+}
+.dem-mini-ico{width:64%;height:64%;color:#F4F2ED}
+.dem-mini-col{
+  position:absolute;right:4px;bottom:4px;width:11px;height:11px;
+  border-radius:50%;border:1px solid rgba(0,0,0,.35);
+}
 .cat-card-en{
   position:absolute;top:9px;right:9px;z-index:0;
   width:26px;height:26px;border-radius:50%;
@@ -968,7 +1120,7 @@ html:not(.js) .cat-cab-nota{display:none}
 
 /* Barra resumen de la cotización, dentro del catálogo */
 .cot-barra{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  display:flex;align-items:center;align-content:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
   margin-top:26px;padding:16px 20px;border-radius:16px;
   background:var(--asfalto);color:#fff;box-shadow:var(--shadow-md);
   animation:barraIn .32s var(--ease-out);
@@ -982,11 +1134,25 @@ html:not(.js) .cat-cab-nota{display:none}
 }
 @keyframes barraIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .cot-info{display:flex;align-items:center;gap:15px;min-width:0}
-.cot-mini{display:flex;flex-shrink:0}
-.cot-mini img,.cot-mini .mas{
-  width:46px;height:46px;border-radius:10px;object-fit:contain;
+.cot-mini{display:flex;align-items:center;flex-shrink:0}
+.cot-mini img,.cot-mini .dem-mini,.cot-mini .mas{
+  flex:0 0 auto;width:46px;height:46px;border-radius:10px;
+  overflow:hidden;object-fit:contain;
   background:#fff;padding:4px;margin-left:-14px;
   border:2px solid var(--asfalto);box-shadow:0 3px 10px rgba(0,0,0,.28);
+}
+/* La miniatura de demarcación no es <img>: es un <span> con un SVG dentro. Sin
+   ancho y alto propios el SVG resuelve su porcentaje contra una caja sin tamaño
+   definido y revientan la altura de la fila, así que se le fija igual que a las
+   fotos y el icono se acota en píxeles. */
+.cot-mini .dem-mini{
+  display:grid;place-items:center;padding:0;color:#F4F2ED;
+  background-color:#3A3D40;
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 9px);
+  border-color:#3A3D40;
+}
+.cot-mini .dem-mini .dem-mini-ico{
+  display:block;width:26px;height:26px;max-width:26px;max-height:26px;
 }
 .cot-mini>*:first-child{margin-left:0}
 .cot-mini .mas{
@@ -997,7 +1163,7 @@ html:not(.js) .cat-cab-nota{display:none}
 .cot-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
 .cot-txt strong{font-family:var(--display);font-size:1.06rem;line-height:1.2}
 .cot-sub{font-size:.8rem;color:#AFB4B1;line-height:1.35}
-.cot-acc{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cot-acc{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .cot-barra .btn-linea{border-color:rgba(255,255,255,.32);color:#fff}
 .cot-barra .btn-linea:hover{background:#fff;border-color:#fff;color:var(--asfalto)}
 .cot-barra .btn-amarillo:hover{background:var(--amarillo-hover)}
@@ -1152,7 +1318,8 @@ body.capa-abierta .flotante{opacity:0;pointer-events:none}
   .cat-carrito{height:40px;padding:0 12px;font-size:.76rem}
   .cat-carrito .cnt{min-width:21px;height:21px}
   .cot-barra{margin-top:18px;padding:14px;gap:14px}
-  .cot-mini img,.cot-mini .mas{width:40px;height:40px;margin-left:-12px}
+  .cot-mini img,.cot-mini .dem-mini,.cot-mini .mas{width:40px;height:40px;margin-left:-12px}
+  .cot-mini .dem-mini .dem-mini-ico{width:22px;height:22px;max-width:22px;max-height:22px}
   .cot-txt strong{font-size:1rem}
   .cot-sub{font-size:.76rem}
   .cot-acc{width:100%}

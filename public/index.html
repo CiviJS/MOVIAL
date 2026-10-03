@@ -151,13 +151,13 @@
     </div>
   </section>
 
-  <!-- PROYECTOS -->
+  <!-- NUESTRO TRABAJO EN CAMPO (proyectos realizados + galería de campo) -->
   <section class="seccion blanco" id="proyectos">
     <span class="marcador" aria-hidden="true"></span>
     <div class="wrap">
       <div class="intro">
-        <h2>Proyectos realizados</h2>
-        <p class="lead">Trabajo real en vías públicas y privadas: señalización, demarcación y mobiliario urbano.</p>
+        <h2>Nuestro trabajo en campo</h2>
+        <p class="lead">Trabajo real en vías públicas y privadas: señalización, demarcación y mobiliario urbano. Estas son las intervenciones que ejecutamos y las fotos de campo que respaldan cada proyecto.</p>
       </div>
 
       <article class="caso-destacado">
@@ -192,6 +192,33 @@
             <p>Paraderos, resaltos, estoperoles plásticos, hitos y dispositivos de seguridad vial incluidos en el Manual de Señalización Vial vigente.</p>
           </div>
         </article>
+      </div>
+
+      <div class="collage">
+        <figure class="collage-item hero">
+          <img src="images/trabajos/4TrabjadoresIniciandoAponerReductores.png" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
+          <figcaption>Arrancamos la instalación de reductores</figcaption>
+        </figure>
+        <figure class="collage-item alto">
+          <img src="images/trabajos/trabajadorPoniendo1Señal.png" alt="Trabajador instalando una señal de tránsito" loading="lazy" decoding="async">
+          <figcaption>Señalética lista para operar</figcaption>
+        </figure>
+        <figure class="collage-item chico a-equipo">
+          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
+          <figcaption>Personal en faena</figcaption>
+        </figure>
+        <figure class="collage-item chico a-via">
+          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
+          <figcaption>Reductores ya en servicio</figcaption>
+        </figure>
+        <figure class="collage-item wide a-reduct">
+          <img src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la vía" loading="lazy" decoding="async">
+          <figcaption>Instalación de reductores</figcaption>
+        </figure>
+        <figure class="collage-item wide a-gener">
+          <img src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando generador de energía para obra en campo" loading="lazy" decoding="async">
+          <figcaption>Apoyo logístico en sitio</figcaption>
+        </figure>
       </div>
 
       <div class="cta-centro">
@@ -316,17 +343,24 @@
             <span class="cat-pilla"><b>60</b> Reglamentarias</span>
             <span class="cat-pilla"><b>59</b> Informativas</span>
             <span class="cat-pilla"><b>22</b> Dispositivos Viales</span>
+            <span class="cat-pilla"><b>4</b> Demarcación Vial</span>
           </div>
           <p class="cat-cab-nota">El catálogo se despliega en tandas de 24 productos. Ábrelo para verlos y agregarlos a tu cotización.</p>
         </div>
 
         <div class="cat-cuerpo" id="catCuerpo">
         <div class="cat-barra">
-          <div class="cat-pest" role="tablist" aria-label="Categoría del catálogo">
-            <button type="button" class="cat-pest-b" role="tab" id="catTabPrev" aria-selected="true" aria-controls="catGrid" data-cat="prev">Señales Preventivas <b>87</b></button>
+          <div class="cat-pest-wrap">
+            <button type="button" class="cat-pest-flecha cat-pest-flecha-izq" id="catPestIzq" aria-label="Ver las categorías anteriores" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+            <div class="cat-pest" role="tablist" aria-label="Categoría del catálogo">
+            <button type="button" class="cat-pest-b" role="tab" id="catTabTodos" aria-selected="true" aria-controls="catGrid" data-cat="todos">Todo el Catálogo <b>232</b></button>
+          <button type="button" class="cat-pest-b" role="tab" id="catTabPrev" aria-selected="false" aria-controls="catGrid" data-cat="prev">Señales Preventivas <b>87</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabReg" aria-selected="false" aria-controls="catGrid" data-cat="reg">Señalización Vertical · Reglamentarias <b>60</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabInfo" aria-selected="false" aria-controls="catGrid" data-cat="info">Señales Informativas <b>59</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabDisp" aria-selected="false" aria-controls="catGrid" data-cat="disp">Dispositivos Viales <b>22</b></button>
+            <button type="button" class="cat-pest-b" role="tab" id="catTabDem" aria-selected="false" aria-controls="catGrid" data-cat="dem">Demarcación Vial <b>4</b></button>
+          </div>
+            <button type="button" class="cat-pest-flecha cat-pest-flecha-der" id="catPestDer" aria-label="Ver más categorías" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
           </div>
           <p class="cat-ruta"><span>Catálogo</span> <i>/</i> <b id="catRuta">Señales Preventivas</b></p>
           <div class="cat-buscar">
@@ -350,7 +384,7 @@
 
         <div class="cat-mas-wrap" id="catMasWrap" hidden>
           <button type="button" class="btn btn-linea cat-mas" id="catMas">Ver más señales</button>
-          <p class="cat-mas-nota">Se muestran <b id="catMostradas">0</b> de <b id="catCoincidentes">0</b> <span id="catUnidad">señales</span> de esta categoría.</p>
+          <p class="cat-mas-nota">Se muestran <b id="catMostradas">0</b> de <b id="catCoincidentes">0</b> <span id="catUnidad">productos</span> <span id="catAmbito">en el catálogo</span>.</p>
         </div>
 
         <!-- COTIZACIÓN — parte del mismo módulo de catálogo -->
@@ -358,7 +392,7 @@
           <div class="cot-info">
             <span class="cot-mini" id="cotMini" aria-hidden="true"></span>
             <span class="cot-txt">
-              <strong id="cotBarTitulo">0 señales en tu cotización</strong>
+              <strong id="cotBarTitulo">0 ítems en tu cotización</strong>
               <span class="cot-sub">Sin compromiso: confirmamos disponibilidad, medidas y precio.</span>
             </span>
           </div>
@@ -414,43 +448,6 @@
         <h3>¿Tienes un proyecto vial o necesitas señalización personalizada?</h3>
         <p>Adaptamos la fabricación a tus requerimientos técnicos y normativos. Escríbenos sobre tu vía o el tipo de señal que buscas y te ayudamos a resolverlo.</p>
         <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20necesito%20una%20se%C3%B1al%20que%20no%20est%C3%A1%20en%20el%20cat%C3%A1logo." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NUESTRO TRABAJO -->
-  <section class="seccion claro" id="trabajo">
-    <span class="marcador" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="intro">
-        <h2>Nuestro trabajo en campo</h2>
-        <p class="lead">Fotografías de nuestras intervenciones: el compromiso humano detrás de cada proyecto de seguridad vial.</p>
-      </div>
-      <div class="collage">
-        <figure class="collage-item hero">
-          <img src="images/trabajos/4TrabjadoresIniciandoAponerReductores.png" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
-          <figcaption>Arrancamos la instalación de reductores</figcaption>
-        </figure>
-        <figure class="collage-item alto">
-          <img src="images/trabajos/trabajadorPoniendo1Señal.png" alt="Trabajador instalando una señal de tránsito" loading="lazy" decoding="async">
-          <figcaption>Señalética lista para operar</figcaption>
-        </figure>
-        <figure class="collage-item chico a-equipo">
-          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
-          <figcaption>Personal en faena</figcaption>
-        </figure>
-        <figure class="collage-item chico a-via">
-          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
-          <figcaption>Reductores ya en servicio</figcaption>
-        </figure>
-        <figure class="collage-item wide a-reduct">
-          <img src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la vía" loading="lazy" decoding="async">
-          <figcaption>Intalacion de reductores</figcaption>
-        </figure>
-        <figure class="collage-item wide a-gener">
-          <img src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando generador de energía para obra en campo" loading="lazy" decoding="async">
-          <figcaption>Apoyo logístico en sitio</figcaption>
-        </figure>
       </div>
     </div>
   </section>
@@ -547,7 +544,7 @@
       <div>
         <h4>Servicios</h4>
         <p><a href="#servicios">Qué hacemos</a><br>
-        <a href="#proyectos">Proyectos realizados</a><br>
+        <a href="#proyectos">Nuestro trabajo en campo</a><br>
         <a href="#estudios">Estudios y diseños</a><br>
         <a href="#productos">Señalización y mobiliario</a></p>
       </div>
@@ -592,21 +589,53 @@
 <div class="mjs" id="modalProducto" role="dialog" aria-modal="true" aria-labelledby="mpNombre" aria-hidden="true">
   <div class="mjs-caja">
     <button type="button" class="mjs-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
-    <div class="mjs-img"><img id="mpImg" src="" alt=""></div>
+    <div class="mjs-img"><img id="mpImg" src="" alt=""><span class="mjs-ico" id="mpIcono" hidden></span></div>
     <div class="mjs-cuerpo">
       <p class="mjs-cat" id="mpCat"></p>
       <h2 id="mpNombre"></h2>
       <div class="mjs-row">
         <label for="mpCantidad">Cantidad</label>
-        <div class="stepper">
-          <button type="button" id="mpMenos" aria-label="Quitar una unidad">&minus;</button>
-          <input type="number" id="mpCantidad" value="1" min="1" max="9999" step="1" inputmode="numeric" aria-label="Cantidad de señales">
-          <button type="button" id="mpMas" aria-label="Agregar una unidad">&plus;</button>
+        <div class="mjs-q">
+          <div class="stepper">
+            <button type="button" id="mpMenos" aria-label="Quitar una unidad">&minus;</button>
+            <input type="number" id="mpCantidad" value="1" min="1" max="9999" step="1" inputmode="numeric" aria-label="Cantidad de señales">
+            <button type="button" id="mpMas" aria-label="Agregar una unidad">&plus;</button>
+          </div>
+          <span class="mjs-uni" id="mpUnidad" hidden></span>
         </div>
       </div>
+
+      <!-- Solo demarcación: la salida de "no sé" y las especificaciones rápidas.
+           Van dentro de un bloque propio porque las señales no las necesitan. -->
+      <div class="mjs-dem" id="mpDemWrap" hidden>
+        <label class="asesoria" for="mpAsesoria">
+          <input type="checkbox" id="mpAsesoria">
+          <span class="asesoria-txt">
+            <b>No estoy seguro de las especificaciones</b>
+            <small>Solicitar asesoría técnica. Un asesor define con usted las medidas, el material y el tipo de pintura, y visita el sitio si hace falta.</small>
+          </span>
+        </label>
+        <p class="asesoria-nota" id="mpAsesoriaNota" hidden>Asesoría técnica solicitada. Un asesor lo contactará para definir las medidas y los materiales: puede dejar estas opciones en blanco.</p>
+
+        <fieldset class="mjs-color mjs-opc" id="mpColorWrap" hidden>
+          <legend>Color</legend>
+          <div class="mjs-color-opts" id="mpColorOpts"></div>
+        </fieldset>
+
+        <fieldset class="mjs-opc" id="mpPinturaWrap" hidden>
+          <legend>Tipo de pintura</legend>
+          <div class="mjs-opc-opts" id="mpPinturaOpts"></div>
+        </fieldset>
+
+        <fieldset class="mjs-opc" id="mpSuperficieWrap" hidden>
+          <legend>Superficie</legend>
+          <div class="mjs-opc-opts" id="mpSuperficieOpts"></div>
+        </fieldset>
+      </div>
+
       <div class="campo">
         <label for="mpDetalles">Detalles o especificaciones adicionales</label>
-        <textarea id="mpDetalles" placeholder="Medidas, material, color, ubicación en la vía, tipo de poste, condiciones de instalación..."></textarea>
+        <textarea id="mpDetalles" placeholder="Ej: Tramo de la vía, estado del pavimento, si requieres aplicación/instalación, o cualquier duda para asesorarte..."></textarea>
       </div>
       <button type="button" class="btn btn-amarillo btn-ancho" id="mpAgregar">Agregar a la cotización</button>
       <p class="mjs-nota">Sin compromiso. Confirmamos disponibilidad, medidas y precio antes de facturar.</p>
