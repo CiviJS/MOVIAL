@@ -230,9 +230,18 @@ header{
 .hero-acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .placas{display:flex;flex-wrap:wrap;gap:10px;margin-top:46px;padding-top:26px;border-top:1px dashed rgba(255,255,255,.28)}
 .placa{
-  font-size:.78rem;font-weight:600;letter-spacing:.02em;
-  border:2px solid var(--amarillo);color:#fff;padding:7px 13px;border-radius:var(--radius);
+  display:inline-flex;align-items:center;gap:8px;min-height:40px;
+  font-family:var(--texto);font-size:.78rem;font-weight:600;letter-spacing:.02em;
+  border:2px solid var(--amarillo);background:transparent;color:#fff;
+  padding:6px 13px;border-radius:var(--radius);
+  cursor:pointer;text-align:left;
+  transition:background .18s var(--ease-out),color .18s var(--ease-out);
 }
+.placa-ico{flex-shrink:0;transition:transform .22s var(--ease-out)}
+.placa:hover,.placa[aria-expanded="true"]{background:var(--amarillo);color:var(--asfalto)}
+.placa:hover .placa-ico,.placa[aria-expanded="true"] .placa-ico{transform:rotate(90deg)}
+.placa:active{transform:translateY(1px)}
+.placa:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media(max-width:920px){
   .hero .wrap{padding-top:64px;padding-bottom:56px}
   .hero h1{max-width:14ch}
@@ -790,6 +799,8 @@ footer .placa-logo img{max-width:160px}
 .cat-card-nombre{
   font-family:var(--texto);font-size:.86rem;font-weight:600;
   line-height:1.28;letter-spacing:0;margin:0;padding:11px 12px 0;
+  /* absorbe el espacio sobrante para que el boton quede siempre al fondo y nivelado */
+  flex:1 0 auto;
 }
 .cat-card-btn{
   align-self:flex-start;margin:9px 0 13px 12px;
@@ -880,6 +891,22 @@ footer .placa-logo img{max-width:160px}
 .mjs-envio .acepto{font-size:.79rem;margin:4px 0 16px}
 .mjs-envio .acepto input{width:22px;height:22px;margin-top:1px;min-height:auto;min-width:auto}
 .mjs-envio .btn-ancho{margin-top:2px}
+
+/* Service detail modal (hero chips) */
+.mjs-serv .mjs-caja{max-width:560px}
+.ms-desc{margin:0 0 22px;font-size:.97rem;line-height:1.6}
+.ms-subtitulo{
+  font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--concreto);margin:0 0 13px;
+}
+.ms-puntos{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:13px}
+.ms-puntos li{position:relative;padding-left:27px;font-size:.93rem;line-height:1.55}
+.ms-puntos li::before{
+  content:'';position:absolute;left:0;top:.48em;width:10px;height:10px;
+  border-radius:3px;background:var(--amarillo);
+}
+.ms-puntos b{font-weight:700}
+.ms-cta{margin-top:0}
 
 /* Carrito: botón en la barra del catálogo */
 .cat-carrito{
@@ -1079,6 +1106,8 @@ body.capa-abierta .flotante{opacity:0;pointer-events:none}
   .tarjeta:hover,.caso:hover,.producto:hover,.caso-destacado:hover,
   .cat-card:hover{box-shadow:var(--shadow-sm)}
   .cat-carrito:hover{box-shadow:var(--shadow-sm);background:var(--asfalto)}
+  /* los chips del hero ahora son botones: necesitan objetivo táctil mínimo */
+  .placa{min-height:44px}
 }
 
 /* ============================================================

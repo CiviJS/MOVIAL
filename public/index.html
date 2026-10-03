@@ -65,10 +65,22 @@
         <a class="btn btn-borde" href="#productos">Cotizar un proyecto</a>
       </div>
       <div class="placas">
-        <span class="placa">PESV · Resolución 40595 de 2022</span>
-        <span class="placa">Planes de Manejo de Tránsito</span>
-        <span class="placa">Estudios de Tránsito</span>
-        <span class="placa">Inventarios Georreferenciados</span>
+        <button type="button" class="placa" data-servicio="pesv" aria-haspopup="dialog" aria-expanded="false">
+          PESV · Resolución 40595 de 2022
+          <svg class="placa-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button type="button" class="placa" data-servicio="pmt" aria-haspopup="dialog" aria-expanded="false">
+          Planes de Manejo de Tránsito
+          <svg class="placa-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button type="button" class="placa" data-servicio="estudios" aria-haspopup="dialog" aria-expanded="false">
+          Estudios de Tránsito
+          <svg class="placa-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button type="button" class="placa" data-servicio="inventarios" aria-haspopup="dialog" aria-expanded="false">
+          Inventarios Georreferenciados
+          <svg class="placa-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -333,8 +345,8 @@
         </div>
 
         <div class="cta-bloque" style="margin-top:32px">
-          <h3>¿No encuentras la señal que necesitas?</h3>
-          <p>Fabricamos señales a medida y atendemos proyectos de mayor tamaño. Cuéntanos la referencia o la situación de la vía.</p>
+          <h3>¿Tienes un proyecto vial o necesitas señalización personalizada?</h3>
+          <p>Adaptamos la fabricación a tus requerimientos técnicos y normativos. Escríbenos sobre tu via o el tipo de señal que buscas y te ayudamos a resolverlo.</p>
           <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20necesito%20una%20se%C3%B1al%20que%20no%20est%C3%A1%20en%20el%20cat%C3%A1logo." target="_blank" rel="noopener">Consultar por WhatsApp</a>
         </div>
       </div>
@@ -587,6 +599,21 @@
       </label>
       <button type="button" class="btn btn-amarillo btn-ancho" id="meEnviar">Enviar solicitud por WhatsApp</button>
       <p class="mjs-nota">Se abrirá WhatsApp con el detalle de tu cotización para que la revises y la confirmes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SERVICIO (chips del hero) -->
+<div class="mjs mjs-serv" id="modalServicio" role="dialog" aria-modal="true" aria-labelledby="msTitulo" aria-describedby="msDescripcion" aria-hidden="true">
+  <div class="mjs-caja">
+    <button type="button" class="mjs-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <div class="mjs-cuerpo">
+      <p class="mjs-cat" id="msEtiqueta"></p>
+      <h2 id="msTitulo"></h2>
+      <p class="ms-desc" id="msDescripcion"></p>
+      <h3 class="ms-subtitulo">Puntos clave</h3>
+      <ul class="ms-puntos" id="msPuntos"></ul>
+      <a class="btn btn-amarillo btn-ancho ms-cta" href="#productos" data-cerrar-modal>Cotizar este servicio</a>
     </div>
   </div>
 </div>

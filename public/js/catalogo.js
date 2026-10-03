@@ -312,6 +312,11 @@ var pie = document.getElementById('carritoPie');
 var totalEl = document.getElementById('carritoTotal');
 var modalP = document.getElementById('modalProducto');
 var modalE = document.getElementById('modalEnvio');
+var modalS = document.getElementById('modalServicio');
+var msEtiqueta = document.getElementById('msEtiqueta');
+var msTitulo = document.getElementById('msTitulo');
+var msDescripcion = document.getElementById('msDescripcion');
+var msPuntos = document.getElementById('msPuntos');
 var mpImg = document.getElementById('mpImg');
 var mpCat = document.getElementById('mpCat');
 var mpNombre = document.getElementById('mpNombre');
@@ -639,24 +644,117 @@ function abrirCarrito(){
 }
 function cerrarCarrito(){ cerrarCapa(drawer, true); }
 
+/* ---------- Detalle de servicios (chips del hero) ---------- */
+var SERVICIOS = {
+  pesv: {
+    etiqueta: 'Plan estratégico de seguridad vial',
+    titulo: 'PESV · Resolución 40595 de 2022',
+    descripcion: 'El Plan Estratégico de Seguridad Vial (PESV) es un instrumento de planificación que contiene las acciones, mecanismos y estrategias orientadas a prevenir y disminuir la siniestralidad vial en el entorno corporativo. La Resolución 40595 de 2022 del Ministerio de Transporte adoptó la metodología actual para su diseño, implementación y verificación basada en el ciclo PHVA (Planear, Hacer, Verificar, Actuar).',
+    puntos: [
+      'Obligatoriedad: Aplica a todas las organizaciones, empresas o entidades públicas y privadas que administren o contraten conductores, o que posean o comercialicen una flota de más de 10 vehículos automotores o no automotores.',
+      'Articulación: Debe estar alineado obligatoriamente con el Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST).',
+      'Clasificación: Los requisitos se exigen según tres niveles de implementación: Básico, Estándar y Avanzado, dependiendo de la misionalidad y el tamaño de la organización.'
+    ]
+  },
+  pmt: {
+    etiqueta: 'Movilidad y obra vial',
+    titulo: 'Planes de Manejo de Tránsito',
+    descripcion: 'Un Plan de Manejo de Tránsito (PMT) es una herramienta técnica y de gestión de la movilidad que define las estrategias, desvíos y alternativas para mitigar el impacto generado por la ejecución de obras viales, civiles o la realización de eventos especiales en las vías. Su objetivo fundamental es garantizar la seguridad vial de los peatones, ciclistas, trabajadores y conductores de la zona.',
+    puntos: [
+      'Diseño: Debe ser elaborado por ingenieros civiles especializados en vías o transporte, basándose estrictamente en el Manual de Señalización Vial de Colombia.',
+      'Aprobación: Requiere la revisión y autorización previa de la autoridad de tránsito competente de la jurisdicción (como las secretarías de movilidad locales) antes del inicio de las actividades.',
+      'Componentes: Incluye planos detallados de señalización temporal, horarios de trabajo, zonas de desvío y especificaciones técnicas.'
+    ]
+  },
+  estudios: {
+    etiqueta: 'Análisis y modelación',
+    titulo: 'Estudios de Tránsito',
+    descripcion: 'Un Estudio de Tránsito es un análisis técnico y predictivo que evalúa el comportamiento del flujo vehicular y peatonal en una red vial existente o futura. Se utiliza principalmente para medir el impacto en la movilidad provocado por el desarrollo de grandes proyectos urbanísticos (centros comerciales, complejos residenciales) o nuevas infraestructuras de transporte.',
+    puntos: [
+      'Metodología: Se fundamenta en la toma de datos de campo a través de aforos volumétricos (conteos manuales o electrónicos), determinación del Tránsito Promedio Diario Anual (TPDA) y análisis de capacidad y niveles de servicio.',
+      'Herramientas: Utiliza softwares de simulación y modelación matemática de tráfico (como Vissim) para proyectar cómo interactuará la nueva demanda vehicular con las vías existentes.',
+      'Finalidad: Proporciona soluciones, diseños de intersecciones o modificaciones viales que garanticen que el proyecto no generará congestión o incidentes en su zona de influencia.'
+    ]
+  },
+  inventarios: {
+    etiqueta: 'Levantamiento de información',
+    titulo: 'Inventarios Georreferenciados',
+    descripcion: 'Un Inventario Georreferenciado en el sector vial es una base de datos digitalizada que registra la localización geográfica exacta (mediante coordenadas cartográficas o GPS) y las características físicas de toda la infraestructura vial disponible. En Colombia, los datos recopilados alimentan plataformas nacionales como el SINC (Sistema Integral Nacional de Información de Carreteras) administrado por el Ministerio de Transporte.',
+    puntos: [
+      'Elementos registrados: Incluye el eje de la vía, señales de tránsito verticales y horizontales, semáforos, puentes, peajes y postes de referencia (PR).',
+      'Estado de la malla: Permite documentar en tiempo real el tipo de superficie, rugosidad y daños en la capa asfáltica (baches o malformaciones).',
+      'Utilidad: Facilita a gobernaciones, alcaldías e INVÍAS la planeación de auditorías, el mantenimiento oportuno de la malla vial y la toma de decisiones presupuestales.'
+    ]
+  }
+};
+var chipsServicio = document.querySelectorAll('.placa[data-servicio]');
+function marcarChips(abierto){
+  chipsServicio.forEach(function(c){
+    c.setAttribute('aria-expanded', (abierto && c.getAttribute('data-servicio') === abierto) ? 'true' : 'false');
+  });
+}
+function abrirServicio(id){
+  var s = SERVICIOS[id];
+  if(!s) return;
+  msEtiqueta.textContent = s.etiqueta;
+  msTitulo.textContent = s.titulo;
+  msDescripcion.textContent = s.descripcion;
+
+  msPuntos.textContent = '';
+  s.puntos.forEach(function(texto){
+    var li = document.createElement('li');
+    var corte = texto.indexOf(': ');
+    if(corte > 0){
+      var b = document.createElement('b');
+      b.textContent = texto.slice(0, corte + 1);
+      li.appendChild(b);
+      li.appendChild(document.createTextNode(' ' + texto.slice(corte + 2)));
+    }else{
+      li.textContent = texto;
+    }
+    msPuntos.appendChild(li);
+  });
+
+  marcarChips(id);
+  abrirCapa(modalS);
+}
+function cerrarServicio(){
+  cerrarCapa(modalS, true);
+  marcarChips(null);
+}
+
+chipsServicio.forEach(function(chip){
+  chip.addEventListener('click', function(){ abrirServicio(chip.getAttribute('data-servicio')); });
+});
+
 botonCarrito.addEventListener('click', abrirCarrito);
 document.getElementById('cotVer').addEventListener('click', abrirCarrito);
 document.querySelectorAll('[data-cerrar-carrito]').forEach(function(b){
   b.addEventListener('click', cerrarCarrito);
 });
 document.querySelectorAll('[data-cerrar-modal]').forEach(function(b){
-  b.addEventListener('click', function(){ cerrarCapa(b.closest('.mjs'), true); });
+  b.addEventListener('click', function(){
+    var capa = b.closest('.mjs');
+    if(capa === modalS) cerrarServicio();
+    else cerrarCapa(capa, true);
+  });
 });
 modalP.addEventListener('click', function(e){ if(e.target === modalP) cerrarCapa(modalP, true); });
 modalE.addEventListener('click', function(e){ if(e.target === modalE) cerrarCapa(modalE, true); });
+modalS.addEventListener('click', function(e){ if(e.target === modalS) cerrarServicio(); });
 
 document.addEventListener('keydown', function(e){
   var abierto = null;
   if(modalE.classList.contains('abierto')) abierto = modalE;
   else if(modalP.classList.contains('abierto')) abierto = modalP;
+  else if(modalS.classList.contains('abierto')) abierto = modalS;
   else if(drawer.classList.contains('abierto')) abierto = drawer;
 
-  if(e.key === 'Escape' && abierto){ cerrarCapa(abierto, true); return; }
+  if(e.key === 'Escape' && abierto){
+    if(abierto === modalS) cerrarServicio();
+    else cerrarCapa(abierto, true);
+    return;
+  }
   if(e.key !== 'Tab' || !abierto) return;
 
   var sel = abierto.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled])');
