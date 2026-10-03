@@ -412,16 +412,20 @@ header{
 .caso .caso-img{aspect-ratio:16/9;overflow:hidden;background:var(--asfalto)}
 .caso .caso-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
 .caso:hover .caso-img img{transform:scale(1.04)}
-/* Fotos verticales en cajas 16/9: con cover solo se ve el 42% del archivo y queda
-   ampliado al centro. Se muestran completas y la caja se tiñe con un tono tomado
-   del propio archivo para que las barras laterales se lean como una lámina
-   montada y no como un recorte. El tono va en --lamina, uno por foto. */
-.caso-img.completa{background:var(--lamina,#C6C2BA)}
-.caso-img.completa img{object-fit:contain;object-position:center}
-.caso-img.completa.a-demarcacion{--lamina:#C6C2BA}
+/* Fotos verticales en cajas apaisadas: con cover solo se ve el 42-46% del
+   archivo y queda ampliada al centro. Se muestran completas y la caja se tiñe
+   con un tono tomado del propio archivo para que las barras laterales se lean
+   como una lámina montada y no como un recorte. El tono va en --lamina. */
+.caso-img.completa,
+.producto-img.completa{background:var(--lamina,#C6C2BA)}
+.caso-img.completa img,
+.producto-img.completa img{object-fit:contain;object-position:center}
+.caso-img.completa.a-demarcacion,
+.producto-img.completa.a-demarcacion{--lamina:#C6C2BA}
 .caso-img.completa.a-senal{--lamina:#A8A8A8}
 .caso:hover .caso-img.completa img,
-.caso-destacado:hover .caso-img.completa img{transform:none}
+.caso-destacado:hover .caso-img.completa img,
+.producto:hover .producto-img.completa img{transform:none}
 .caso .caso-info{padding:24px;flex:1 1 auto}
 .caso-etiqueta{
   display:inline-block;align-self:flex-start;
