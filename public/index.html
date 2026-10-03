@@ -315,8 +315,9 @@
             <span class="cat-pilla"><b>87</b> Preventivas</span>
             <span class="cat-pilla"><b>60</b> Reglamentarias</span>
             <span class="cat-pilla"><b>59</b> Informativas</span>
+            <span class="cat-pilla"><b>22</b> Dispositivos Viales</span>
           </div>
-          <p class="cat-cab-nota">El catálogo se despliega en tandas de 24 señales. Ábrelo para verlas y agregarlas a tu cotización.</p>
+          <p class="cat-cab-nota">El catálogo se despliega en tandas de 24 productos. Ábrelo para verlos y agregarlos a tu cotización.</p>
         </div>
 
         <div class="cat-cuerpo" id="catCuerpo">
@@ -325,6 +326,7 @@
             <button type="button" class="cat-pest-b" role="tab" id="catTabPrev" aria-selected="true" aria-controls="catGrid" data-cat="prev">Señales Preventivas <b>87</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabReg" aria-selected="false" aria-controls="catGrid" data-cat="reg">Señalización Vertical · Reglamentarias <b>60</b></button>
             <button type="button" class="cat-pest-b" role="tab" id="catTabInfo" aria-selected="false" aria-controls="catGrid" data-cat="info">Señales Informativas <b>59</b></button>
+            <button type="button" class="cat-pest-b" role="tab" id="catTabDisp" aria-selected="false" aria-controls="catGrid" data-cat="disp">Dispositivos Viales <b>22</b></button>
           </div>
           <p class="cat-ruta"><span>Catálogo</span> <i>/</i> <b id="catRuta">Señales Preventivas</b></p>
           <div class="cat-buscar">
@@ -332,7 +334,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 17 17"/></svg>
             <input type="search" id="catBuscar" placeholder="Buscar: túnel, curva, resalto, animales…" autocomplete="off" spellcheck="false">
           </div>
-          <p class="cat-conteo"><b id="catTotal">87</b> señales</p>
+          <p class="cat-conteo"><b id="catTotal">87</b> <span id="catTotalUni">señales</span></p>
           <button type="button" class="cat-carrito" id="catCarritoBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.5a2 2 0 0 0 2-1.5L20.5 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg>
             <span>Cotización</span>
@@ -341,14 +343,14 @@
         </div>
 
         <ul class="cat-grid" id="catGrid"></ul>
-        <p class="cat-vacio" id="catVacio" hidden>No encontramos señales con ese nombre en esta categoría. Cuéntanos qué necesitas y lo cotizamos.</p>
+        <p class="cat-vacio" id="catVacio" hidden>No encontramos <span id="catVacioUni">señales</span> con ese nombre en esta categoría. Cuéntanos qué necesitas y lo cotizamos.</p>
         <noscript>
           <p class="cat-vacio">El catálogo interactivo necesita JavaScript. También puedes <a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20cotizar%20se%C3%B1ales%20de%20tr%C3%A1nsito." target="_blank" rel="noopener">escribirnos por WhatsApp</a> y te cotizamos la lista que necesites.</p>
         </noscript>
 
         <div class="cat-mas-wrap" id="catMasWrap" hidden>
           <button type="button" class="btn btn-linea cat-mas" id="catMas">Ver más señales</button>
-          <p class="cat-mas-nota">Se muestran <b id="catMostradas">0</b> de <b id="catCoincidentes">0</b> señales de esta categoría.</p>
+          <p class="cat-mas-nota">Se muestran <b id="catMostradas">0</b> de <b id="catCoincidentes">0</b> <span id="catUnidad">señales</span> de esta categoría.</p>
         </div>
 
         <!-- COTIZACIÓN — parte del mismo módulo de catálogo -->

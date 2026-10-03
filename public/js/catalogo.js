@@ -215,6 +215,34 @@ var CATALOGO_INFO = [
   {id:'i59',imagePath:'SEÑALES/señalesInformativas/cicloInfraestructura/taller.png',nombre:'Taller'}
 ];
 
+/* Dispositivos Viales: delineadores, hitos, topes vehiculares, tachas, espejos y
+   elementos de vía. Los nombres se derivan del archivo, separando palabras y
+   restituyendo las tildes que el nombre de archivo no lleva. */
+var CATALOGO_DISP = [
+  {id:'d01',imagePath:'SEÑALES/dispositivosViales/BordilloNoTranspasable.png',nombre:'Bordillo no transpasable'},
+  {id:'d02',imagePath:'SEÑALES/dispositivosViales/BordilloTranspasable.png',nombre:'Bordillo transpasable'},
+  {id:'d03',imagePath:'SEÑALES/dispositivosViales/Boya.png',nombre:'Boya'},
+  {id:'d04',imagePath:'SEÑALES/dispositivosViales/DelinadorTubularSimple.png',nombre:'Delineador tubular simple'},
+  {id:'d05',imagePath:'SEÑALES/dispositivosViales/EspejosDeTransito.jpg',nombre:'Espejos de tránsito'},
+  {id:'d06',imagePath:'SEÑALES/dispositivosViales/Estoperol.png',nombre:'Estoperol'},
+  {id:'d07',imagePath:'SEÑALES/dispositivosViales/LimitadorDeGalibo.png',nombre:'Limitador de gálibo'},
+  {id:'d08',imagePath:'SEÑALES/dispositivosViales/ResaltoPortatil.png',nombre:'Resalto portátil'},
+  {id:'d09',imagePath:'SEÑALES/dispositivosViales/ResaltoTipoCojin.png',nombre:'Resalto tipo cojín'},
+  {id:'d10',imagePath:'SEÑALES/dispositivosViales/SegregadoresTemporales.png',nombre:'Segregadores temporales'},
+  {id:'d11',imagePath:'SEÑALES/dispositivosViales/SeñalesInformativasDeDireccionamientoEnZonasPeatonales.png',nombre:'Señales informativas de direccionamiento en zonas peatonales'},
+  {id:'d12',imagePath:'SEÑALES/dispositivosViales/SistemasPortatilesTipoBeefed-upBuffers.png',nombre:'Sistemas portátiles tipo beefed-up buffers'},
+  {id:'d13',imagePath:'SEÑALES/dispositivosViales/Tachon.png',nombre:'Tachón'},
+  {id:'d14',imagePath:'SEÑALES/dispositivosViales/TopeVehicularVerticalTipoArco.png',nombre:'Tope vehicular vertical tipo arco'},
+  {id:'d15',imagePath:'SEÑALES/dispositivosViales/delineadorTipoOla.png',nombre:'Delineador tipo ola'},
+  {id:'d16',imagePath:'SEÑALES/dispositivosViales/hitosDeVertice.png',nombre:'Hitos de vértice'},
+  {id:'d17',imagePath:'SEÑALES/dispositivosViales/marcadorCilindricoOhitoTubular.png',nombre:'Marcador cilíndrico o hito tubular'},
+  {id:'d18',imagePath:'SEÑALES/dispositivosViales/marcadorDoble.png',nombre:'Marcador doble'},
+  {id:'d19',imagePath:'SEÑALES/dispositivosViales/marcadorSimple.png',nombre:'Marcador simple'},
+  {id:'d20',imagePath:'SEÑALES/dispositivosViales/mobiliarioUrbano.png',nombre:'Mobiliario urbano'},
+  {id:'d21',imagePath:'SEÑALES/dispositivosViales/sistemasDeContencionVehicularTipoPerfilFNewJerseyOBarrerasTemporales.png',nombre:'Sistemas de contención vehicular tipo perfil F, New Jersey o barreras temporales'},
+  {id:'d22',imagePath:'SEÑALES/dispositivosViales/topeVehicularHorizontal.png',nombre:'Tope vehicular horizontal'}
+];
+
 /* Normaliza cada familia a un esquema común para el render y el carrito */
 function normalizarFamilia(arr, categoria, subtipo, grupo){
   arr.forEach(function(p){
@@ -226,8 +254,9 @@ function normalizarFamilia(arr, categoria, subtipo, grupo){
 }
 normalizarFamilia(CATALOGO_PREV, 'Señales Preventivas', 'Preventivas', 'prev');
 normalizarFamilia(CATALOGO_INFO, 'Señales Informativas', 'Informativas', 'info');
+normalizarFamilia(CATALOGO_DISP, 'Dispositivos Viales', 'Dispositivos Viales', 'disp');
 CATALOGO.forEach(function(p){ p.grupo = 'reg'; });
-CATALOGO = CATALOGO.concat(CATALOGO_PREV).concat(CATALOGO_INFO);
+CATALOGO = CATALOGO.concat(CATALOGO_PREV).concat(CATALOGO_INFO).concat(CATALOGO_DISP);
 
 var CAT_CATEGORIA = 'Señalización Vertical';
 var CAT_SUBTIPO = 'Reglamentarias';
@@ -301,6 +330,10 @@ var grid = document.getElementById('catGrid');
 var buscar = document.getElementById('catBuscar');
 var catTotal = document.getElementById('catTotal');
 var catVacio = document.getElementById('catVacio');
+var catUnidad = document.getElementById('catUnidad');
+var catVacioUni = document.getElementById('catVacioUni');
+var catTotalUni = document.getElementById('catTotalUni');
+var catUnoUni = document.getElementById('catUnoUni');
 var catCuerpo = document.getElementById('catCuerpo');
 var catBloque = document.getElementById('catBloque');
 var catAbrir = document.getElementById('catAbrir');
@@ -362,8 +395,16 @@ var CAT_ACTIVA = 'prev';
 var CAT_RUTA = {
   prev:'Señales Preventivas',
   reg:'Señalización Vertical · Reglamentarias',
-  info:'Señales Informativas'
+  info:'Señales Informativas',
+  disp:'Dispositivos Viales'
 };
+/* Sustantivo de la familia activa: un delineador no es una "señal". */
+var CAT_UNIDAD = { prev:'señal', reg:'señal', info:'señal', disp:'dispositivo' };
+var CAT_UNIDADES = { prev:'señales', reg:'señales', info:'señales', disp:'dispositivos' };
+/* El alt describe el tipo real del producto; "señal de tránsito" no aplica a un tope. */
+function tipoAlt(p){
+  return p.grupo === 'disp' ? 'Dispositivo vial' : 'Señal de tránsito';
+}
 
 /* "Señales Preventivas · Preventivas" es redundante: se emite solo el
    nombre completo cuando el subtipo no aporta información nueva. */
@@ -388,7 +429,7 @@ var mostradas = 0;
 function htmlTarjeta(p){
   return '<li class="cat-card" data-id="' + esc(p.id) + '" data-grupo="' + esc(p.grupo) + '">'
     + '<span class="cat-card-en" aria-hidden="true">&#10003;</span>'
-    + '<span class="cat-card-img"><img src="' + esc(p.img) + '" alt="Señal de tránsito: ' + esc(p.nombre) + '" loading="lazy" decoding="async" width="200" height="200"></span>'
+    + '<span class="cat-card-img"><img src="' + esc(p.img) + '" alt="' + esc(tipoAlt(p)) + ': ' + esc(p.nombre) + '" loading="lazy" decoding="async" width="200" height="200"></span>'
     + '<h3 class="cat-card-nombre">' + esc(p.nombre) + '</h3>'
     + '<button type="button" class="cat-card-btn" data-agregar="' + esc(p.id) + '">'
     + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Agregar</button>'
@@ -410,7 +451,8 @@ function pintarLote(reemplazar){
 function actualizarMas(){
   var restantes = Math.max(0, coincidencias.length - mostradas);
   catMasWrap.hidden = restantes <= 0;
-  catMas.textContent = 'Ver ' + restantes + ' ' + plural(restantes, 'señal', 'señales') + ' más';
+  var uni = CAT_UNIDADES[CAT_ACTIVA] || 'elementos';
+  catMas.textContent = 'Ver ' + restantes + ' ' + plural(restantes, CAT_UNIDAD[CAT_ACTIVA] || 'elemento', uni) + ' más';
   catMasNuevas.textContent = mostradas;
   catCoincidentes.textContent = coincidencias.length;
 }
@@ -444,6 +486,13 @@ function activarCategoria(cat){
   CAT_ACTIVA = cat;
   var r = document.getElementById('catRuta');
   if(r) r.textContent = CAT_RUTA[cat] || '';
+  /* "señales" / "dispositivos": la familia activa cambia el sustantivo de la interfaz */
+  var uni = CAT_UNIDADES[cat] || 'elementos';
+  var uno = CAT_UNIDAD[cat] || 'elemento';
+  if(catUnidad) catUnidad.textContent = uni;
+  if(catVacioUni) catVacioUni.textContent = uni;
+  if(catTotalUni) catTotalUni.textContent = uni;
+  if(catUnoUni) catUnoUni.textContent = uno;
   document.querySelectorAll('[data-cat]').forEach(function(b){
     var on = b.getAttribute('data-cat') === cat;
     b.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -486,8 +535,10 @@ function abrirProducto(id){
   if(!p) return;
   productoActual = p;
   mpImg.src = p.img;
-  mpImg.alt = 'Señal de tránsito: ' + p.nombre;
+  mpImg.alt = tipoAlt(p) + ': ' + p.nombre;
   mpCat.textContent = etiquetaCategoria(p.categoria, p.subtipo);
+  /* "Cantidad de señales" no describe un tope ni un delineador. */
+  mpQ.setAttribute('aria-label', 'Cantidad de ' + (CAT_UNIDADES[p.grupo] || 'unidades'));
   mpNombre.textContent = p.nombre;
   mpQ.value = 1;
   mpDetalles.value = '';
@@ -888,12 +939,20 @@ function marcarMal(campo, malo){
 function abrirEnvio(){
   if(!carrito.length) return;
   var n = totalUnidades();
-  document.getElementById('meResumen').textContent = plural(n, '1 señal seleccionada', n + ' señales seleccionadas')
-    + ' · ' + plural(carrito.length, '1 referencia', carrito.length + ' referencias');
+  var soloDispositivos = carrito.every(function(it){
+    var p = buscarProducto(it.id);
+    return p && p.grupo === 'disp';
+  });
+  document.getElementById('meResumen').textContent = soloDispositivos
+    ? plural(n, '1 dispositivo seleccionado', n + ' dispositivos seleccionados')
+      + ' · ' + plural(carrito.length, '1 referencia', carrito.length + ' referencias')
+    : plural(n, '1 señal seleccionada', n + ' señales seleccionadas')
+      + ' · ' + plural(carrito.length, '1 referencia', carrito.length + ' referencias');
   meNombre.value = '';
   meEntidad.value = '';
   meTelefono.value = '';
-  meServicio.value = 'Señales de tránsito';
+  /* Si el carrito solo lleva dispositivos, el servicio por defecto debe serlo también. */
+  meServicio.value = soloDispositivos ? 'Dispositivos de seguridad' : 'Señales de tránsito';
   meMensaje.value = '';
   meAcepto.checked = false;
   limpiarMal(meNombre);
@@ -908,25 +967,33 @@ document.getElementById('cotSecEnviar').addEventListener('click', abrirEnvio);
 function construirMensaje(datos){
   var l = [];
   var tot = totalUnidades();
-  /* La introducción refleja las familias realmente presentes en el carrito */
-  var hayPrev = false, hayReg = false, hayInfo = false;
+  /* Las familias se leen del producto (grupo), no de la inicial del id: un id "d01" es
+     un dispositivo y no una señal reglamentaria. */
+  var fam = [];
+  var g = function(gr){
+    if(fam.indexOf(gr) < 0) fam.push(gr);
+  };
   carrito.forEach(function(it){
-    if(it.id.charAt(0) === 'p') hayPrev = true;
-    else if(it.id.charAt(0) === 'i') hayInfo = true;
-    else hayReg = true;
+    var p = buscarProducto(it.id);
+    g(p ? p.grupo : 'reg');
   });
-  var intro = 'Hola Movial, quiero cotizar señales de tránsito.';
-  if(hayReg && !hayPrev && !hayInfo){
+  var soloDisp = fam.length === 1 && fam[0] === 'disp';
+  var soloReg = fam.length === 1 && fam[0] === 'reg';
+  var intro;
+  if(soloDisp){
+    intro = 'Hola Movial, quiero cotizar dispositivos viales.';
+  }else if(soloReg){
     intro = 'Hola Movial, quiero cotizar señales de señalización vertical.';
-  }else if(hayPrev || hayInfo){
-    var fam = [];
-    if(hayPrev) fam.push('preventivas');
-    if(hayReg) fam.push('reglamentarias');
-    if(hayInfo) fam.push('informativas');
-    var txtFam = fam.length > 2
-      ? fam.slice(0, -1).join(', ') + ' y ' + fam[fam.length - 1]
-      : fam.join(' y ');
-    intro = 'Hola Movial, quiero cotizar señales ' + txtFam + '.';
+  }else{
+    var nombres = [];
+    if(fam.indexOf('prev') > -1) nombres.push('preventivas');
+    if(fam.indexOf('reg') > -1) nombres.push('reglamentarias');
+    if(fam.indexOf('info') > -1) nombres.push('informativas');
+    if(fam.indexOf('disp') > -1) nombres.push('dispositivos viales');
+    var txtFam = nombres.length > 2
+      ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1]
+      : nombres.join(' y ');
+    intro = 'Hola Movial, quiero cotizar ' + (soloDisp ? '' : 'señales ') + txtFam + '.';
   }
   l.push(intro);
   l.push('');
@@ -941,6 +1008,8 @@ function construirMensaje(datos){
   l.push('----------------------------');
   carrito.forEach(function(it, i){
     l.push((i + 1) + '. ' + it.name);
+    /* La categoría viaja en el carrito: deja claro qué es cada línea en carritos mixtos. */
+    if(it.category) l.push('   - Categoría: ' + it.category);
     l.push('   - Cantidad: ' + it.quantity + ' ' + plural(it.quantity, 'unidad', 'unidades'));
     if(it.details) l.push('   - Detalles: ' + it.details);
   });
