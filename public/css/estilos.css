@@ -682,7 +682,7 @@ footer .placa-logo img{max-width:160px}
 .mapa{
   background:var(--asfalto);position:relative;overflow:hidden;
   min-height:320px;display:grid;place-items:center;
-  background-image:url("../images/equipo-trabajo.png");background-size:cover;background-position:center;
+  background-image:url("../images/delineacionVial.png");background-size:cover;background-position:center;
 }
 .mapa-overlay{
   position:absolute;inset:0;
@@ -736,6 +736,44 @@ footer .placa-logo img{max-width:160px}
 .cat-cab{margin-bottom:22px}
 .cat-cab h3{font-size:clamp(1.3rem,2.4vw,1.6rem)}
 .cat-cab p{margin:9px 0 0;color:var(--concreto);font-size:.98rem;max-width:64ch}
+.cat-cab-acc{display:flex;align-items:center;gap:14px 12px;flex-wrap:wrap;margin-top:18px}
+.cat-pilla{
+  display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;
+  background:var(--hueso);border:1px solid var(--linea);
+  font-size:.82rem;font-weight:600;color:var(--concreto);
+}
+.cat-pilla b{color:var(--asfalto);font-weight:700;font-variant-numeric:tabular-nums}
+.cat-cab-nota{margin:12px 0 0;font-size:.86rem;color:var(--concreto);max-width:60ch}
+.cat-abrir{
+  display:inline-flex;align-items:center;gap:11px;min-height:52px;padding:14px 26px;
+  background:var(--asfalto);color:#fff;border:0;border-radius:var(--radius);
+  font-family:var(--texto);font-size:1.02rem;font-weight:700;cursor:pointer;
+  box-shadow:var(--shadow-sm);
+  transition:background .18s var(--ease-out),transform .14s var(--ease-out),box-shadow .18s var(--ease-out);
+}
+.cat-abrir:hover{background:var(--asfalto-2);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.cat-abrir:active{transform:translateY(0)}
+.cat-abrir:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+.cat-abrir-ico{width:21px;height:21px;flex-shrink:0}
+.cat-abrir-chev{width:19px;height:19px;flex-shrink:0;margin-left:2px;transition:transform .22s var(--ease-out)}
+.cat-abrir[aria-expanded="true"]{background:var(--amarillo);color:var(--asfalto);box-shadow:none}
+.cat-abrir[aria-expanded="true"]:hover{background:var(--amarillo-2,#e0a800);box-shadow:var(--shadow-sm)}
+.cat-abrir[aria-expanded="true"] .cat-abrir-chev{transform:rotate(180deg)}
+/* Sin JS el catálogo se muestra completo: la mejora progresiva depende de html.js */
+html:not(.js) .cat-abrir,
+html:not(.js) .cat-cab-nota{display:none}
+.js .cat-cuerpo{display:none}
+.js .cat-cuerpo.abierto{display:block}
+.cat-mas-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:26px}
+.cat-mas-wrap[hidden]{display:none}
+.cat-mas{min-width:230px}
+.cat-mas-nota{margin:0;font-size:.8rem;color:var(--concreto)}
+.cat-mas-nota b{color:var(--asfalto);font-variant-numeric:tabular-nums}
+@media(max-width:560px){
+  .cat-cab-acc .cat-abrir{width:100%;justify-content:center}
+  .cat-pilla{padding:6px 12px;font-size:.78rem}
+  .cat-mas{min-width:0;width:100%}
+}
 
 .cat-barra{
   display:flex;flex-wrap:wrap;align-items:center;gap:13px 18px;
@@ -963,6 +1001,82 @@ footer .placa-logo img{max-width:160px}
 .cot-barra .btn-linea{border-color:rgba(255,255,255,.32);color:#fff}
 .cot-barra .btn-linea:hover{background:#fff;border-color:#fff;color:var(--asfalto)}
 .cot-barra .btn-amarillo:hover{background:var(--amarillo-hover)}
+
+/* ============================================================
+   SECCIÓN DE COTIZACIÓN — colapsable
+   Cabecera siempre visible; el detalle solo aparece al pulsar.
+   ============================================================ */
+.cot-sec{
+  background:var(--hueso);--spine:#C9C5BC;
+  padding:56px 0;border-top:1px solid var(--linea);
+}
+.cot-sec .cta-bloque{margin-top:28px}
+.cot-panel{
+  background:var(--blanco);border:1px solid var(--linea);border-radius:18px;
+  box-shadow:var(--shadow-sm);overflow:hidden;
+}
+.cot-cab{
+  display:flex;align-items:center;gap:16px;width:100%;
+  padding:18px 22px;background:transparent;border:0;cursor:pointer;
+  font-family:var(--texto);text-align:left;color:var(--asfalto);
+  transition:background .18s var(--ease-out);
+}
+.cot-cab:hover{background:var(--hueso)}
+.cot-cab:focus-visible{outline:3px solid var(--amarillo);outline-offset:-3px}
+.cot-cab-ico{
+  flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;
+  border-radius:12px;background:var(--asfalto);color:#fff;
+}
+.cot-cab-ico svg{width:21px;height:21px}
+.cot-cab-txt{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 auto}
+.cot-cab-txt b{font-family:var(--display);font-size:1.12rem;line-height:1.2}
+.cot-cab-sub{font-size:.86rem;color:var(--concreto);line-height:1.35}
+.cot-cab-cnt{
+  flex-shrink:0;min-width:34px;height:34px;padding:0 9px;border-radius:999px;
+  display:grid;place-items:center;background:var(--hueso);color:var(--concreto);
+  font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums;
+}
+.cot-cab.lleno .cot-cab-cnt{background:var(--amarillo);color:var(--asfalto)}
+.cot-cab-accion{
+  flex-shrink:0;font-size:.86rem;font-weight:600;color:var(--concreto);
+  border-bottom:2px solid var(--linea);padding-bottom:1px;
+}
+.cot-cab:hover .cot-cab-accion{color:var(--asfalto);border-bottom-color:var(--amarillo)}
+.cot-cab-chev{width:20px;height:20px;flex-shrink:0;color:var(--concreto);transition:transform .22s var(--ease-out)}
+.cot-cab[aria-expanded="true"] .cot-cab-chev{transform:rotate(180deg)}
+.cot-cab[aria-expanded="true"]{background:var(--hueso)}
+.cot-cuerpo{border-top:1px solid var(--linea);padding:22px;animation:cotAbre .3s var(--ease-out)}
+.cot-cuerpo[hidden]{display:none}
+@keyframes cotAbre{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.cot-vacio{text-align:center;padding:14px 8px 18px;color:var(--concreto)}
+.cot-vacio p{margin:0 0 16px}
+.cot-lista{display:grid;gap:2px}
+.cot-lista .ci{background:var(--hueso);border-radius:12px}
+.cot-pie{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:20px;padding-top:18px;border-top:1px dashed var(--linea);
+}
+.cot-pie[hidden]{display:none}
+.cot-total{display:flex;flex-direction:column;gap:2px;font-size:.86rem;color:var(--concreto)}
+.cot-total b{font-family:var(--display);font-size:1.2rem;color:var(--asfalto)}
+.cot-pie-acc{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cot-nota{flex:1 0 100%;margin:2px 0 0;font-size:.8rem;color:var(--concreto);line-height:1.4}
+.menu-cot-cnt{
+  display:inline-grid;place-items:center;min-width:21px;height:21px;margin-left:6px;
+  padding:0 6px;border-radius:999px;background:var(--hueso);color:var(--concreto);
+  font-size:.76rem;font-weight:700;font-variant-numeric:tabular-nums;vertical-align:middle;
+}
+.menu-cot.lleno .menu-cot-cnt{background:var(--amarillo);color:var(--asfalto)}
+@media(max-width:920px){.cot-sec{padding:44px 0}.cot-cab{padding:16px 18px;gap:13px}.cot-cab-accion{display:none}}
+@media(max-width:640px){
+  .cot-cab-txt b{font-size:1.04rem}
+  .cot-cab-sub{font-size:.8rem}
+  .cot-cuerpo{padding:16px}
+  .cot-pie{flex-direction:column;align-items:stretch}
+  .cot-pie-acc{display:grid;grid-template-columns:1fr;gap:9px}
+  .cot-pie-acc .btn{width:100%}
+}
+@media(hover:none){.cot-cab{min-height:64px}.cot-pie-acc .btn{min-height:48px}}
 
 /* Cart drawer */
 .drawer{position:fixed;inset:0;z-index:95;visibility:hidden}

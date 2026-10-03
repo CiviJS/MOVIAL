@@ -301,6 +301,14 @@ var grid = document.getElementById('catGrid');
 var buscar = document.getElementById('catBuscar');
 var catTotal = document.getElementById('catTotal');
 var catVacio = document.getElementById('catVacio');
+var catCuerpo = document.getElementById('catCuerpo');
+var catBloque = document.getElementById('catBloque');
+var catAbrir = document.getElementById('catAbrir');
+var catAbrirTxt = document.querySelector('#catAbrir .cat-abrir-txt');
+var catMasWrap = document.getElementById('catMasWrap');
+var catMas = document.getElementById('catMas');
+var catMasNuevas = document.getElementById('catMostradas');
+var catCoincidentes = document.getElementById('catCoincidentes');
 var botonCarrito = document.getElementById('catCarritoBtn');
 var fabCount = document.getElementById('cartCount');
 var cotBar = document.getElementById('cotBar');
@@ -317,6 +325,19 @@ var msEtiqueta = document.getElementById('msEtiqueta');
 var msTitulo = document.getElementById('msTitulo');
 var msDescripcion = document.getElementById('msDescripcion');
 var msPuntos = document.getElementById('msPuntos');
+var cotPanel = document.getElementById('cotPanel');
+var cotCab = document.getElementById('cotCab');
+var cotCuerpo = document.getElementById('cotCuerpo');
+var cotCabSub = document.getElementById('cotCabSub');
+var cotCabCnt = document.getElementById('cotCabCnt');
+var cotCabAccion = document.getElementById('cotCabAccion');
+var cotSecVacio = document.getElementById('cotSecVacio');
+var cotLista = document.getElementById('cotLista');
+var cotSecPie = document.getElementById('cotSecPie');
+var cotSecTotal = document.getElementById('cotSecTotal');
+var navCot = document.getElementById('navCot');
+var navCotCount = document.getElementById('navCotCount');
+var navCotEstado = document.getElementById('navCotEstado');
 var mpImg = document.getElementById('mpImg');
 var mpCat = document.getElementById('mpCat');
 var mpNombre = document.getElementById('mpNombre');
@@ -330,7 +351,6 @@ var meServicio = document.getElementById('meServicio');
 var meMensaje = document.getElementById('meMensaje');
 var meAcepto = document.getElementById('meAcepto');
 
-var items = [];
 var productoActual = null;
 var capas = 0;
 var ultimoFoco = null;
@@ -355,26 +375,44 @@ function etiquetaCategoria(categoria, subtipo){
   return categoria;
 }
 
-function pintarGrid(){
-  var h = '';
-  CATALOGO.forEach(function(p){
-    h += '<li class="cat-card" data-id="' + esc(p.id) + '" data-grupo="' + esc(p.grupo) + '">'
-      + '<span class="cat-card-en" aria-hidden="true">&#10003;</span>'
-      + '<span class="cat-card-img"><img src="' + esc(p.img) + '" alt="Señal de tránsito: ' + esc(p.nombre) + '" loading="lazy" decoding="async" width="200" height="200"></span>'
-      + '<h3 class="cat-card-nombre">' + esc(p.nombre) + '</h3>'
-      + '<button type="button" class="cat-card-btn" data-agregar="' + esc(p.id) + '">'
-      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Agregar</button>'
-      + '</li>';
-  });
-  grid.innerHTML = h;
+/* Catálogo por tandas: solo se pintan las primeras LOTE tarjetas y el resto
+   se carga al pulsar "ver más", en vez de renderizar las 206 de golpe. */
+var LOTE = 24;
+var catAbierto = false;
+var CATALOGO_INDICE = CATALOGO.map(function(p){
+  return { datos: p, k1: norm(p.nombre), k2: normFlex(p.nombre) };
+});
+var coincidencias = [];
+var mostradas = 0;
 
-  items = [];
-  var tarjetas = grid.querySelectorAll('.cat-card');
-  for(var i = 0; i < tarjetas.length; i++){
-    var id = tarjetas[i].getAttribute('data-id');
-    var p = buscarProducto(id);
-    if(p) items.push({ datos: p, el: tarjetas[i], k1: norm(p.nombre), k2: normFlex(p.nombre) });
-  }
+function htmlTarjeta(p){
+  return '<li class="cat-card" data-id="' + esc(p.id) + '" data-grupo="' + esc(p.grupo) + '">'
+    + '<span class="cat-card-en" aria-hidden="true">&#10003;</span>'
+    + '<span class="cat-card-img"><img src="' + esc(p.img) + '" alt="Señal de tránsito: ' + esc(p.nombre) + '" loading="lazy" decoding="async" width="200" height="200"></span>'
+    + '<h3 class="cat-card-nombre">' + esc(p.nombre) + '</h3>'
+    + '<button type="button" class="cat-card-btn" data-agregar="' + esc(p.id) + '">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Agregar</button>'
+    + '</li>';
+}
+
+function pintarLote(reemplazar){
+  var lote = coincidencias.slice(mostradas, mostradas + LOTE);
+  if(!lote.length) return;
+  var h = '';
+  lote.forEach(function(it){ h += htmlTarjeta(it.datos); });
+  if(reemplazar) grid.innerHTML = h;
+  else grid.insertAdjacentHTML('beforeend', h);
+  mostradas += lote.length;
+  actualizarMas();
+  marcarTarjetas();
+}
+
+function actualizarMas(){
+  var restantes = Math.max(0, coincidencias.length - mostradas);
+  catMasWrap.hidden = restantes <= 0;
+  catMas.textContent = 'Ver ' + restantes + ' ' + plural(restantes, 'señal', 'señales') + ' más';
+  catMasNuevas.textContent = mostradas;
+  catCoincidentes.textContent = coincidencias.length;
 }
 
 function filtrar(){
@@ -383,16 +421,23 @@ function filtrar(){
   /* La variante flexible ("pare" -> "par") solo se aplica a consultas
      largas; en cortas generaría falsos positivos como "separador". */
   var flex = q2.length >= 5;
-  var vis = 0;
-  items.forEach(function(it){
-    var enCat = it.datos.grupo === CAT_ACTIVA;
-    var okTxt = !q1 || it.k1.indexOf(q1) > -1 || (flex && it.k2.indexOf(q2) > -1);
-    var ok = enCat && okTxt;
-    it.el.hidden = !ok;
-    if(ok) vis++;
+  coincidencias = CATALOGO_INDICE.filter(function(it){
+    if(it.datos.grupo !== CAT_ACTIVA) return false;
+    if(!q1) return true;
+    return it.k1.indexOf(q1) > -1 || (flex && it.k2.indexOf(q2) > -1);
   });
-  catTotal.textContent = vis;
-  catVacio.hidden = vis > 0;
+  catTotal.textContent = coincidencias.length;
+  catVacio.hidden = coincidencias.length > 0;
+  /* Plegado: no se pinta nada para no pedir imágenes que el usuario no ve. */
+  if(!catAbierto){
+    grid.innerHTML = '';
+    mostradas = 0;
+    catMasWrap.hidden = true;
+    return;
+  }
+  mostradas = 0;
+  grid.innerHTML = '';
+  pintarLote(true);
 }
 
 function activarCategoria(cat){
@@ -518,13 +563,16 @@ function totalUnidades(){
 }
 
 function marcarTarjetas(){
-  items.forEach(function(it){
+  /* Solo existen en el DOM las tarjetas ya pintadas, así que basta con mirarlas. */
+  var tarjetas = grid.querySelectorAll('.cat-card');
+  for(var i = 0; i < tarjetas.length; i++){
+    var id = tarjetas[i].getAttribute('data-id');
     var en = false;
-    for(var i = 0; i < carrito.length; i++){
-      if(carrito[i].id === it.datos.id){ en = true; break; }
+    for(var j = 0; j < carrito.length; j++){
+      if(carrito[j].id === id){ en = true; break; }
     }
-    it.el.classList.toggle('en-carrito', en);
-  });
+    tarjetas[i].classList.toggle('en-carrito', en);
+  }
 }
 
 function miniaturasCarrito(){
@@ -539,27 +587,8 @@ function miniaturasCarrito(){
   return out;
 }
 
-function pintarCarrito(){
-  var n = totalUnidades();
-  var hay = carrito.length > 0;
-  fabCount.textContent = n;
-  botonCarrito.classList.toggle('activo', hay);
-  cotBar.hidden = !hay;
-  if(hay){
-    cotTitulo.textContent = n + ' ' + plural(n, 'señal', 'señales') + ' en tu cotización';
-    cotMini.innerHTML = miniaturasCarrito();
-  }
-  totalEl.textContent = n + ' ' + plural(n, 'señal', 'señales');
-  pie.hidden = !hay;
-
-  if(!carrito.length){
-    lista.innerHTML = '<div class="drawer-vacio">' + ICO_CARRITO
-      + '<p>Aún no has agregado señales.</p>'
-      + '<p style="margin-bottom:0">Elige las que necesites y envía tu cotización por WhatsApp.</p></div>';
-    marcarTarjetas();
-    return;
-  }
-
+/* Markup de los ítems: una sola fuente para el drawer y la sección colapsable */
+function htmlItems(){
   var h = '';
   carrito.forEach(function(it, idx){
     h += '<div class="ci">'
@@ -576,11 +605,55 @@ function pintarCarrito(){
       + '<button type="button" class="ci-quitar" data-quitar="' + idx + '">Quitar</button>'
       + '</div></div></div>';
   });
+  return h;
+}
+
+function pintarCarrito(){
+  var n = totalUnidades();
+  var hay = carrito.length > 0;
+  fabCount.textContent = n;
+  botonCarrito.classList.toggle('activo', hay);
+  cotBar.hidden = !hay;
+  if(hay){
+    cotTitulo.textContent = n + ' ' + plural(n, 'señal', 'señales') + ' en tu cotización';
+    cotMini.innerHTML = miniaturasCarrito();
+  }
+  totalEl.textContent = n + ' ' + plural(n, 'señal', 'señales');
+  pie.hidden = !hay;
+
+  /* Cabecera de la sección colapsable y contador del header */
+  cotCabCnt.textContent = n;
+  cotCab.classList.toggle('lleno', hay);
+  cotCabSub.textContent = hay
+    ? n + ' ' + plural(n, 'señal', 'señales') + ' · ' + plural(carrito.length, '1 referencia', carrito.length + ' referencias')
+    : 'Aún no has agregado señales';
+  cotCabAccion.textContent = cotCab.getAttribute('aria-expanded') === 'true' ? 'Ocultar' : (hay ? 'Ver detalle' : 'Abrir');
+  navCotCount.textContent = n;
+  navCot.classList.toggle('lleno', hay);
+  navCotEstado.textContent = hay
+    ? ', ' + n + ' ' + plural(n, 'señal', 'señales')
+    : ', vacía';
+  cotSecVacio.hidden = hay;
+  cotSecPie.hidden = !hay;
+  cotSecTotal.textContent = n + ' ' + plural(n, 'señal', 'señales');
+
+  if(!carrito.length){
+    lista.innerHTML = '<div class="drawer-vacio">' + ICO_CARRITO
+      + '<p>Aún no has agregado señales.</p>'
+      + '<p style="margin-bottom:0">Elige las que necesites y envía tu cotización por WhatsApp.</p></div>';
+    cotLista.innerHTML = '';
+    marcarTarjetas();
+    return;
+  }
+
+  var h = htmlItems();
   lista.innerHTML = h;
+  cotLista.innerHTML = h;
   marcarTarjetas();
 }
 
-lista.addEventListener('click', function(e){
+/* +/− / quitar: compartido por el drawer y la sección colapsable */
+function accionItem(e){
   var b = e.target.closest('button');
   if(!b) return;
   var i;
@@ -601,7 +674,9 @@ lista.addEventListener('click', function(e){
   }
   guardarCarrito();
   pintarCarrito();
-});
+}
+lista.addEventListener('click', accionItem);
+cotLista.addEventListener('click', accionItem);
 
 function vaciarTodo(){
   carrito = [];
@@ -611,6 +686,31 @@ function vaciarTodo(){
 }
 document.getElementById('vaciarCarrito').addEventListener('click', vaciarTodo);
 document.getElementById('cotVaciar').addEventListener('click', vaciarTodo);
+document.getElementById('cotSecVaciar').addEventListener('click', vaciarTodo);
+
+/* ---------- Sección de cotización: colapsable ---------- */
+function ponerCot(abierto){
+  cotCab.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  cotCuerpo.hidden = !abierto;
+  cotCabAccion.textContent = abierto ? 'Ocultar' : (carrito.length ? 'Ver detalle' : 'Abrir');
+}
+cotCab.addEventListener('click', function(){
+  ponerCot(cotCab.getAttribute('aria-expanded') !== 'true');
+});
+navCot.addEventListener('click', function(e){
+  e.preventDefault();
+  ponerCot(true);
+  /* Scroll explícito: navegar al mismo fragmento dos veces no se mueve con el ancla por defecto.
+     El destino se calcula con la cabecera ya desplegada para que no quede bajo el header sticky. */
+  var hdr = document.querySelector('header');
+  var altoHdr = hdr ? hdr.getBoundingClientRect().height : 0;
+  var destino = cotPanel.getBoundingClientRect().top + window.pageYOffset - altoHdr - 8;
+  window.scrollTo({
+    top: Math.max(0, destino),
+    behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+  if(history.replaceState) history.replaceState(null, '', '#cotizacion');
+});
 
 /* ---------- Capas: drawer y modales ---------- */
 function abrirCapa(el){
@@ -785,7 +885,7 @@ function marcarMal(campo, malo){
   return !malo;
 }
 
-document.getElementById('pedirCotizacion').addEventListener('click', function(){
+function abrirEnvio(){
   if(!carrito.length) return;
   var n = totalUnidades();
   document.getElementById('meResumen').textContent = plural(n, '1 señal seleccionada', n + ' señales seleccionadas')
@@ -801,7 +901,9 @@ document.getElementById('pedirCotizacion').addEventListener('click', function(){
   limpiarMal(meTelefono);
   limpiarMal(meServicio);
   abrirCapa(modalE);
-});
+}
+document.getElementById('pedirCotizacion').addEventListener('click', abrirEnvio);
+document.getElementById('cotSecEnviar').addEventListener('click', abrirEnvio);
 
 function construirMensaje(datos){
   var l = [];
@@ -884,6 +986,54 @@ document.getElementById('meEnviar').addEventListener('click', function(){
 });
 
 /* ---------- Init ---------- */
-pintarGrid();
 activarCategoria(CAT_ACTIVA);
 pintarCarrito();
+
+/* ---------- Despliegue del catálogo ---------- */
+function abrirCatalogo(abierto){
+  catAbierto = abierto;
+  catCuerpo.classList.toggle('abierto', abierto);
+  catAbrir.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  catAbrirTxt.textContent = abierto ? 'Ocultar catálogo' : 'Ver catálogo';
+  if(abierto) filtrar();
+  else{
+    /* Plegado: se vacía la rejilla para no dejar imágenes descargadas en el documento. */
+    grid.innerHTML = '';
+    mostradas = 0;
+    catMasWrap.hidden = true;
+  }
+}
+catAbrir.addEventListener('click', function(){
+  abrirCatalogo(!catCuerpo.classList.contains('abierto'));
+});
+catMas.addEventListener('click', function(){
+  pintarLote(false);
+  /* Al añadir tarjetas la rejilla crece hacia abajo: mantenemos la vista donde estaba. */
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var y = window.pageYOffset;
+    requestAnimationFrame(function(){ window.scrollTo(0, y); });
+  }
+});
+
+/* ---------- Enlaces que llevan al catálogo ---------- */
+/* "Ir al catálogo" (estado vacío de la cotización) y los CTA de cotizar: despliegan
+   el catálogo y lo llevan a la vista, en vez de dejarlo plegado. */
+function irAlCatalogo(){
+  abrirCatalogo(true);
+  var hdr = document.querySelector('header');
+  var altoHdr = hdr ? hdr.getBoundingClientRect().height : 0;
+  var destino = catBloque.getBoundingClientRect().top + window.pageYOffset - altoHdr - 8;
+  window.scrollTo({
+    top: Math.max(0, destino),
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+}
+var enlacesCatalogo = document.querySelectorAll('#irCatalogo, .btn-nav[href="#productos"], .hero-acciones a[href="#productos"], #trabajo a[href="#productos"], .ms-cta[href="#productos"]');
+Array.prototype.forEach.call(enlacesCatalogo, function(a){
+  a.addEventListener('click', function(e){
+    /* El cierre del modal corre en otro manejador: se deja pasar para que abra y cierre bien. */
+    e.preventDefault();
+    irAlCatalogo();
+    if(history.replaceState) history.replaceState(null, '', '#productos');
+  });
+});
