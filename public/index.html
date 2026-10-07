@@ -160,58 +160,159 @@
         <p class="lead">Trabajo real en vías públicas y privadas: señalización, demarcación y mobiliario urbano. Estas son las intervenciones que ejecutamos y las fotos de campo que respaldan cada proyecto.</p>
       </div>
 
-      <article class="caso-destacado">
-        <div class="caso-img completa a-senal">
-          <img src="images/trabajos/trabajadorPoniendoSeñal.jpeg" alt="Trabajador instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
-        </div>
-        <div class="caso-info">
-          <span class="caso-etiqueta">Señalización vial</span>
-          <h3>Señalización vertical y horizontal</h3>
-          <p>Diseño, elaboración e instalación de señalización vertical y horizontal en vías públicas y privadas, según el Manual de Señalización Vial vigente.</p>
-        </div>
-      </article>
-
-      <div class="casos-grid">
-        <article class="caso">
-          <div class="caso-img completa a-demarcacion">
-            <img src="images/demarcacion.png" alt="Demarcación horizontal: marcas viales, cebras y pictogramas" loading="lazy" decoding="async">
-          </div>
-          <div class="caso-info">
-            <span class="caso-etiqueta">Demarcación horizontal</span>
-            <h3>Marcas viales</h3>
-            <p>Marcas viales en metros lineales, metros cuadrados y pictogramas: líneas, cebras, flechas y logos viales en pintura en frío o termoplástico.</p>
-          </div>
-        </article>
-        <article class="caso">
-          <div class="caso-img">
-            <img src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.jpeg" alt="Cuatro trabajadores instalando reductores de velocidad en vía" loading="lazy" decoding="async">
-          </div>
-          <div class="caso-info">
-            <span class="caso-etiqueta">Mobiliario urbano</span>
-            <h3>Dispositivos de seguridad vial</h3>
-            <p>Paraderos, resaltos, estoperoles plásticos, hitos y dispositivos de seguridad vial incluidos en el Manual de Señalización Vial vigente.</p>
+      <!-- Tarjetas partidas en diagonal: cada tarjeta es un "cuadro
+           partido" con dos fotos de campo (imagenes/trabajos) enmascaradas
+           con clip-path, separadas por una banda diagonal de espacio
+           negativo. El titulo y la categoria flotan en la parte inferior
+           sobre un degradado sutil. Rejilla de 1 columna en movil y
+           2 columnas en escritorio con corte alternado (espejo). Entrada
+           con fade-in + translateY escalonado al hacer scroll
+           (IntersectionObserver). Hover: las mitades se separan + zoom
+           coordinado. Clic en cualquier mitad o icono = lightbox. -->
+      <div class="trabajos-red">
+        <article class="trabajo-item" data-pie="Demarcación y señalización horizontal ejecutadas en jornada nocturna">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/CarreteraDeNoche1.png" alt="Carretera demarcada de noche" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/CarreteraDeNoche2.png" alt="Carretera con señalización horizontal de noche" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Nocturno</p>
+                <h3 class="trabajo-titulo">Demarcación y señalización horizontal de noche</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Demarcación y señalización horizontal de noche"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
           </div>
         </article>
-      </div>
 
-      <!-- Galería de campo: 4 tarjetas en rejilla uniforme (carrusel en móvil). -->
-      <div class="collage">
-        <figure class="collage-item">
-          <img src="images/trabajos/4TrabjadoresIniciandoAponerReductores.png" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
-          <figcaption>instalación de reductores</figcaption>
-        </figure>
-        <figure class="collage-item">
-          <img src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
-          <figcaption>Reductores ya en servicio</figcaption>
-        </figure>
-        <figure class="collage-item">
-          <img src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la vía" loading="lazy" decoding="async">
-          <figcaption>Instalación de reductores</figcaption>
-        </figure>
-        <figure class="collage-item">
-          <img src="images/equipo-trabajo.png" alt="Equipo de trabajo de Movial en intervención de campo" loading="lazy" decoding="async">
-          <figcaption>Personal capacitado</figcaption>
-        </figure>
+        <article class="trabajo-item trabajo-item--espejo" data-pie="Cebreado y demarcación de cruces y bifurcaciones en vía nocturna">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/ifurcacionVialConCebreadoNocturno.png" alt="Bifurcación vial con cebreado nocturno" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/DemarcacionvialyCrucesDeCebraNocturnas.png" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Nocturno</p>
+                <h3 class="trabajo-titulo">Bifurcaciones y cruces de cebra de noche</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Bifurcaciones y cruces de cebra de noche"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item" data-pie="Estoperoles reflectivos colocados y puestos en servicio en vía principal">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/estoperolesSiendoInstalados.png" alt="Estoperoles plásticos siendo instalados en la vía" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/estoperolesInstalados1.png" alt="Estoperoles plásticos instalados en la vía" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Dispositivos</p>
+                <h3 class="trabajo-titulo">Instalación de estoperoles en vía principal</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Instalación de estoperoles en vía principal"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item trabajo-item--espejo" data-pie="Dispositivos de seguridad vial instalados en la calzada">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/estoperolesInstalados2.png" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.jpeg" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Dispositivos</p>
+                <h3 class="trabajo-titulo">Estoperoles y reductores instalados</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Estoperoles y reductores instalados"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item" data-pie="Marcas direccionales y reductores de velocidad en zona urbana">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/demarcacionFlecha.png" alt="Flecha demarcada en la calzada" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/reductoresDeVelocidad.jpeg" alt="Reductores de velocidad instalados en la calzada" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Demarcación</p>
+                <h3 class="trabajo-titulo">Marcas viales y reductores de velocidad</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Marcas viales y reductores de velocidad"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item trabajo-item--espejo" data-pie="Señales de tránsito instaladas por el personal de campo">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/trabajadorPoniendoSeñal.jpeg" alt="Trabajador instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/3TrabajadoresPoniendo1Señal.jpeg" alt="Tres trabajadores instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Señalización</p>
+                <h3 class="trabajo-titulo">Instalación de señales de tránsito</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Instalación de señales de tránsito"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item" data-pie="Cuadrilla en obra durante la instalación de reductores de velocidad">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/4TrabjadoresIniciandoAponerReductores.png" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.jpeg" alt="Cuatro trabajadores colocando reductores de velocidad" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Obra en curso</p>
+                <h3 class="trabajo-titulo">Cuadrilla instalando reductores</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Cuadrilla instalando reductores"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="trabajo-item trabajo-item--espejo" data-pie="Señal de tránsito instalada y generador de apoyo para la cuadrilla">
+          <div class="trabajo-diptico">
+            <figure class="trabajo-foto trabajo-foto--a">
+              <img class="trabajo-img" src="images/trabajos/trabajadorPoniendo1Señal.png" alt="Trabajador colocando una señal de tránsito" loading="lazy" decoding="async">
+            </figure>
+            <figure class="trabajo-foto trabajo-foto--b">
+              <img class="trabajo-img" src="images/trabajos/trabajadorCargandoGeneradorEnergia.jpeg" alt="Trabajador cargando el generador de energía" loading="lazy" decoding="async">
+            </figure>
+            <div class="trabajo-info">
+              <div class="trabajo-info-bloque">
+                <p class="trabajo-cat">Cuadrilla en obra</p>
+                <h3 class="trabajo-titulo">Señal de tránsito y cuadrilla en obra</h3>
+              </div>
+              <button class="trabajo-ver" type="button" aria-label="Ver proyecto: Señal de tránsito y cuadrilla en obra"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
+        </article>
       </div>
 
       <div class="cta-centro">
@@ -306,15 +407,15 @@
           <p>Preventivas, reglamentarias e informativas en lámina calibre con película retrorreflectiva, con su poste y anclaje.</p>
         </article>
         <article class="producto">
-          <div class="producto-img completa a-demarcacion">
-            <img src="images/demarcacion.png" alt="Demarcación horizontal: líneas, cebras y flechas" loading="lazy" decoding="async">
+          <div class="producto-img">
+            <img src="images/trabajos/demarcacionFlecha.png" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
           </div>
           <h3>Demarcación</h3>
           <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
         </article>
         <article class="producto">
           <div class="producto-img">
-            <img src="images/dispositivos.png" alt="Dispositivos de seguridad: delineadores, estoperoles y bolardos" loading="lazy" decoding="async">
+            <img src="images/trabajos/estoperolesInstalados1.png" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
           </div>
           <h3>Dispositivos</h3>
           <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
@@ -576,6 +677,18 @@
       <button type="button" class="drawer-limpiar" id="vaciarCarrito">Vaciar cotización</button>
     </div>
   </div>
+</div>
+
+<!-- LIGHTBOX DE #PROYECTOS -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada del trabajo en campo" aria-hidden="true">
+  <div class="lb-fondo" data-lb-cerrar></div>
+  <button type="button" class="lb-cerrar" data-lb-cerrar aria-label="Cerrar imagen ampliada">&times;</button>
+  <button type="button" class="lb-nav lb-prev" data-lb-prev aria-label="Imagen anterior">&#10094;</button>
+  <figure class="lb-fig">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <figcaption class="lb-pie"><span class="lb-badge" id="lbBadge"></span><span class="lb-txt" id="lbTxt"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-next" data-lb-next aria-label="Imagen siguiente">&#10095;</button>
 </div>
 
 <!-- MODAL PRODUCTO -->

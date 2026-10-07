@@ -380,75 +380,154 @@ header{
 }
 
 /* ============================================================
-   PROJECTS - Editorial case layout
+   PROYECTOS - Tarjetas partidas en diagonal (split diagonal)
+   Cada tarjeta es un "cuadro partido": dos fotos de campo enmascaradas
+   con clip-path forman dos mitades triangulares (superior/izquierda y
+   inferior/derecha) separadas por una banda diagonal de espacio
+   negativo (el fondo del dipitico se asoma en la costura). El titulo
+   y la categoria flotan en la parte inferior sobre un degradado sutil.
+   En escritorio: rejilla fluida de 2 columnas con corte alternado
+   (espejo en las tarjetas pares). En movil: 1 columna, mismo corte.
+   Entrada con fade-in + translateY(32px) escalonado (--i) al hacer
+   scroll. Hover: las mitades se separan + zoom coordinado 1.05.
+   Clic en cualquier mitad o icono = lightbox.
    ============================================================ */
-.caso-destacado{
-  display:grid;grid-template-columns:1.02fr 1fr;gap:0;align-items:stretch;
-  border:1px solid var(--linea);border-radius:var(--radius);overflow:hidden;
-  margin-top:40px;background:var(--hueso);
-  transition:box-shadow .2s var(--ease-out);
+.trabajos-red{
+  display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px;
 }
-.caso-destacado:hover{box-shadow:var(--shadow-md)}
-/* 16/9 con object-fit:cover: la foto se recorta siempre igual y la fila queda a la
-   altura del texto. Antes la imagen dependía de min-height y dejaba un bloque de
-   espacio en blanco al lado. El texto sube de cuerpo para emparejar con la foto:
-   si no, la columna queda medio vacía. */
-.caso-destacado .caso-img{aspect-ratio:16/9;overflow:hidden;background:var(--asfalto)}
-.caso-destacado .caso-img img{width:100%;height:100%;object-fit:cover;object-position:center 38%;transition:transform .4s var(--ease-out)}
-.caso-destacado:hover .caso-img img{transform:scale(1.03)}
-.caso-destacado .caso-info{padding:34px 34px;display:flex;flex-direction:column;justify-content:center}
-.caso-destacado .caso-info h3{font-size:1.75rem;line-height:1.14;margin-bottom:14px}
-.caso-destacado .caso-info p{font-size:1.0625rem;line-height:1.6;max-width:36ch}
-.casos-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;align-items:stretch}
-.caso{
-  border:1px solid var(--linea);border-radius:var(--radius);overflow:hidden;
-  background:var(--hueso);
-  display:flex;flex-direction:column;
-  transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out);
+.trabajo-item{
+  position:relative;
+  background:var(--blanco);border:1px solid var(--linea);
+  border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-sm);
 }
-.caso:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-/* 16/9 también en los casos: antes sus fotos medían 395px y quedaban por encima
-   del destacado (305px), invirtiendo la jerarquía visual. */
-.caso .caso-img{aspect-ratio:16/9;overflow:hidden;background:var(--asfalto)}
-.caso .caso-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease-out)}
-.caso:hover .caso-img img{transform:scale(1.04)}
-/* Fotos verticales en cajas apaisadas: con cover solo se ve el 42-46% del
-   archivo y queda ampliada al centro. Se muestran completas y la caja se tiñe
-   con un tono tomado del propio archivo para que las barras laterales se lean
-   como una lámina montada y no como un recorte. El tono va en --lamina. */
-.caso-img.completa,
-.producto-img.completa{background:var(--lamina,#C6C2BA)}
-.caso-img.completa img,
-.producto-img.completa img{object-fit:contain;object-position:center}
-.caso-img.completa.a-demarcacion,
-.producto-img.completa.a-demarcacion{--lamina:#C6C2BA}
-.caso-img.completa.a-senal{--lamina:#A8A8A8}
-.caso:hover .caso-img.completa img,
-.caso-destacado:hover .caso-img.completa img,
-.producto:hover .producto-img.completa img{transform:none}
-.caso .caso-info{padding:24px;flex:1 1 auto}
-.caso-etiqueta{
-  display:inline-block;align-self:flex-start;
-  font-size:.875rem;font-weight:700;line-height:1.35;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--grafito);
-  background:var(--blanco);border:1px solid var(--linea);border-radius:999px;
-  padding:6px 14px;margin-bottom:14px;
+/* Oculta las tarjetas SOLO cuando el JS activo lo pide (html.reveal):
+   sin JS o con movimiento reducido quedan siempre visibles. */
+html.reveal .trabajo-item{
+  opacity:0;transform:translateY(32px);
+  transition:opacity .7s ease-out, transform .7s ease-out, box-shadow .35s ease-out;
+  transition-delay:calc(var(--i,0)*80ms);
 }
-.caso-info h3{margin:0 0 10px;font-size:1.25rem;line-height:1.22}
-.caso-info p{margin:0;color:var(--grafito);font-size:1rem;line-height:1.55}
-@media(max-width:800px){
-  .caso-destacado{grid-template-columns:1fr}
-  .caso-destacado .caso-img{aspect-ratio:16/9;min-height:0}
-  .caso-destacado .caso-info{padding:24px 20px}
-  .caso-destacado .caso-info h3{font-size:1.28rem}
-  .caso-destacado .caso-info p{font-size:1rem}
-  .casos-grid{grid-template-columns:1fr;gap:14px;margin-top:14px}
-  .caso .caso-img{aspect-ratio:16/9}
-  .caso .caso-info{padding:20px}
-  .caso-info h3{font-size:1.15rem}
-  .caso-info p{font-size:1rem}
-  .caso-destacado{margin-top:28px}
+html.reveal .trabajo-item.visible{opacity:1;transform:none;box-shadow:var(--shadow-sm)}
+@media(prefers-reduced-motion:reduce){
+  .trabajo-item{opacity:1 !important;transform:none !important;transition:none !important}
+  .trabajo-item:hover .trabajo-foto{transform:none !important}
+  .trabajo-item:hover .trabajo-img{transform:none !important}
 }
+/* Dipitico: caja de las dos fotos; su fondo se asoma en la costura. */
+.trabajo-diptico{
+  position:relative;height:280px;margin:0;overflow:hidden;
+  background:var(--linea);
+}
+.trabajo-foto{
+  position:absolute;inset:0;margin:0;overflow:hidden;
+  background:var(--asfalto);
+}
+/* Corte diagonal superior/izquierda: la hipotenusa retrocede 18px
+   dejando una banda de espacio negativo entre las dos mitades. */
+.trabajo-foto--a{clip-path:polygon(0 0, calc(100% - 18px) 0, 0 100%)}
+.trabajo-foto--b{clip-path:polygon(100% 0, 100% 100%, 18px 100%)}
+/* Tarjetas pares: el corte se espeja para ritmo alternado. */
+.trabajo-item--espejo .trabajo-foto--a{clip-path:polygon(100% 0, 18px 0, 100% 100%)}
+.trabajo-item--espejo .trabajo-foto--b{clip-path:polygon(0 100%, 0 0, calc(100% - 18px) 100%)}
+.trabajo-img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  cursor:zoom-in;
+  transition:transform .5s ease;
+}
+.trabajo-foto{
+  transition:transform .45s ease;
+}
+/* Texto flotante en la parte inferior sobre un degradado sutil. */
+.trabajo-info{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;align-items:flex-end;gap:14px;
+  padding:24px 20px 18px;
+  background:linear-gradient(to top, rgba(22,24,26,.82), rgba(22,24,26,.35) 62%, rgba(22,24,26,0));
+  color:#fff;
+}
+.trabajo-info-bloque{flex:1;min-width:0}
+.trabajo-cat{
+  margin:0 0 4px;font-size:.68rem;font-weight:700;line-height:1.3;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amarillo);
+}
+.trabajo-titulo{
+  margin:0;font-size:1.05rem;line-height:1.3;color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.4);
+}
+.trabajo-ver{
+  flex:none;width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;
+  padding:0;border:1px solid rgba(255,255,255,.35);
+  background:rgba(22,24,26,.4);color:#fff;font:inherit;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease;
+}
+.trabajo-ver:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+
+/* Escritorio (md+): rejilla fluida de 2 columnas. */
+@media(min-width:768px){
+  .trabajos-red{grid-template-columns:repeat(2,1fr);gap:32px}
+  .trabajo-diptico{height:300px}
+}
+/* Movil: recorte diagonal vertical simplificado, con proporcion. */
+@media(max-width:767px){
+  .trabajo-diptico{height:min(340px, 78vw)}
+}
+
+/* Hover solo con puntero: las mitades se separan + zoom coordinado. */
+@media(hover:hover){
+  .trabajo-item:hover{box-shadow:0 20px 25px -5px rgba(22,24,26,.16),0 10px 10px -5px rgba(22,24,26,.08)}
+  .trabajo-item:hover .trabajo-foto--a{transform:translate(-7px,-7px)}
+  .trabajo-item:hover .trabajo-foto--b{transform:translate(7px,7px)}
+  .trabajo-item:hover .trabajo-img{transform:scale(1.05)}
+  .trabajo-item:hover .trabajo-ver{background:var(--amarillo);color:var(--asfalto);border-color:transparent;transform:translateX(3px)}
+}
+/* ============================================================
+   LIGHTBOX de #proyectos - Vista ampliada flotante
+   ============================================================ */
+.lb{position:fixed;inset:0;z-index:140;display:none;place-items:center;padding:20px}
+.lb.abierto{display:grid}
+.lb-fondo{position:absolute;inset:0;background:rgba(8,9,10,.93);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lb-fig{
+  position:relative;z-index:1;margin:0;max-width:min(1040px,92vw);
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.lb-img{
+  display:block;max-width:92vw;max-height:76vh;width:auto;height:auto;
+  object-fit:contain;border-radius:16px;background:#0d0e0f;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.85);
+}
+.lb-pie{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center}
+.lb-badge{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-radius:999px;padding:5px 12px;
+}
+.lb-txt{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.lb-cerrar,.lb-nav{
+  position:absolute;z-index:2;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;color:#fff;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:background .2s ease-out,transform .2s ease-out;
+}
+.lb-cerrar:hover,.lb-nav:hover{background:rgba(255,255,255,.22)}
+.lb-cerrar{top:16px;right:16px;font-size:1.6rem;line-height:1}
+.lb-cerrar:hover{transform:scale(1.06)}
+.lb-nav{top:50%;transform:translateY(-50%);font-size:1.1rem}
+.lb-prev{left:14px}
+.lb-next{right:14px}
+.lb-cerrar:focus-visible,.lb-nav:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+@media(max-width:640px){
+  .lb-cerrar{top:10px;right:10px;width:42px;height:42px}
+  .lb-nav{width:40px;height:40px}
+  .lb-prev{left:8px}
+  .lb-next{right:8px}
+}
+
 
 /* ============================================================
    PRODUCTS - Bigger imagery
@@ -494,48 +573,6 @@ header{
 }
 
 /* ============================================================
-   FIELD COLLAGE - Editorial gallery
-   ============================================================ */
-.collage{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;
-}
-.collage-item{
-  position:relative;overflow:hidden;border-radius:var(--radius);margin:0;
-  background:var(--asfalto);aspect-ratio:4/3;
-}
-.collage-item img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .45s var(--ease-out)}
-.collage-item:hover img{transform:scale(1.045)}
-/* La viñeta crece con el texto: antes el pie se comía media foto y con la fuente
-   chica el gradiente no bastaba para separar el blanco de la imagen. */
-.collage-item figcaption{
-  position:absolute;left:0;right:0;bottom:0;
-  padding:48px 18px 16px;
-  background:linear-gradient(to top,rgba(22,24,26,.95) 0%,rgba(22,24,26,.7) 48%,rgba(22,24,26,.25) 78%,transparent 100%);
-  color:#fff;font-size:.95rem;font-weight:600;line-height:1.4;
-  letter-spacing:.01em;text-shadow:0 1px 3px rgba(0,0,0,.5);
-}
-.collage-item figcaption::before{
-  content:"";display:block;width:26px;height:3px;
-  background:var(--amarillo);border-radius:2px;margin-bottom:10px;
-}
-@media(max-width:900px){
-  /* Carrusel horizontal con snap: 4 tarjetas en fila se vuelven ilegibles. */
-  .collage{
-    grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(230px,62%);
-    grid-template-rows:none;
-    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-    gap:12px;margin-top:28px;padding:2px 2px 10px;
-    -webkit-overflow-scrolling:touch;
-  }
-  .collage-item{scroll-snap-align:start;aspect-ratio:4/3}
-  .collage-item figcaption{font-size:.95rem;padding:42px 16px 14px}
-}
-@media(max-width:480px){
-  .collage{grid-auto-columns:minmax(215px,80%);gap:10px}
-  .collage-item figcaption{font-size:.95rem;padding:38px 14px 14px}
-}
-
-/* ============================================================
    DIFFERENTIALS
    ============================================================ */
 .nosotros-texto>p{color:#D6D6D4}
@@ -565,7 +602,7 @@ header{
 @media(max-width:860px){.nosotros{grid-template-columns:1fr;gap:34px}}
 @media(max-width:640px){.nosotros{gap:26px}}
 .placa-logo{background:var(--blanco);border:1px solid var(--linea);padding:34px;display:grid;place-items:center;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
-.placa-logo img{max-width:260px}
+.placa-logo img{max-width:260px;object-fit:contain}
 @media(max-width:640px){
   .placa-logo{padding:22px}
   .placa-logo img{max-width:200px}
@@ -1352,16 +1389,18 @@ body.capa-abierta .flotante{opacity:0;pointer-events:none}
    TOUCH / HOVER — avoid sticky hover states on coarse pointers
    ============================================================ */
 @media(hover:none){
-  .tarjeta:hover,.caso:hover,.producto:hover,.caso-destacado:hover,
-  .btn-nav:hover,.flotante:hover,.collage-item:hover img,
+  .tarjeta:hover,.trabajo-item:hover,.producto:hover,
   .cat-card:hover,.cat-carrito:hover{
     transform:none
   }
-  .tarjeta:hover .tarjeta-img img,.caso:hover .caso-img img,
-  .producto:hover .producto-img img,.caso-destacado:hover .caso-img img,
+  .tarjeta:hover .tarjeta-img img,.trabajo-item:hover .trabajo-img,
+  .producto:hover .producto-img img,
   .cat-card:hover .cat-card-img img{transform:none}
-  .tarjeta:hover,.caso:hover,.producto:hover,.caso-destacado:hover,
+  .tarjeta:hover,.trabajo-item:hover,.producto:hover,
   .cat-card:hover{box-shadow:var(--shadow-sm)}
+  .trabajo-item:hover .trabajo-foto--a,
+  .trabajo-item:hover .trabajo-foto--b{transform:none}
+  .trabajo-item:hover .trabajo-ver{transform:none;background:var(--blanco);border-color:var(--linea)}
   .cat-carrito:hover{box-shadow:var(--shadow-sm);background:var(--asfalto)}
   /* los chips del hero ahora son botones: necesitan objetivo táctil mínimo */
   .placa{min-height:44px}
