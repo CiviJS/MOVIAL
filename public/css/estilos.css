@@ -202,7 +202,7 @@ header{
    HERO
    ============================================================ */
 .hero{position:relative;background:var(--asfalto);color:#fff;overflow:hidden}
-.hero-foto{position:absolute;inset:0;background-image:url("../images/hero-bg.png");background-size:cover;background-position:center 62%;opacity:.62}
+.hero-foto{position:absolute;inset:0;background-image:url("../images/hero-bg.webp");background-size:cover;background-position:center 62%;opacity:.62}
 .hero-velo{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,16,18,.94) 0%,rgba(14,16,18,.80) 44%,rgba(14,16,18,.30) 100%)}
 /* Soft side-to-side pan on phones — panoramic shot would otherwise feel cropped */
 @media(max-width:768px) and (prefers-reduced-motion:no-preference){
@@ -695,7 +695,7 @@ footer .placa-logo img{max-width:160px}
 .mapa{
   background:var(--asfalto);position:relative;overflow:hidden;
   min-height:320px;display:grid;place-items:center;
-  background-image:url("../images/delineacionVial.png");background-size:cover;background-position:center;
+  background-image:url("../images/delineacionVial.webp");background-size:cover;background-position:center;
 }
 .mapa-overlay{
   position:absolute;inset:0;
