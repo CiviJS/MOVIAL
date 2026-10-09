@@ -1438,7 +1438,14 @@ document.getElementById('meEnviar').addEventListener('click', function(){
 });
 
 /* ---------- Init ---------- */
-activarCategoria(CAT_ACTIVA);
+var CAT_ACTIVA_INIT = CAT_ACTIVA;
+activarCategoria(CAT_ACTIVA_INIT);
+// Don't auto-render full catalog on load - wait for user interaction
+catAbierto = false;
+catCuerpo.classList.remove('abierto');
+grid.innerHTML = '';
+mostradas = 0;
+catMasWrap.hidden = true;
   /* las pastillas cambian de ancho al cargar las fuentes: recalculamos el scroll */
   window.addEventListener('load', actualizarFlechas);
 pintarCarrito();
