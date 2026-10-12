@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://movial.com.co/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://movial.com.co/servicios/planes-manejo-transito/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+      <image:title>Planes de Manejo de Tránsito (PMT) y PESV en Barranquilla</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://movial.com.co/servicios/demarcacion-vial/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+      <image:title>Demarcación vial en Barranquilla</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://movial.com.co/servicios/senalizacion-vial/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+      <image:title>Señalización vial en Barranquilla</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://movial.com.co/servicios/estudios-transito-barranquilla/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+      <image:title>Estudios de tránsito y movilidad en Barranquilla</image:title>
+    </image:image>
   </url>
 </urlset>

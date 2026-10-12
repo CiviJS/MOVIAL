@@ -108,15 +108,15 @@ header{
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--linea);
 }
-@media(max-width:920px){
+@media(max-width:1000px){
   /* Solid bg on phones: cheaper than backdrop-filter while scrolling */
   header{background:rgba(242,241,238,.98);backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 .nav{display:flex;align-items:center;gap:20px;min-height:var(--header-h)}
-@media(max-width:920px){.nav{gap:12px}}
+@media(max-width:1000px){.nav{gap:12px}}
 .marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto;min-width:0}
 .marca img{height:44px;width:auto}
-@media(max-width:920px){.marca img{height:38px;width:38px}}
+@media(max-width:1000px){.marca img{height:38px;width:38px}}
 .marca b{font-family:var(--display);font-size:1.22rem;letter-spacing:-.02em;line-height:1}
 .marca span{display:block;font-size:.62rem;letter-spacing:.22em;color:var(--concreto);font-weight:600}
 @media(max-width:360px){
@@ -125,9 +125,34 @@ header{
   .marca span span,.marca>span>span{display:none}
 }
 .menu{margin-left:auto;display:flex;align-items:center;gap:26px}
-.menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out)}
+.menu a{text-decoration:none;font-weight:500;font-size:.97rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out);white-space:nowrap}
 .menu a:hover,.menu a:focus-visible{border-bottom-color:var(--amarillo)}
-.menu a.btn-nav{border-bottom:none;padding:12px 40px}
+.menu a.btn-nav{border-bottom:none;padding:12px 22px}
+
+/* Servicios: desplegable */
+.menu-serv{position:relative}
+.menu-toggle{
+  display:inline-flex;align-items:center;gap:6px;background:none;border:0;cursor:pointer;
+  font-family:inherit;font-weight:500;font-size:.97rem;color:inherit;padding:6px 0;
+  border-bottom:2px solid transparent;transition:border-color .2s var(--ease-out);
+}
+.menu-toggle:hover,.menu-toggle:focus-visible,.menu-serv.abierto .menu-toggle{border-bottom-color:var(--amarillo)}
+.menu-toggle svg{width:14px;height:14px;flex:0 0 auto;transition:transform .25s var(--ease-out)}
+.menu-serv.abierto .menu-toggle svg,.menu-serv:hover .menu-toggle svg{transform:rotate(180deg)}
+.menu-sub{
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translate(-50%,10px);
+  min-width:284px;background:#fff;border:1px solid var(--linea);border-radius:14px;
+  box-shadow:0 20px 44px rgba(22,24,26,.18);padding:8px;z-index:60;
+  display:flex;flex-direction:column;gap:2px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .2s var(--ease-out),transform .22s var(--ease-out),visibility .2s;
+}
+.menu-sub::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.menu-serv:hover .menu-sub,.menu-serv:focus-within .menu-sub,.menu-serv.abierto .menu-sub{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0);
+}
+.menu-sub a{white-space:nowrap;padding:11px 14px;border-radius:9px;border-bottom:0;font-size:.93rem}
+.menu-sub a:hover,.menu-sub a:focus-visible{background:rgba(243,194,24,.16);border-bottom:0}
 
 /* ============================================================
    BUTTONS - Touch targets ≥44px
@@ -169,7 +194,7 @@ header{
 }
 .btn-nav:active{transform:translateY(0);box-shadow:0 2px 8px rgba(243,194,24,.3)}
 .btn-nav svg{width:18px;height:18px;flex-shrink:0}
-@media(max-width:920px){
+@media(max-width:1000px){
   .menu a.btn-nav{margin-top:14px;justify-content:center;padding:14px 20px}
 }
 
@@ -181,7 +206,7 @@ header{
 .hamburguesa[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .hamburguesa[aria-expanded="true"] span:nth-child(2){opacity:0}
 .hamburguesa[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:920px){
+@media(max-width:1000px){
   .menu{
     position:fixed;inset:var(--header-h) 0 auto 0;background:var(--hueso);
     flex-direction:column;align-items:stretch;gap:0;
@@ -196,6 +221,22 @@ header{
   .menu a:last-of-type{border-bottom:none}
   .menu a.btn,.menu a.btn-nav{margin-top:12px;justify-content:center;border-bottom:none;min-height:48px}
   .hamburguesa{display:block}
+  /* Desplegable dentro del menú móvil: acordeón en línea */
+  .menu-serv{width:100%}
+  .menu-toggle{
+    width:100%;justify-content:space-between;padding:13px 0;min-height:48px;
+    font-size:1rem;border-bottom:1px solid var(--linea);
+  }
+  .menu-sub{
+    position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;
+    box-shadow:none;border:0;border-radius:0;padding:0;min-width:0;gap:0;
+    max-height:0;overflow:hidden;
+    transition:max-height .3s var(--ease-out);
+  }
+  .menu-sub::before{display:none}
+  .menu-serv.abierto .menu-sub{max-height:460px}
+  .menu-sub a{padding:13px 0 13px 18px;border-bottom:1px solid var(--linea);font-size:.97rem;white-space:normal}
+  .menu-sub a:last-of-type{border-bottom:1px solid var(--linea)}
 }
 
 /* ============================================================

@@ -17,6 +17,29 @@ menu.querySelectorAll('a').forEach(function(a){
     setMenu(false);
   });
 });
+
+// Desplegable "Servicios" del header
+(function(){
+  var menuServ = document.querySelector('.menu-serv');
+  if(!menuServ) return;
+  var menuToggle = menuServ.querySelector('.menu-toggle');
+  function setServ(abierto){
+    menuServ.classList.toggle('abierto', abierto);
+    menuToggle.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  }
+  menuToggle.addEventListener('click', function(e){
+    e.preventDefault();
+    setServ(!menuServ.classList.contains('abierto'));
+  });
+  document.addEventListener('click', function(e){
+    if(menuServ.classList.contains('abierto') && !menuServ.contains(e.target)) setServ(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menuServ.classList.contains('abierto')){
+      setServ(false); menuToggle.focus();
+    }
+  });
+})();
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape' && menu.classList.contains('abierto')){
     setMenu(false);

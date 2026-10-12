@@ -16,7 +16,8 @@
 <meta property="og:description" content="Demarcación, señalización vial, estoperoles e ingeniería de tránsito en Barranquilla y la región caribe de Colombia.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://movial.com.co/">
-<meta property="og:image" content="https://movial.com.co/images/hero-bg.png">
+<meta property="og:image" content="https://movial.com.co/images/hero-bg.webp">
+<meta property="og:image:alt" content="Soluciones viales y señalización en Barranquilla - Movial">
 <meta property="og:site_name" content="Movial">
 <meta property="og:locale" content="es_CO">
 
@@ -24,7 +25,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Movial | Soluciones Viales y Señalización en Barranquilla">
 <meta name="twitter:description" content="Demarcación, señalización vial, estoperoles e ingeniería de tránsito en Barranquilla y la región caribe de Colombia.">
-<meta name="twitter:image" content="https://movial.com.co/images/hero-bg.png">
+<meta name="twitter:image" content="https://movial.com.co/images/hero-bg.webp">
+<meta name="twitter:image:alt" content="Soluciones viales y señalización en Barranquilla - Movial">
 
 <!-- Schema.org: negocio local -->
 <script type="application/ld+json">
@@ -35,7 +37,7 @@
   "alternateName": "Movial Soluciones Viales",
   "url": "https://movial.com.co/",
   "logo": "https://movial.com.co/images/logo-movial.png",
-  "image": "https://movial.com.co/images/hero-bg.png",
+  "image": "https://movial.com.co/images/hero-bg.webp",
   "description": "Empresa de soluciones viales en Barranquilla: demarcación vial, señalización horizontal y vertical, dispositivos de control de tránsito, venta e instalación de estoperoles, fabricación de señales de tránsito e ingeniería de tránsito y seguridad vial.",
   "address": {
     "@type": "PostalAddress",
@@ -89,18 +91,26 @@
     <button class="hamburguesa" id="abrirMenu" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="menu" aria-label="Menú principal">
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#mapa">Contacto</a>
-      <a href="#cotizacion" class="menu-cot" id="navCot">
-        Cotización
-        <span class="menu-cot-cnt" id="navCotCount" aria-hidden="true">0</span>
-        <span class="sr-only" id="navCotEstado">, vacía</span>
-      </a>
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <div class="menu-serv">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-haspopup="true">Servicios<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="menu-sub">
+            <a href="servicios/planes-manejo-transito/index.html">Planes de Manejo de Tránsito</a>
+            <a href="servicios/demarcacion-vial/index.html">Demarcación Vial</a>
+            <a href="servicios/senalizacion-vial/index.html">Señalización Vial</a>
+            <a href="servicios/estudios-transito-barranquilla/index.html">Estudios de tránsito y movilidad</a>
+          </div>
+        </div>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#mapa">Contacto</a>
+        <a href="#cotizacion" class="menu-cot" id="navCot">
+          Cotización
+          <span class="menu-cot-cnt" id="navCotCount" aria-hidden="true">0</span>
+          <span class="sr-only" id="navCotEstado">, vacía</span>
+        </a>
       <a class="btn btn-nav" href="#productos">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
         Cotizar
       </a>
     </nav>
@@ -416,25 +426,31 @@
       <div style="margin-top:38px">
         <article class="servicio">
           <div>
-            <h3>Plan Estratégico de Seguridad Vial</h3>
+            <h3><a href="servicios/planes-manejo-transito/index.html">Plan Estratégico de Seguridad Vial</a></h3>
+
             <span class="norma">Resolución 40595 de 2022</span>
           </div>
           <p>Formulación e implementación del PESV con la metodología vigente, ajustada al nivel de su organización. Acompañamiento para la verificación.</p>
         </article>
         <article class="servicio">
-          <div><h3>Plan de Manejo de Tránsito</h3></div>
+          <div>            <h3><a href="servicios/planes-manejo-transito/index.html">Plan de Manejo de Tránsito</a></h3>
+</div>
           <p>Señalización temporal, desvíos y control de obra para intervenir la vía sin paralizar la ciudad. Planos, memorias y cronograma.</p>
         </article>
         <article class="servicio">
-          <div><h3>Estudios de tránsito</h3></div>
+          <div>            <h3><a href="servicios/estudios-transito-barranquilla/index.html">Estudios de tránsito</a></h3>
+
+</div>
           <p>Aforos vehiculares y peatonales, capacidad y nivel de servicio. La base técnica para sustentar un proyecto o una decisión de inversión.</p>
         </article>
         <article class="servicio">
-          <div><h3>Planes de movilidad</h3></div>
+          <div>            <h3><a href="servicios/estudios-transito-barranquilla/index.html">Planes de movilidad</a></h3>
+</div>
           <p>Diagnóstico y propuestas para ordenar el tránsito de un municipio, zona industrial o centro logístico, con priorización de intervenciones.</p>
         </article>
         <article class="servicio">
-          <div><h3>Inventarios viales georreferenciados</h3></div>
+          <div>            <h3><a href="servicios/estudios-transito-barranquilla/index.html">Inventarios viales georreferenciados</a></h3>
+</div>
           <p>Levantamiento en campo del estado de la señalización, con ubicación geográfica, registro fotográfico y necesidades priorizadas.</p>
         </article>
       </div>
@@ -458,21 +474,24 @@
           <div class="producto-img">
             <img src="images/señales.webp" alt="Señales de tránsito preventivas, reglamentarias e informativas" loading="lazy" decoding="async">
           </div>
-          <h3>Señales</h3>
+            <h3><a href="servicios/senalizacion-vial/index.html">Señalización Vial</a></h3>
+
           <p>Preventivas, reglamentarias e informativas deacuerdo a las normas vigentes.</p>
         </article>
         <article class="producto">
           <div class="producto-img">
             <img src="images/trabajos/demarcacionFlecha.webp" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
           </div>
-          <h3>Demarcación</h3>
+            <h3><a href="servicios/demarcacion-vial/index.html">Demarcación Vial</a></h3>
+
           <p>Líneas, flechas, cebras, tachas y logos viales en pintura en frío o termoplástico, en vías y parqueaderos.</p>
         </article>
         <article class="producto">
           <div class="producto-img">
             <img src="images/trabajos/estoperolesInstalados1.webp" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
           </div>
-          <h3>Dispositivos</h3>
+            <h3><a href="servicios/senalizacion-vial/index.html">Dispositivos de seguridad vial</a></h3>
+
           <p>Delineadores, reductores de velocidad, estoperoles, tachas, bolardos y paraderos, instalados según norma.</p>
         </article>
       </div>
@@ -665,6 +684,270 @@
         </div>
       </div>
     </div>
+  <noscript id="catalogo-noscript">
+    <div class="wrap">
+      <h2>Catálogo de señalización y dispositivos viales</h2>
+      <p>Referencia completa del catálogo de Movial. La visualización interactiva y la cotización en línea requieren JavaScript.</p>
+      <section aria-labelledby="cat-reglamentarias">
+        <h3 id="cat-reglamentarias">Reglamentarias (60)</h3>
+        <ul>
+          <li>Altura máxima permitida</li>
+          <li>Ancho máximo permitido</li>
+          <li>Carril exclusivo</li>
+          <li>Circulación en ambos sentidos</li>
+          <li>Circulación con luces bajas</li>
+          <li>Circulación en tres carriles (dos en contraflujo)</li>
+          <li>Circulación en tres carriles (uno en contraflujo)</li>
+          <li>Conservar espaciamiento</li>
+          <li>Dirección obligatoria o siga de frente</li>
+          <li>Distancia lateral de seguridad</li>
+          <li>Fin de prohibición</li>
+          <li>Giro a la derecha solamente</li>
+          <li>Giro a la izquierda solamente</li>
+          <li>Giro en U solamente</li>
+          <li>Indicación de separador de tránsito a la derecha</li>
+          <li>Indicación de separador de tránsito a la izquierda</li>
+          <li>Longitud máxima permitida</li>
+          <li>No adelantar</li>
+          <li>No bloquear intersección</li>
+          <li>Peatones a la izquierda</li>
+          <li>Peso máximo bruto permitido</li>
+          <li>Prioridad al sentido contrario</li>
+          <li>Prohibida circulación de bicicletas y motociclos</li>
+          <li>Prohibida circulación de buses</li>
+          <li>Prohibida circulación de cabalgaduras</li>
+          <li>Prohibida circulación de carros de manos</li>
+          <li>Prohibida circulación de motocarros</li>
+          <li>Prohibida circulación de motocicletas</li>
+          <li>Prohibida circulación de peatones</li>
+          <li>Prohibida circulación de vehículos automotores</li>
+          <li>Prohibida circulación de vehículos con eje adicional</li>
+          <li>Prohibida circulación de vehículos de carga</li>
+          <li>Prohibida circulación de vehículos con mercancías peligrosas</li>
+          <li>Prohibida circulación de vehículos de tracción animal</li>
+          <li>Prohibido cambio de calzada de derecha a izquierda</li>
+          <li>Prohibido cambio de calzada de izquierda a derecha</li>
+          <li>Prohibida circulación de cuatrimotos</li>
+          <li>Prohibida circulación de maquinaria agrícola</li>
+          <li>Prohibido el ascenso y descenso de pasajeros</li>
+          <li>Prohibido el cargue y descargue</li>
+          <li>Prohibido girar a la derecha</li>
+          <li>Prohibido girar a la derecha con luz roja</li>
+          <li>Prohibido girar a la izquierda</li>
+          <li>Prohibido girar en U</li>
+          <li>Prohibido parquear</li>
+          <li>Prohibido parquear o detenerse</li>
+          <li>Prohibido pitar</li>
+          <li>Propiedad peatonal</li>
+          <li>Retén</li>
+          <li>Sentido único de circulación</li>
+          <li>Ceda el paso</li>
+          <li>No pase</li>
+          <li>Pare</li>
+          <li>Vehículos pesados a la derecha</li>
+          <li>Velocidad máxima permitida</li>
+          <li>Velocidad máxima permitida (salida)</li>
+          <li>Velocidad mínima permitida</li>
+          <li>Zona de cargue y descargue</li>
+          <li>Zona de estacionamiento de taxi</li>
+          <li>Zona exclusiva de paradero</li>
+        </ul>
+      </section>
+      <section aria-labelledby="cat-preventivas">
+        <h3 id="cat-preventivas">Preventivas (87)</h3>
+        <ul>
+          <li>Altura libre</li>
+          <li>Ancho libre</li>
+          <li>Barrera</li>
+          <li>Bifurcación a la derecha</li>
+          <li>Bifurcación a la izquierda</li>
+          <li>Bifurcación en Y</li>
+          <li>Cambio de textura en la superficie de rodadura</li>
+          <li>Ciclistas en la vía</li>
+          <li>Cruce de animales en la vía</li>
+          <li>Cruce ferroviario a nivel con barrera</li>
+          <li>Cruce ferroviario a nivel sin barrera</li>
+          <li>Cruce ferroviario con desnivel de rasante</li>
+          <li>Cruz de San Andrés</li>
+          <li>Curva cerrada a la derecha</li>
+          <li>Curva cerrada a la izquierda</li>
+          <li>Curva muy cerrada a la derecha</li>
+          <li>Curva muy cerrada a la izquierda</li>
+          <li>Curva pronunciada a la derecha</li>
+          <li>Curva pronunciada a la izquierda</li>
+          <li>Curva y contracurva cerrada, primera a la derecha</li>
+          <li>Curva y contracurva cerrada, primera a la izquierda</li>
+          <li>Curva y contracurva pronunciada, primera a la derecha</li>
+          <li>Curva y contracurva pronunciada, primera a la izquierda</li>
+          <li>Delineador de curva horizontal</li>
+          <li>Depresión</li>
+          <li>Desnivel severo</li>
+          <li>Dos sentidos de tránsito</li>
+          <li>Ensanchamiento de la calzada a la derecha</li>
+          <li>Ensanchamiento de la calzada a la izquierda</li>
+          <li>Ensanchamiento de la calzada a la izquierda (variante 2)</li>
+          <li>Ensanchamiento simétrico de la calzada</li>
+          <li>Final de pavimento</li>
+          <li>Glorieta</li>
+          <li>Incorporación de tránsito desde la derecha</li>
+          <li>Incorporación de tránsito desde la izquierda</li>
+          <li>Iniciación de separador de dos sentidos</li>
+          <li>Iniciación de separador de un sentido</li>
+          <li>Intersección de vías</li>
+          <li>Intersección en T</li>
+          <li>Intersección escalonada, primera a la derecha</li>
+          <li>Intersección escalonada, primera a la izquierda</li>
+          <li>Longitud máxima permitida</li>
+          <li>Maquinaria agrícola en la vía</li>
+          <li>Niños jugando</li>
+          <li>Pendiente fuerte de ascenso</li>
+          <li>Pendiente fuerte de descenso</li>
+          <li>Peso máximo bruto vehicular permitido</li>
+          <li>Proximidad a cruce de ciclistas</li>
+          <li>Proximidad a reductor trapezoidal pompeyano</li>
+          <li>Proximidad a señal de pare</li>
+          <li>Proximidad de cruce escolar</li>
+          <li>Proximidad de cruce peatonal</li>
+          <li>Proximidad de resalto</li>
+          <li>Proximidad de semáforo</li>
+          <li>Proximidad de señal ceda el paso</li>
+          <li>Proyección de gravilla</li>
+          <li>Puente angosto</li>
+          <li>Puente levadizo</li>
+          <li>Ráfagas de viento lateral</li>
+          <li>Reducción de calzada a ambos lados</li>
+          <li>Reducción de calzada a la derecha</li>
+          <li>Reducción de calzada a la izquierda</li>
+          <li>Riesgo de siniestro</li>
+          <li>Salida de vehículos de bomberos</li>
+          <li>Superficie deslizante</li>
+          <li>Superficie rizada</li>
+          <li>Terminación de vía con separador de dos sentidos</li>
+          <li>Terminación de vía con separador de un sentido</li>
+          <li>Tres carriles de tránsito, dos en contraflujo</li>
+          <li>Tres carriles de tránsito, uno en contraflujo</li>
+          <li>Tricimoviles en la vía</li>
+          <li>Túnel</li>
+          <li>Ubicación de cruce de ciclistas</li>
+          <li>Ubicación de cruce escolar</li>
+          <li>Ubicación de cruce peatonal</li>
+          <li>Ubicación de reductor trapezoidal pompeyano</li>
+          <li>Ubicación de resalto</li>
+          <li>Vehículos de carga o extra dimensionados</li>
+          <li>Vía lateral derecha</li>
+          <li>Vía lateral izquierda</li>
+          <li>Zona con prioridad peatonal</li>
+          <li>Zona de curvas sucesivas, la primera a la derecha</li>
+          <li>Zona de curvas sucesivas, la primera a la izquierda</li>
+          <li>Zona de desprendimiento de rocas</li>
+          <li>Zona de niebla</li>
+          <li>Zona de peatones</li>
+          <li>Zona escolar</li>
+        </ul>
+      </section>
+      <section aria-labelledby="cat-informativas">
+        <h3 id="cat-informativas">Informativas (59)</h3>
+        <ul>
+          <li>Sitio de parqueo</li>
+          <li>Zonas especiales de parqueo</li>
+          <li>Zonas especiales de parqueo de bicicletas</li>
+          <li>Zonas especiales de parqueo de vehículos eléctricos</li>
+          <li>Paradero de buses</li>
+          <li>Estacionamiento de taxis</li>
+          <li>Estacionamiento de tricimóviles</li>
+          <li>Servicio de transbordador</li>
+          <li>Confirmación</li>
+          <li>Localización</li>
+          <li>Nombre de calles y nomenclatura</li>
+          <li>Postes de referencia</li>
+          <li>Servicios generales</li>
+          <li>Turísticas</li>
+          <li>Transporte ferroviario</li>
+          <li>Transporte masivo</li>
+          <li>Transporte por cable</li>
+          <li>Zona recreativa</li>
+          <li>Tsunami ruta de evacuación</li>
+          <li>Zona de riesgo por tsunami</li>
+          <li>Punto de encuentro por tsunami</li>
+          <li>Sistema para detección electrónica</li>
+          <li>Zona de control con sistema tecnológico de detección</li>
+          <li>Vía para ciclistas</li>
+          <li>Prioridad vía para ciclistas</li>
+          <li>Zona militar</li>
+          <li>Aeropuerto</li>
+          <li>Hospedaje</li>
+          <li>Primeros auxilios</li>
+          <li>Hospital</li>
+          <li>Servicios sanitarios</li>
+          <li>Restaurante</li>
+          <li>Teléfono</li>
+          <li>Iglesia</li>
+          <li>Taller</li>
+          <li>Estación de servicio</li>
+          <li>Estación de carga de vehículos eléctricos</li>
+          <li>Montallantas</li>
+          <li>Paso o instalación accesible</li>
+          <li>Cruce de personas con discapacidad visual</li>
+          <li>Seguridad vial</li>
+          <li>Seguridad vial en intersecciones semaforizadas</li>
+          <li>Radar pedagógico</li>
+          <li>Nombre o código de la ciclo-infraestructura</li>
+          <li>Dirección inmediata de la ciclo-infraestructura</li>
+          <li>Ubicación y dirección anticipada</li>
+          <li>Dirección esquemática</li>
+          <li>Fin de ciclorruta</li>
+          <li>Inicio de ciclorruta</li>
+          <li>Zona compartida ciclistas-peatones</li>
+          <li>Vía exclusiva</li>
+          <li>Paradero en la ciclo-infraestructura</li>
+          <li>Confirmación de destino</li>
+          <li>Confirmación de ubicación</li>
+          <li>Zonas especiales de parqueo de bicicletas</li>
+          <li>Zonas especiales de vehículos eléctricos</li>
+          <li>Vía para ciclistas</li>
+          <li>Prioridad vía para ciclistas</li>
+          <li>Taller</li>
+        </ul>
+      </section>
+      <section aria-labelledby="cat-dispositivos-viales">
+        <h3 id="cat-dispositivos-viales">Dispositivos Viales (22)</h3>
+        <ul>
+          <li>Bordillo no transpasable</li>
+          <li>Bordillo transpasable</li>
+          <li>Boya</li>
+          <li>Delineador tubular simple</li>
+          <li>Espejos de tránsito</li>
+          <li>Estoperol</li>
+          <li>Limitador de gálibo</li>
+          <li>Resalto portátil</li>
+          <li>Resalto tipo cojín</li>
+          <li>Segregadores temporales</li>
+          <li>Señales informativas de direccionamiento en zonas peatonales</li>
+          <li>Sistemas portátiles tipo beefed-up buffers</li>
+          <li>Tachón</li>
+          <li>Tope vehicular vertical tipo arco</li>
+          <li>Delineador tipo ola</li>
+          <li>Hitos de vértice</li>
+          <li>Marcador cilíndrico o hito tubular</li>
+          <li>Marcador doble</li>
+          <li>Marcador simple</li>
+          <li>Mobiliario urbano</li>
+          <li>Sistemas de contención vehicular tipo perfil F, New Jersey o barreras temporales</li>
+          <li>Tope vehicular horizontal</li>
+        </ul>
+      </section>
+      <section aria-labelledby="cat-demarcaci-n-vial">
+        <h3 id="cat-demarcaci-n-vial">Demarcación Vial (4)</h3>
+        <ul>
+          <li>Líneas longitudinales</li>
+          <li>Símbolos y flechas</li>
+          <li>Pasos peatonales (cebras)</li>
+          <li>Mallas y zonas especiales</li>
+        </ul>
+      </section>
+    </div>
+  </noscript>
+
   </section>
 
   <!-- MAPA -->
@@ -692,16 +975,15 @@
       </div>
       <div>
         <h4>Servicios</h4>
-        <p><a href="#servicios">Qué hacemos</a><br>
-        <a href="#proyectos">Nuestro trabajo en campo</a><br>
-        <a href="#estudios">Estudios y diseños</a><br>
-        <a href="#productos">Señalización y mobiliario</a></p>
+        <p><a href="servicios/planes-manejo-transito/index.html">Planes de Manejo de Tránsito</a><br>
+        <a href="servicios/demarcacion-vial/index.html">Demarcación Vial</a><br>
+        <a href="servicios/senalizacion-vial/index.html">Señalización Vial</a></p>
       </div>
       <div>
         <h4>Contacto</h4>
         <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
         <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a><br>
-        <a href="mailto:movialsolucionesviales@gmail.com">movialsolucionesviales@gmail.com</a></p>
+        <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a></p>
       </div>
     </div>
     <div class="legal">
@@ -873,24 +1155,28 @@
   </div>
 </div>
 
-<!-- Modal Política de Datos -->
-<div id="politica-datos" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-politica">
-  <div class="modal-caja">
-    <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
-    <h2 id="titulo-politica">Política de Tratamiento de Datos Personales</h2>
-    <p><strong>MOVIAL SVA — Soluciones Viales y Arquitectura</strong></p>
-    <p><em>Razón social y NIT: Pendiente de confirmar por el cliente</em></p>
-    <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y segura, siendo utilizados únicamente para:</p>
-    <ul>
-      <li>Responder a su consulta o solicitud de servicio</li>
-      <li>Enviar información sobre nuestros servicios de seguridad vial</li>
-      <li>Gestionar la relación comercial y contractual</li>
-    </ul>
-    <p>Sus datos no serán compartidos con terceros sin su autorización expresa. Para ejercer sus derechos de acceso, rectificación, supresión o revocación, puede contactarnos a través de nuestro WhatsApp o correo electrónico.</p>
-    <p><em>Nota: Este texto es una proforma sujeto a la entrega de la Razón Social y NIT exactos de la empresa por parte del cliente.</em></p>
-    <a href="#" class="btn btn-amarillo" style="margin-top:16px;display:inline-block">Entendido</a>
+  <!-- Modal Política de Datos -->
+  <div id="politica-datos" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-politica">
+    <div class="modal-caja">
+      <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+      <h2 id="titulo-politica">Política de Tratamiento de Datos Personales</h2>
+      <p><strong>MOVIAL</strong></p>
+      <div class="info-corp">
+        <p><strong>Razón Social:</strong> <span class="dato-placeholder">[Razón Social a confirmar]</span></p>
+        <p><strong>NIT:</strong> <span class="dato-placeholder">[NIT a confirmar]</span></p>
+        <p><strong>Correo corporativo:</strong> <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a></p>
+      </div>
+      <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y segura, siendo utilizados únicamente para:</p>
+      <ul>
+        <li>Responder a su consulta o solicitud de servicio</li>
+        <li>Enviar información sobre nuestros servicios de seguridad vial</li>
+        <li>Gestionar la relación comercial y contractual</li>
+      </ul>
+      <p>Sus datos no serán compartidos con terceros sin su autorización expresa. Para ejercer sus derechos de acceso, rectificación, supresión o revocación, puede contactarnos a través de nuestro WhatsApp o correo electrónico.</p>
+      <p class="nota-leg">Los datos de Razón Social y NIT son informativos y quedarán actualizados una vez se confirme la información oficial.</p>
+      <a href="#" class="btn btn-amarillo" style="margin-top:16px;display:inline-block">Entendido</a>
+    </div>
   </div>
-</div>
 
 <!-- ============================================================
      CATÁLOGO INTERACTIVO — carrito de cotización

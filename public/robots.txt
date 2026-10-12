@@ -1,0 +1,10 @@
+# robots.txt - Movial SVA
+User-agent: *
+Allow: /
+
+# Imagenes para buscadores de imagenes
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap (URLs de servicios e imagenes)
+Sitemap: https://movial.com.co/sitemap.xml
