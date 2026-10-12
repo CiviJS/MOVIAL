@@ -7,4 +7,4 @@ User-agent: Googlebot-Image
 Allow: /
 
 # Sitemap (URLs de servicios e imagenes)
-Sitemap: https://movial.com.co/sitemap.xml
+Sitemap: https://movial.com.co/MySites.xml
