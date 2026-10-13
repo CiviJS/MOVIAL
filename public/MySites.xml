@@ -7,6 +7,1147 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://movial.com.co/images/hero-bg.webp</image:loc>
+      <image:title>Movial - Soluciones viales en Barranquilla</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/AlturaMaximaPermitida.webp</image:loc>
+      <image:title>Altura máxima permitida</image:title>
+      <image:caption>Señal de tránsito: Altura máxima permitida — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/AnchoMaximoPermitido.webp</image:loc>
+      <image:title>Ancho máximo permitido</image:title>
+      <image:caption>Señal de tránsito: Ancho máximo permitido — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/CarrilExclusivo.webp</image:loc>
+      <image:title>Carril exclusivo</image:title>
+      <image:caption>Señal de tránsito: Carril exclusivo — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/CirculacionEnAmbosSentidos.webp</image:loc>
+      <image:title>Circulación en ambos sentidos</image:title>
+      <image:caption>Señal de tránsito: Circulación en ambos sentidos — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/CirculacionConLucesBajas.webp</image:loc>
+      <image:title>Circulación con luces bajas</image:title>
+      <image:caption>Señal de tránsito: Circulación con luces bajas — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/CirculacionEnTresCarriles%28DosEnContraflujo%29.webp</image:loc>
+      <image:title>Circulación en tres carriles (dos en contraflujo)</image:title>
+      <image:caption>Señal de tránsito: Circulación en tres carriles (dos en contraflujo) — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/CirculacionEnTresCarriles%28unoEnContraFlujo%29.webp</image:loc>
+      <image:title>Circulación en tres carriles (uno en contraflujo)</image:title>
+      <image:caption>Señal de tránsito: Circulación en tres carriles (uno en contraflujo) — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ConservarEspaciamiento.webp</image:loc>
+      <image:title>Conservar espaciamiento</image:title>
+      <image:caption>Señal de tránsito: Conservar espaciamiento — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/DireccionObligadaOsigaDeFrente.webp</image:loc>
+      <image:title>Dirección obligatoria o siga de frente</image:title>
+      <image:caption>Señal de tránsito: Dirección obligatoria o siga de frente — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/DistanciaLateralDeSeguridad.webp</image:loc>
+      <image:title>Distancia lateral de seguridad</image:title>
+      <image:caption>Señal de tránsito: Distancia lateral de seguridad — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/FinProhibicion.webp</image:loc>
+      <image:title>Fin de prohibición</image:title>
+      <image:caption>Señal de tránsito: Fin de prohibición — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/GiroAlaDerechaSolamente.webp</image:loc>
+      <image:title>Giro a la derecha solamente</image:title>
+      <image:caption>Señal de tránsito: Giro a la derecha solamente — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/GiroAlaIzquierdaSolamente.webp</image:loc>
+      <image:title>Giro a la izquierda solamente</image:title>
+      <image:caption>Señal de tránsito: Giro a la izquierda solamente — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/GiroEnUsolamenent.webp</image:loc>
+      <image:title>Giro en U solamente</image:title>
+      <image:caption>Señal de tránsito: Giro en U solamente — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/IndicacionDeSeparadorDeTransitoAlaDerecha.webp</image:loc>
+      <image:title>Indicación de separador de tránsito a la derecha</image:title>
+      <image:caption>Señal de tránsito: Indicación de separador de tránsito a la derecha — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/IndicacionDeSeparadorDeTransitoAlaIzquierda.webp</image:loc>
+      <image:title>Indicación de separador de tránsito a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Indicación de separador de tránsito a la izquierda — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/LongitudMaximaPermitida.webp</image:loc>
+      <image:title>Longitud máxima permitida</image:title>
+      <image:caption>Señal de tránsito: Longitud máxima permitida — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/NoAdelantar.webp</image:loc>
+      <image:title>No adelantar</image:title>
+      <image:caption>Señal de tránsito: No adelantar — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/NoBloquearInterseccion.webp</image:loc>
+      <image:title>No bloquear intersección</image:title>
+      <image:caption>Señal de tránsito: No bloquear intersección — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/PeatonesAlaIzquierda.webp</image:loc>
+      <image:title>Peatones a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Peatones a la izquierda — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/PesoMaximoBrutoPermitido.webp</image:loc>
+      <image:title>Peso máximo bruto permitido</image:title>
+      <image:caption>Señal de tránsito: Peso máximo bruto permitido — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/PrioridadAlSentidoContrario.webp</image:loc>
+      <image:title>Prioridad al sentido contrario</image:title>
+      <image:caption>Señal de tránsito: Prioridad al sentido contrario — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeBicilectasYmotociclos.webp</image:loc>
+      <image:title>Prohibida circulación de bicicletas y motociclos</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de bicicletas y motociclos — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeBuses.webp</image:loc>
+      <image:title>Prohibida circulación de buses</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de buses — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeCabalgaduras.webp</image:loc>
+      <image:title>Prohibida circulación de cabalgaduras</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de cabalgaduras — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeCarrosDeManos.webp</image:loc>
+      <image:title>Prohibida circulación de carros de manos</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de carros de manos — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeMotocarros.webp</image:loc>
+      <image:title>Prohibida circulación de motocarros</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de motocarros — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeMotocicletas.webp</image:loc>
+      <image:title>Prohibida circulación de motocicletas</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de motocicletas — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDePeatones.webp</image:loc>
+      <image:title>Prohibida circulación de peatones</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de peatones — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeVehiculosAutomotores.webp</image:loc>
+      <image:title>Prohibida circulación de vehículos automotores</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de vehículos automotores — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeVehiculosConEjeAdicional.webp</image:loc>
+      <image:title>Prohibida circulación de vehículos con eje adicional</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de vehículos con eje adicional — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeVehiculosDeCarga.webp</image:loc>
+      <image:title>Prohibida circulación de vehículos de carga</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de vehículos de carga — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeVehiculosDestinadosAlTransporteDeMercanciasPeligrosas.webp</image:loc>
+      <image:title>Prohibida circulación de vehículos con mercancías peligrosas</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de vehículos con mercancías peligrosas — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidaCirculacionDeVehiculosdeTraccionAnimal.webp</image:loc>
+      <image:title>Prohibida circulación de vehículos de tracción animal</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de vehículos de tracción animal — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoCambioDeCalzadaDerechaAizquierda.webp</image:loc>
+      <image:title>Prohibido cambio de calzada de derecha a izquierda</image:title>
+      <image:caption>Señal de tránsito: Prohibido cambio de calzada de derecha a izquierda — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoCambioDeCalzadaIzquierdaAderecha.webp</image:loc>
+      <image:title>Prohibido cambio de calzada de izquierda a derecha</image:title>
+      <image:caption>Señal de tránsito: Prohibido cambio de calzada de izquierda a derecha — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoCirculacionDeCuatrimotos.webp</image:loc>
+      <image:title>Prohibida circulación de cuatrimotos</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de cuatrimotos — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoCirculacionDeMaquinariaAgricola.webp</image:loc>
+      <image:title>Prohibida circulación de maquinaria agrícola</image:title>
+      <image:caption>Señal de tránsito: Prohibida circulación de maquinaria agrícola — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoElascensoYdescensoDePasajeros.webp</image:loc>
+      <image:title>Prohibido el ascenso y descenso de pasajeros</image:title>
+      <image:caption>Señal de tránsito: Prohibido el ascenso y descenso de pasajeros — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoelCargueYdescargue.webp</image:loc>
+      <image:title>Prohibido el cargue y descargue</image:title>
+      <image:caption>Señal de tránsito: Prohibido el cargue y descargue — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoGirarAlaDerecha.webp</image:loc>
+      <image:title>Prohibido girar a la derecha</image:title>
+      <image:caption>Señal de tránsito: Prohibido girar a la derecha — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/prohibidoGirarAlaDerechaConLuzRoja.webp</image:loc>
+      <image:title>Prohibido girar a la derecha con luz roja</image:title>
+      <image:caption>Señal de tránsito: Prohibido girar a la derecha con luz roja — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoGirarAlaIzquierda.webp</image:loc>
+      <image:title>Prohibido girar a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Prohibido girar a la izquierda — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoGirarEnU.webp</image:loc>
+      <image:title>Prohibido girar en U</image:title>
+      <image:caption>Señal de tránsito: Prohibido girar en U — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoParquear.webp</image:loc>
+      <image:title>Prohibido parquear</image:title>
+      <image:caption>Señal de tránsito: Prohibido parquear — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoParquearOdetenerse.webp</image:loc>
+      <image:title>Prohibido parquear o detenerse</image:title>
+      <image:caption>Señal de tránsito: Prohibido parquear o detenerse — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ProhibidoPitar.webp</image:loc>
+      <image:title>Prohibido pitar</image:title>
+      <image:caption>Señal de tránsito: Prohibido pitar — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/PropiedadPeatonal.webp</image:loc>
+      <image:title>Propiedad peatonal</image:title>
+      <image:caption>Señal de tránsito: Propiedad peatonal — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/Reten.webp</image:loc>
+      <image:title>Retén</image:title>
+      <image:caption>Señal de tránsito: Retén — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/SentidoUnicoDeCirculacion.webp</image:loc>
+      <image:title>Sentido único de circulación</image:title>
+      <image:caption>Señal de tránsito: Sentido único de circulación — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/Se%C3%B1alDeCedaElPaso.webp</image:loc>
+      <image:title>Ceda el paso</image:title>
+      <image:caption>Señal de tránsito: Ceda el paso — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/Se%C3%B1alDeNoPase.webp</image:loc>
+      <image:title>No pase</image:title>
+      <image:caption>Señal de tránsito: No pase — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/Se%C3%B1alDePare.webp</image:loc>
+      <image:title>Pare</image:title>
+      <image:caption>Señal de tránsito: Pare — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/VehiculosPesadosAlaDerecha.webp</image:loc>
+      <image:title>Vehículos pesados a la derecha</image:title>
+      <image:caption>Señal de tránsito: Vehículos pesados a la derecha — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/VelocidadMaximaPermitida.webp</image:loc>
+      <image:title>Velocidad máxima permitida</image:title>
+      <image:caption>Señal de tránsito: Velocidad máxima permitida — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/VelocidadMaximaPermitidaSalida.webp</image:loc>
+      <image:title>Velocidad máxima permitida (salida)</image:title>
+      <image:caption>Señal de tránsito: Velocidad máxima permitida (salida) — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/VelocidadMinimaPermitida.webp</image:loc>
+      <image:title>Velocidad mínima permitida</image:title>
+      <image:caption>Señal de tránsito: Velocidad mínima permitida — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ZonaDeCargueYdescargue.webp</image:loc>
+      <image:title>Zona de cargue y descargue</image:title>
+      <image:caption>Señal de tránsito: Zona de cargue y descargue — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ZonaDeEstacionamientoDeTaxi.webp</image:loc>
+      <image:title>Zona de estacionamiento de taxi</image:title>
+      <image:caption>Señal de tránsito: Zona de estacionamiento de taxi — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesReglamentarias/ZonaExclusivaDeParadero.webp</image:loc>
+      <image:title>Zona exclusiva de paradero</image:title>
+      <image:caption>Señal de tránsito: Zona exclusiva de paradero — Señalización vertical en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/AlturaLibre.webp</image:loc>
+      <image:title>Altura libre</image:title>
+      <image:caption>Señal de tránsito: Altura libre — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/AnchoLibre.webp</image:loc>
+      <image:title>Ancho libre</image:title>
+      <image:caption>Señal de tránsito: Ancho libre — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/Barrera.webp</image:loc>
+      <image:title>Barrera</image:title>
+      <image:caption>Señal de tránsito: Barrera — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/BifurcacionALaDerecha.webp</image:loc>
+      <image:title>Bifurcación a la derecha</image:title>
+      <image:caption>Señal de tránsito: Bifurcación a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/BifurcacionALaIzquierda.webp</image:loc>
+      <image:title>Bifurcación a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Bifurcación a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/BifurcacionEnY.webp</image:loc>
+      <image:title>Bifurcación en Y</image:title>
+      <image:caption>Señal de tránsito: Bifurcación en Y — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CambioDeTexturaEnSuperficieRodadura.webp</image:loc>
+      <image:title>Cambio de textura en la superficie de rodadura</image:title>
+      <image:caption>Señal de tránsito: Cambio de textura en la superficie de rodadura — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CiclistasEnLaVia.webp</image:loc>
+      <image:title>Ciclistas en la vía</image:title>
+      <image:caption>Señal de tránsito: Ciclistas en la vía — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CruceDeAnimalesEnLaVia.webp</image:loc>
+      <image:title>Cruce de animales en la vía</image:title>
+      <image:caption>Señal de tránsito: Cruce de animales en la vía — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CruceFerroviarioANivelConBarrera.webp</image:loc>
+      <image:title>Cruce ferroviario a nivel con barrera</image:title>
+      <image:caption>Señal de tránsito: Cruce ferroviario a nivel con barrera — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CruceFerroviarioANivelSinBarrera.webp</image:loc>
+      <image:title>Cruce ferroviario a nivel sin barrera</image:title>
+      <image:caption>Señal de tránsito: Cruce ferroviario a nivel sin barrera — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CruceFerroviarioConDesnivelDeRasante.webp</image:loc>
+      <image:title>Cruce ferroviario con desnivel de rasante</image:title>
+      <image:caption>Señal de tránsito: Cruce ferroviario con desnivel de rasante — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CruzDeSanAndres.webp</image:loc>
+      <image:title>Cruz de San Andrés</image:title>
+      <image:caption>Señal de tránsito: Cruz de San Andrés — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaCerradaALaDerecha.webp</image:loc>
+      <image:title>Curva cerrada a la derecha</image:title>
+      <image:caption>Señal de tránsito: Curva cerrada a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaCerradaALaIzquierda.webp</image:loc>
+      <image:title>Curva cerrada a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Curva cerrada a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaMuyCerradaALaDerecha.webp</image:loc>
+      <image:title>Curva muy cerrada a la derecha</image:title>
+      <image:caption>Señal de tránsito: Curva muy cerrada a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaMuyCerradaALaIzquierda.webp</image:loc>
+      <image:title>Curva muy cerrada a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Curva muy cerrada a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaPronunciadaALaDerecha.webp</image:loc>
+      <image:title>Curva pronunciada a la derecha</image:title>
+      <image:caption>Señal de tránsito: Curva pronunciada a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaPronunciadaALaIzquierda.webp</image:loc>
+      <image:title>Curva pronunciada a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Curva pronunciada a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaYContracurvaCerradaPrimeraALaDerecha.webp</image:loc>
+      <image:title>Curva y contracurva cerrada, primera a la derecha</image:title>
+      <image:caption>Señal de tránsito: Curva y contracurva cerrada, primera a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaYContracurvaCerradaPrimeraALaIzquierda.webp</image:loc>
+      <image:title>Curva y contracurva cerrada, primera a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Curva y contracurva cerrada, primera a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaYContracurvaPronunciadaPrimeraALaDerecha.webp</image:loc>
+      <image:title>Curva y contracurva pronunciada, primera a la derecha</image:title>
+      <image:caption>Señal de tránsito: Curva y contracurva pronunciada, primera a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/CurvaYContracurvaPronunciadaPrimeraALaIzquierda.webp</image:loc>
+      <image:title>Curva y contracurva pronunciada, primera a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Curva y contracurva pronunciada, primera a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/DelineadorDeCurvaHorizontal.webp</image:loc>
+      <image:title>Delineador de curva horizontal</image:title>
+      <image:caption>Señal de tránsito: Delineador de curva horizontal — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/Depresion.webp</image:loc>
+      <image:title>Depresión</image:title>
+      <image:caption>Señal de tránsito: Depresión — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/DesnivelSevero.webp</image:loc>
+      <image:title>Desnivel severo</image:title>
+      <image:caption>Señal de tránsito: Desnivel severo — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/DosSentidosDeTransito.webp</image:loc>
+      <image:title>Dos sentidos de tránsito</image:title>
+      <image:caption>Señal de tránsito: Dos sentidos de tránsito — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/EnsanchamientoDeLaCalzadaALaDerecha.webp</image:loc>
+      <image:title>Ensanchamiento de la calzada a la derecha</image:title>
+      <image:caption>Señal de tránsito: Ensanchamiento de la calzada a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/EnsanchamientoDeLaCalzadaALaIzquierda.webp</image:loc>
+      <image:title>Ensanchamiento de la calzada a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Ensanchamiento de la calzada a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/EnsanchamientoDeLaCalzadaALaIzquierda2.webp</image:loc>
+      <image:title>Ensanchamiento de la calzada a la izquierda (variante 2)</image:title>
+      <image:caption>Señal de tránsito: Ensanchamiento de la calzada a la izquierda (variante 2) — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/EnsanchamientoSimetricoDeLaCalzada.webp</image:loc>
+      <image:title>Ensanchamiento simétrico de la calzada</image:title>
+      <image:caption>Señal de tránsito: Ensanchamiento simétrico de la calzada — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/FinalDePavimento.webp</image:loc>
+      <image:title>Final de pavimento</image:title>
+      <image:caption>Señal de tránsito: Final de pavimento — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/Glorieta.webp</image:loc>
+      <image:title>Glorieta</image:title>
+      <image:caption>Señal de tránsito: Glorieta — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/IncorporacionDeTransitoDesdeLaDerecha.webp</image:loc>
+      <image:title>Incorporación de tránsito desde la derecha</image:title>
+      <image:caption>Señal de tránsito: Incorporación de tránsito desde la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/IncorporacionDeTransitoDesdeLaIzquierda.webp</image:loc>
+      <image:title>Incorporación de tránsito desde la izquierda</image:title>
+      <image:caption>Señal de tránsito: Incorporación de tránsito desde la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/IniciacionDeSeparadorDosSentidos.webp</image:loc>
+      <image:title>Iniciación de separador de dos sentidos</image:title>
+      <image:caption>Señal de tránsito: Iniciación de separador de dos sentidos — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/IniciacionDeSeparadorUnSentido.webp</image:loc>
+      <image:title>Iniciación de separador de un sentido</image:title>
+      <image:caption>Señal de tránsito: Iniciación de separador de un sentido — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/InterseccionDeVias.webp</image:loc>
+      <image:title>Intersección de vías</image:title>
+      <image:caption>Señal de tránsito: Intersección de vías — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/InterseccionEnT.webp</image:loc>
+      <image:title>Intersección en T</image:title>
+      <image:caption>Señal de tránsito: Intersección en T — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/InterseccionEscalonadaPrimeraALaDerecha.webp</image:loc>
+      <image:title>Intersección escalonada, primera a la derecha</image:title>
+      <image:caption>Señal de tránsito: Intersección escalonada, primera a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/InterseccionEscalonadaPrimeraALaIzquierda.webp</image:loc>
+      <image:title>Intersección escalonada, primera a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Intersección escalonada, primera a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/LongitudMaximaPermitida.webp</image:loc>
+      <image:title>Longitud máxima permitida</image:title>
+      <image:caption>Señal de tránsito: Longitud máxima permitida — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/MaquinariaAgricolaEnLaVia.webp</image:loc>
+      <image:title>Maquinaria agrícola en la vía</image:title>
+      <image:caption>Señal de tránsito: Maquinaria agrícola en la vía — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/NinosJugando.webp</image:loc>
+      <image:title>Niños jugando</image:title>
+      <image:caption>Señal de tránsito: Niños jugando — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/PendienteFuerteDeAscenso.webp</image:loc>
+      <image:title>Pendiente fuerte de ascenso</image:title>
+      <image:caption>Señal de tránsito: Pendiente fuerte de ascenso — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/PendienteFuerteDeDescenso.webp</image:loc>
+      <image:title>Pendiente fuerte de descenso</image:title>
+      <image:caption>Señal de tránsito: Pendiente fuerte de descenso — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/PesoMaximoBrutoVehicularPermitido.webp</image:loc>
+      <image:title>Peso máximo bruto vehicular permitido</image:title>
+      <image:caption>Señal de tránsito: Peso máximo bruto vehicular permitido — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadACruceDeCiclistas.webp</image:loc>
+      <image:title>Proximidad a cruce de ciclistas</image:title>
+      <image:caption>Señal de tránsito: Proximidad a cruce de ciclistas — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadAReductorTrapezoidalPompeyano.webp</image:loc>
+      <image:title>Proximidad a reductor trapezoidal pompeyano</image:title>
+      <image:caption>Señal de tránsito: Proximidad a reductor trapezoidal pompeyano — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadASenalDePare.webp</image:loc>
+      <image:title>Proximidad a señal de pare</image:title>
+      <image:caption>Señal de tránsito: Proximidad a señal de pare — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadDeCruceEscolar.webp</image:loc>
+      <image:title>Proximidad de cruce escolar</image:title>
+      <image:caption>Señal de tránsito: Proximidad de cruce escolar — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadDeCrucePeatonal.webp</image:loc>
+      <image:title>Proximidad de cruce peatonal</image:title>
+      <image:caption>Señal de tránsito: Proximidad de cruce peatonal — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadDeResalto.webp</image:loc>
+      <image:title>Proximidad de resalto</image:title>
+      <image:caption>Señal de tránsito: Proximidad de resalto — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadDeSemaforo.webp</image:loc>
+      <image:title>Proximidad de semáforo</image:title>
+      <image:caption>Señal de tránsito: Proximidad de semáforo — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProximidadDeSenalCedaElPaso.webp</image:loc>
+      <image:title>Proximidad de señal ceda el paso</image:title>
+      <image:caption>Señal de tránsito: Proximidad de señal ceda el paso — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ProyeccionDeGravilla.webp</image:loc>
+      <image:title>Proyección de gravilla</image:title>
+      <image:caption>Señal de tránsito: Proyección de gravilla — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/PuenteAngosto.webp</image:loc>
+      <image:title>Puente angosto</image:title>
+      <image:caption>Señal de tránsito: Puente angosto — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/PuenteLevadizo.webp</image:loc>
+      <image:title>Puente levadizo</image:title>
+      <image:caption>Señal de tránsito: Puente levadizo — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/RafagasDeVientoLateral.webp</image:loc>
+      <image:title>Ráfagas de viento lateral</image:title>
+      <image:caption>Señal de tránsito: Ráfagas de viento lateral — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ReduccionDeCalzadaAAmbosLados.webp</image:loc>
+      <image:title>Reducción de calzada a ambos lados</image:title>
+      <image:caption>Señal de tránsito: Reducción de calzada a ambos lados — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ReduccionDeCalzadaALaDerecha.webp</image:loc>
+      <image:title>Reducción de calzada a la derecha</image:title>
+      <image:caption>Señal de tránsito: Reducción de calzada a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ReduccionDeCalzadaALaIzquierda.webp</image:loc>
+      <image:title>Reducción de calzada a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Reducción de calzada a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/RiesgoDeSiniestro.webp</image:loc>
+      <image:title>Riesgo de siniestro</image:title>
+      <image:caption>Señal de tránsito: Riesgo de siniestro — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/SalidaDeVehiculosDeBomberos.webp</image:loc>
+      <image:title>Salida de vehículos de bomberos</image:title>
+      <image:caption>Señal de tránsito: Salida de vehículos de bomberos — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/SuperficieDeslizante.webp</image:loc>
+      <image:title>Superficie deslizante</image:title>
+      <image:caption>Señal de tránsito: Superficie deslizante — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/SuperficieRizada.webp</image:loc>
+      <image:title>Superficie rizada</image:title>
+      <image:caption>Señal de tránsito: Superficie rizada — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/TerminacionDeViaConSeparadorDosSentidos.webp</image:loc>
+      <image:title>Terminación de vía con separador de dos sentidos</image:title>
+      <image:caption>Señal de tránsito: Terminación de vía con separador de dos sentidos — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/TerminacionDeViaConSeparadorUnSentido.webp</image:loc>
+      <image:title>Terminación de vía con separador de un sentido</image:title>
+      <image:caption>Señal de tránsito: Terminación de vía con separador de un sentido — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/TresCarrilesDeTransitoDosEnContraflujo.webp</image:loc>
+      <image:title>Tres carriles de tránsito, dos en contraflujo</image:title>
+      <image:caption>Señal de tránsito: Tres carriles de tránsito, dos en contraflujo — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/TresCarrilesDeTransitoUnoEnContraflujo.webp</image:loc>
+      <image:title>Tres carriles de tránsito, uno en contraflujo</image:title>
+      <image:caption>Señal de tránsito: Tres carriles de tránsito, uno en contraflujo — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/TricimovilesEnLaVia.webp</image:loc>
+      <image:title>Tricimoviles en la vía</image:title>
+      <image:caption>Señal de tránsito: Tricimoviles en la vía — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/Tunel.webp</image:loc>
+      <image:title>Túnel</image:title>
+      <image:caption>Señal de tránsito: Túnel — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/UbicacionDeCruceDeCiclistas.webp</image:loc>
+      <image:title>Ubicación de cruce de ciclistas</image:title>
+      <image:caption>Señal de tránsito: Ubicación de cruce de ciclistas — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/UbicacionDeCruceEscolar.webp</image:loc>
+      <image:title>Ubicación de cruce escolar</image:title>
+      <image:caption>Señal de tránsito: Ubicación de cruce escolar — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/UbicacionDeCrucePeatonal.webp</image:loc>
+      <image:title>Ubicación de cruce peatonal</image:title>
+      <image:caption>Señal de tránsito: Ubicación de cruce peatonal — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/UbicacionDeReductorTrapezoidalPompeyano.webp</image:loc>
+      <image:title>Ubicación de reductor trapezoidal pompeyano</image:title>
+      <image:caption>Señal de tránsito: Ubicación de reductor trapezoidal pompeyano — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/UbicacionDeResalto.webp</image:loc>
+      <image:title>Ubicación de resalto</image:title>
+      <image:caption>Señal de tránsito: Ubicación de resalto — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/VehiculosDeCargaOExtraDimensionados.webp</image:loc>
+      <image:title>Vehículos de carga o extra dimensionados</image:title>
+      <image:caption>Señal de tránsito: Vehículos de carga o extra dimensionados — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ViaLateralDerecha.webp</image:loc>
+      <image:title>Vía lateral derecha</image:title>
+      <image:caption>Señal de tránsito: Vía lateral derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ViaLateralIzquierda.webp</image:loc>
+      <image:title>Vía lateral izquierda</image:title>
+      <image:caption>Señal de tránsito: Vía lateral izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaConPrioridadPeatonal.webp</image:loc>
+      <image:title>Zona con prioridad peatonal</image:title>
+      <image:caption>Señal de tránsito: Zona con prioridad peatonal — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaDeCurvasSucesivasLaPrimeraALaDerecha.webp</image:loc>
+      <image:title>Zona de curvas sucesivas, la primera a la derecha</image:title>
+      <image:caption>Señal de tránsito: Zona de curvas sucesivas, la primera a la derecha — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaDeCurvasSucesivasLaPrimeraALaIzquierda.webp</image:loc>
+      <image:title>Zona de curvas sucesivas, la primera a la izquierda</image:title>
+      <image:caption>Señal de tránsito: Zona de curvas sucesivas, la primera a la izquierda — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaDeDesprendimientoDeRocas.webp</image:loc>
+      <image:title>Zona de desprendimiento de rocas</image:title>
+      <image:caption>Señal de tránsito: Zona de desprendimiento de rocas — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaDeNiebla.webp</image:loc>
+      <image:title>Zona de niebla</image:title>
+      <image:caption>Señal de tránsito: Zona de niebla — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaDePeatones.webp</image:loc>
+      <image:title>Zona de peatones</image:title>
+      <image:caption>Señal de tránsito: Zona de peatones — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesPreventivas/ZonaEscolar.webp</image:loc>
+      <image:title>Zona escolar</image:title>
+      <image:caption>Señal de tránsito: Zona escolar — Señales preventivas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/sitioDeParqueo.webp</image:loc>
+      <image:title>Sitio de parqueo</image:title>
+      <image:caption>Señal de tránsito: Sitio de parqueo — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonasEspecialesDeParqueo.webp</image:loc>
+      <image:title>Zonas especiales de parqueo</image:title>
+      <image:caption>Señal de tránsito: Zonas especiales de parqueo — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonasEspecialesDeParqueoDeBicicletas.webp</image:loc>
+      <image:title>Zonas especiales de parqueo de bicicletas</image:title>
+      <image:caption>Señal de tránsito: Zonas especiales de parqueo de bicicletas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonasEspecialesDeParqueoDeVehiculosElectricos.webp</image:loc>
+      <image:title>Zonas especiales de parqueo de vehículos eléctricos</image:title>
+      <image:caption>Señal de tránsito: Zonas especiales de parqueo de vehículos eléctricos — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/paraderoDeBuses.webp</image:loc>
+      <image:title>Paradero de buses</image:title>
+      <image:caption>Señal de tránsito: Paradero de buses — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/estacionamientoDeTaxis.webp</image:loc>
+      <image:title>Estacionamiento de taxis</image:title>
+      <image:caption>Señal de tránsito: Estacionamiento de taxis — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/estacionamientoDeTricimoviles.webp</image:loc>
+      <image:title>Estacionamiento de tricimóviles</image:title>
+      <image:caption>Señal de tránsito: Estacionamiento de tricimóviles — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/servicioDeTransbordador.webp</image:loc>
+      <image:title>Servicio de transbordador</image:title>
+      <image:caption>Señal de tránsito: Servicio de transbordador — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/confirmacion.webp</image:loc>
+      <image:title>Confirmación</image:title>
+      <image:caption>Señal de tránsito: Confirmación — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/localizacion.webp</image:loc>
+      <image:title>Localización</image:title>
+      <image:caption>Señal de tránsito: Localización — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/nombreDeCallesYNomenclatura.webp</image:loc>
+      <image:title>Nombre de calles y nomenclatura</image:title>
+      <image:caption>Señal de tránsito: Nombre de calles y nomenclatura — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/postesDeReferencia.webp</image:loc>
+      <image:title>Postes de referencia</image:title>
+      <image:caption>Señal de tránsito: Postes de referencia — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/serviciosGenerales.webp</image:loc>
+      <image:title>Servicios generales</image:title>
+      <image:caption>Señal de tránsito: Servicios generales — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/turisticas.webp</image:loc>
+      <image:title>Turísticas</image:title>
+      <image:caption>Señal de tránsito: Turísticas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/transporteFerroviario.webp</image:loc>
+      <image:title>Transporte ferroviario</image:title>
+      <image:caption>Señal de tránsito: Transporte ferroviario — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/transporteMasivo.webp</image:loc>
+      <image:title>Transporte masivo</image:title>
+      <image:caption>Señal de tránsito: Transporte masivo — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/transportePorCable.webp</image:loc>
+      <image:title>Transporte por cable</image:title>
+      <image:caption>Señal de tránsito: Transporte por cable — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonaRecreativa.webp</image:loc>
+      <image:title>Zona recreativa</image:title>
+      <image:caption>Señal de tránsito: Zona recreativa — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/tsunamiRutaDeEvacuacion.webp</image:loc>
+      <image:title>Tsunami ruta de evacuación</image:title>
+      <image:caption>Señal de tránsito: Tsunami ruta de evacuación — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonaDeRiesgoPorTsunami.webp</image:loc>
+      <image:title>Zona de riesgo por tsunami</image:title>
+      <image:caption>Señal de tránsito: Zona de riesgo por tsunami — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/puntoDeEncuentroPorTsunami.webp</image:loc>
+      <image:title>Punto de encuentro por tsunami</image:title>
+      <image:caption>Señal de tránsito: Punto de encuentro por tsunami — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/sistemaParaDeteccionElectronica.webp</image:loc>
+      <image:title>Sistema para detección electrónica</image:title>
+      <image:caption>Señal de tránsito: Sistema para detección electrónica — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonaDeControlConSistemaTecnologicoDeDeteccion.webp</image:loc>
+      <image:title>Zona de control con sistema tecnológico de detección</image:title>
+      <image:caption>Señal de tránsito: Zona de control con sistema tecnológico de detección — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/viaParaCiclistas.webp</image:loc>
+      <image:title>Vía para ciclistas</image:title>
+      <image:caption>Señal de tránsito: Vía para ciclistas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/prioridadViaParaCiclistas.webp</image:loc>
+      <image:title>Prioridad vía para ciclistas</image:title>
+      <image:caption>Señal de tránsito: Prioridad vía para ciclistas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/zonaMilitar.webp</image:loc>
+      <image:title>Zona militar</image:title>
+      <image:caption>Señal de tránsito: Zona militar — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/aeropuerto.webp</image:loc>
+      <image:title>Aeropuerto</image:title>
+      <image:caption>Señal de tránsito: Aeropuerto — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/hospedaje.webp</image:loc>
+      <image:title>Hospedaje</image:title>
+      <image:caption>Señal de tránsito: Hospedaje — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/primerosAuxilios.webp</image:loc>
+      <image:title>Primeros auxilios</image:title>
+      <image:caption>Señal de tránsito: Primeros auxilios — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/hospital.webp</image:loc>
+      <image:title>Hospital</image:title>
+      <image:caption>Señal de tránsito: Hospital — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/serviciosSanitarios.webp</image:loc>
+      <image:title>Servicios sanitarios</image:title>
+      <image:caption>Señal de tránsito: Servicios sanitarios — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/restaurante.webp</image:loc>
+      <image:title>Restaurante</image:title>
+      <image:caption>Señal de tránsito: Restaurante — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/telefono.webp</image:loc>
+      <image:title>Teléfono</image:title>
+      <image:caption>Señal de tránsito: Teléfono — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/iglesia.webp</image:loc>
+      <image:title>Iglesia</image:title>
+      <image:caption>Señal de tránsito: Iglesia — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/taller.webp</image:loc>
+      <image:title>Taller</image:title>
+      <image:caption>Señal de tránsito: Taller — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/estacionDeServicio.webp</image:loc>
+      <image:title>Estación de servicio</image:title>
+      <image:caption>Señal de tránsito: Estación de servicio — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/estacionDeCargaDeVehiculosElectricos.webp</image:loc>
+      <image:title>Estación de carga de vehículos eléctricos</image:title>
+      <image:caption>Señal de tránsito: Estación de carga de vehículos eléctricos — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/montallantas.webp</image:loc>
+      <image:title>Montallantas</image:title>
+      <image:caption>Señal de tránsito: Montallantas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/pasoOInstalacionAccesible.webp</image:loc>
+      <image:title>Paso o instalación accesible</image:title>
+      <image:caption>Señal de tránsito: Paso o instalación accesible — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cruceDePersonasConDiscapacidadVisual.webp</image:loc>
+      <image:title>Cruce de personas con discapacidad visual</image:title>
+      <image:caption>Señal de tránsito: Cruce de personas con discapacidad visual — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/seguridadVial.webp</image:loc>
+      <image:title>Seguridad vial</image:title>
+      <image:caption>Señal de tránsito: Seguridad vial — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/seguridadVialEnInterseccionesSemaforizadas.webp</image:loc>
+      <image:title>Seguridad vial en intersecciones semaforizadas</image:title>
+      <image:caption>Señal de tránsito: Seguridad vial en intersecciones semaforizadas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/radarPedagogico.webp</image:loc>
+      <image:title>Radar pedagógico</image:title>
+      <image:caption>Señal de tránsito: Radar pedagógico — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/nombreOCodigoDeLaCicloInfraestructura.webp</image:loc>
+      <image:title>Nombre o código de la ciclo-infraestructura</image:title>
+      <image:caption>Señal de tránsito: Nombre o código de la ciclo-infraestructura — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/direccionInmediataDeLaCicloInfraestructura.webp</image:loc>
+      <image:title>Dirección inmediata de la ciclo-infraestructura</image:title>
+      <image:caption>Señal de tránsito: Dirección inmediata de la ciclo-infraestructura — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/ubicacionYDireccionAnticipada.webp</image:loc>
+      <image:title>Ubicación y dirección anticipada</image:title>
+      <image:caption>Señal de tránsito: Ubicación y dirección anticipada — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/direccionEsquematica.webp</image:loc>
+      <image:title>Dirección esquemática</image:title>
+      <image:caption>Señal de tránsito: Dirección esquemática — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/finDeCiclorruta.webp</image:loc>
+      <image:title>Fin de ciclorruta</image:title>
+      <image:caption>Señal de tránsito: Fin de ciclorruta — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/inicioDeCiclorruta.webp</image:loc>
+      <image:title>Inicio de ciclorruta</image:title>
+      <image:caption>Señal de tránsito: Inicio de ciclorruta — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/zonaCompartidaCiclistasPeatones.webp</image:loc>
+      <image:title>Zona compartida ciclistas-peatones</image:title>
+      <image:caption>Señal de tránsito: Zona compartida ciclistas-peatones — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/viaExclusiva.webp</image:loc>
+      <image:title>Vía exclusiva</image:title>
+      <image:caption>Señal de tránsito: Vía exclusiva — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/paraderoEnLaCicloInfraestructura.webp</image:loc>
+      <image:title>Paradero en la ciclo-infraestructura</image:title>
+      <image:caption>Señal de tránsito: Paradero en la ciclo-infraestructura — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/confirmacionDeDestino.webp</image:loc>
+      <image:title>Confirmación de destino</image:title>
+      <image:caption>Señal de tránsito: Confirmación de destino — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/confirmacionDeUbicacion.webp</image:loc>
+      <image:title>Confirmación de ubicación</image:title>
+      <image:caption>Señal de tránsito: Confirmación de ubicación — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/zonasEspecialesDeParqueoDeBicicletas.webp</image:loc>
+      <image:title>Zonas especiales de parqueo de bicicletas</image:title>
+      <image:caption>Señal de tránsito: Zonas especiales de parqueo de bicicletas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/zonasEspecialesDeVehiculosElectricos.webp</image:loc>
+      <image:title>Zonas especiales de vehículos eléctricos</image:title>
+      <image:caption>Señal de tránsito: Zonas especiales de vehículos eléctricos — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/viaParaCiclistas.webp</image:loc>
+      <image:title>Vía para ciclistas</image:title>
+      <image:caption>Señal de tránsito: Vía para ciclistas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/prioridadViaParaCiclistas.webp</image:loc>
+      <image:title>Prioridad vía para ciclistas</image:title>
+      <image:caption>Señal de tránsito: Prioridad vía para ciclistas — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/se%C3%B1alesInformativas/cicloInfraestructura/taller.webp</image:loc>
+      <image:title>Taller</image:title>
+      <image:caption>Señal de tránsito: Taller — Señales informativas en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/BordilloNoTranspasable.webp</image:loc>
+      <image:title>Bordillo no transpasable</image:title>
+      <image:caption>Dispositivo vial: Bordillo no transpasable — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/BordilloTranspasable.webp</image:loc>
+      <image:title>Bordillo transpasable</image:title>
+      <image:caption>Dispositivo vial: Bordillo transpasable — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/Boya.webp</image:loc>
+      <image:title>Boya</image:title>
+      <image:caption>Dispositivo vial: Boya — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/DelinadorTubularSimple.webp</image:loc>
+      <image:title>Delineador tubular simple</image:title>
+      <image:caption>Dispositivo vial: Delineador tubular simple — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/EspejosDeTransito.webp</image:loc>
+      <image:title>Espejos de tránsito</image:title>
+      <image:caption>Dispositivo vial: Espejos de tránsito — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/Estoperol.webp</image:loc>
+      <image:title>Estoperol</image:title>
+      <image:caption>Dispositivo vial: Estoperol — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/LimitadorDeGalibo.webp</image:loc>
+      <image:title>Limitador de gálibo</image:title>
+      <image:caption>Dispositivo vial: Limitador de gálibo — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/ResaltoPortatil.webp</image:loc>
+      <image:title>Resalto portátil</image:title>
+      <image:caption>Dispositivo vial: Resalto portátil — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/ResaltoTipoCojin.webp</image:loc>
+      <image:title>Resalto tipo cojín</image:title>
+      <image:caption>Dispositivo vial: Resalto tipo cojín — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/SegregadoresTemporales.webp</image:loc>
+      <image:title>Segregadores temporales</image:title>
+      <image:caption>Dispositivo vial: Segregadores temporales — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/Se%C3%B1alesInformativasDeDireccionamientoEnZonasPeatonales.webp</image:loc>
+      <image:title>Señales informativas de direccionamiento en zonas peatonales</image:title>
+      <image:caption>Dispositivo vial: Señales informativas de direccionamiento en zonas peatonales — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/SistemasPortatilesTipoBeefed-upBuffers.webp</image:loc>
+      <image:title>Sistemas portátiles tipo beefed-up buffers</image:title>
+      <image:caption>Dispositivo vial: Sistemas portátiles tipo beefed-up buffers — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/Tachon.webp</image:loc>
+      <image:title>Tachón</image:title>
+      <image:caption>Dispositivo vial: Tachón — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/TopeVehicularVerticalTipoArco.webp</image:loc>
+      <image:title>Tope vehicular vertical tipo arco</image:title>
+      <image:caption>Dispositivo vial: Tope vehicular vertical tipo arco — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/delineadorTipoOla.webp</image:loc>
+      <image:title>Delineador tipo ola</image:title>
+      <image:caption>Dispositivo vial: Delineador tipo ola — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/hitosDeVertice.webp</image:loc>
+      <image:title>Hitos de vértice</image:title>
+      <image:caption>Dispositivo vial: Hitos de vértice — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/marcadorCilindricoOhitoTubular.webp</image:loc>
+      <image:title>Marcador cilíndrico o hito tubular</image:title>
+      <image:caption>Dispositivo vial: Marcador cilíndrico o hito tubular — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/marcadorDoble.webp</image:loc>
+      <image:title>Marcador doble</image:title>
+      <image:caption>Dispositivo vial: Marcador doble — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/marcadorSimple.webp</image:loc>
+      <image:title>Marcador simple</image:title>
+      <image:caption>Dispositivo vial: Marcador simple — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/mobiliarioUrbano.webp</image:loc>
+      <image:title>Mobiliario urbano</image:title>
+      <image:caption>Dispositivo vial: Mobiliario urbano — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/sistemasDeContencionVehicularTipoPerfilFNewJerseyOBarrerasTemporales.webp</image:loc>
+      <image:title>Sistemas de contención vehicular tipo perfil F, New Jersey o barreras temporales</image:title>
+      <image:caption>Dispositivo vial: Sistemas de contención vehicular tipo perfil F, New Jersey o barreras temporales — Dispositivos viales en Barranquilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://movial.com.co/SE%C3%91ALES/dispositivosViales/topeVehicularHorizontal.webp</image:loc>
+      <image:title>Tope vehicular horizontal</image:title>
+      <image:caption>Dispositivo vial: Tope vehicular horizontal — Dispositivos viales en Barranquilla</image:caption>
     </image:image>
   </url>
   <url>
