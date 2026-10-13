@@ -234,6 +234,10 @@ header{
     transition:max-height .3s var(--ease-out);
   }
   .menu-sub::before{display:none}
+  .menu-serv .menu-sub,
+  .menu-serv:hover .menu-sub,
+  .menu-serv:focus-within .menu-sub,
+  .menu-serv.abierto .menu-sub{transform:none}
   .menu-serv.abierto .menu-sub{max-height:460px}
   .menu-sub a{padding:13px 0 13px 18px;border-bottom:1px solid var(--linea);font-size:.97rem;white-space:normal}
   .menu-sub a:last-of-type{border-bottom:1px solid var(--linea)}
