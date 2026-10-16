@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movial — Tests del sitio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Barlow", "Helvetica Neue", Arial, sans-serif; background: #F2F1EE; color: #16181A; padding: 24px; }
+  h1 { font-family: "Baloo 2", "Trebuchet MS", system-ui, sans-serif; margin-bottom: 12px; font-size: 1.5rem; }
+  .ts-panel { border: 1px solid #DCD9D2; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; background: #fff; }
+  .ts-pasa { color: #2e7d32; }
+  .ts-falla { color: #c62828; }
+  #ts-contador { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; }
+  ul { list-style: none; max-height: 400px; overflow-y: auto; border: 1px solid #DCD9D2; border-radius: 8px; padding: 10px; background: #FBFAF8; }
+  li { padding: 6px 8px; border-bottom: 1px solid #EEE9E2; font-size: 0.95rem; display: flex; gap: 8px; }
+  li:last-child { border-bottom: none; }
+  li::before { content: attr(data-estado); font-weight: 800; width: 44px; text-align: center; }
+  .ts-pasa::before { color: #2e7d32; }
+  .ts-falla::before { color: #c62828; }
+  .ts-nota { margin-top: 10px; font-size: 0.9rem; color: #5F6368; }
+  a { color: #16181A; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Movial — Tests del sitio</h1>
+<div class="ts-panel">
+  <div id="ts-contador">Ejecutando…</div>
+  <ul id="ts-lista"></ul>
+  <p class="ts-nota">Abre este archivo directamente en el navegador. Valida la integridad del catálogo de señales y la estructura del HTML.</p>
+</div>
+
+<!-- Datos del sitio (mismo archivo que usa public/index.html) -->
+<script src="../public/js/catalogo.js"></script>
+<script src="suite.js"></script>
+</body>
+</html>
