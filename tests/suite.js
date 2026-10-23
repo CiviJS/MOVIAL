@@ -53,9 +53,11 @@
   var conteos = {};
 
   window.CATALOGO.forEach(function (item, i) {
+    /* La demarcación es vectorial (sin foto): no debe exigir img ni .webp */
+    var esVectorial = item.grupo === 'dem' || item.sinFoto === true;
     var falta = [];
     if (!item.id) falta.push('id');
-    if (!item.img) falta.push('img');
+    if (!esVectorial && !item.img) falta.push('img');
     if (!item.nombre) falta.push('nombre');
     if (!item.categoria) falta.push('categoria');
     if (!item.subtipo) falta.push('subtipo');
@@ -65,7 +67,7 @@
       if (idsVistos[item.id]) idsDuplicados.push(item.id);
       idsVistos[item.id] = true;
     }
-    if (!item.img || !item.img.endsWith('.webp')) imagenesVacias.push((item.id || 'ítem #' + i) + ': ' + item.img);
+    if (!esVectorial && (!item.img || !item.img.endsWith('.webp'))) imagenesVacias.push((item.id || 'ítem #' + i) + ': ' + item.img);
 
     if (item.subtipo) {
       conteos[item.subtipo] = (conteos[item.subtipo] || 0) + 1;
@@ -74,7 +76,7 @@
 
   check('CATALOGO: ningún ítem sin campos requeridos', itemsSinCampos.length === 0, itemsSinCampos.join('; '));
   check('CATALOGO: IDs únicos', idsDuplicados.length === 0, idsDuplicados.join(', '));
-  check('CATALOGO: todas las imágenes terminan en .webp', imagenesVacías.length === 0, imagenesVacías.join('; '));
+  check('CATALOGO: todas las imágenes terminan en .webp', imagenesVacias.length === 0, imagenesVacias.join('; '));
 
   // -------------------------------------------------------------------------
   // 2. Conteos por categoría esperados (según píldoras de public/index.html)

@@ -32,15 +32,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "Organization"],
+  "@id": "https://movial.com.co/#organization",
   "name": "Movial",
-  "alternateName": "Movial Soluciones Viales",
+  "alternateName": ["Movial Soluciones Viales", "MOVIAL SVA"],
+  "legalName": "Movial Sva Sas Soluciones Viales y Arquitectura Sas",
+  "taxID": "901.941.976-9",
   "url": "https://movial.com.co/",
-  "logo": "https://movial.com.co/images/logo-movial.png",
+  "logo": "https://movial.com.co/images/logo-movial.webp",
   "image": "https://movial.com.co/images/hero-bg.webp",
   "description": "Empresa de soluciones viales en Barranquilla: demarcación vial, señalización horizontal y vertical, dispositivos de control de tránsito, venta e instalación de estoperoles, fabricación de señales de tránsito e ingeniería de tránsito y seguridad vial.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Barranquilla",
     "addressLocality": "Barranquilla",
     "addressRegion": "Atlántico",
     "addressCountry": "CO"
@@ -53,17 +57,47 @@
   ],
   "priceRange": "$$",
   "telephone": "+573138595695",
+  "email": "contacto@movial.com.co",
   "knowsLanguage": "es",
   "makesOffer": [
-    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Demarcación vial"}},
-    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Señalización vial horizontal y vertical"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "@id": "https://movial.com.co/servicios/demarcacion-vial/#service", "name": "Demarcación vial"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "@id": "https://movial.com.co/servicios/senalizacion-vial/#service", "name": "Señalización vial horizontal y vertical"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Venta e instalación de estoperoles"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dispositivos de control de tránsito"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fabricación de señales de tránsito"}},
-    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ingeniería de tránsito y seguridad vial"}},
-    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Planes de manejo de tránsito y PESV"}}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "@id": "https://movial.com.co/servicios/estudios-transito-barranquilla/#service", "name": "Ingeniería de tránsito y seguridad vial"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "@id": "https://movial.com.co/servicios/planes-manejo-transito/#service", "name": "Planes de manejo de tránsito y PESV"}}
   ],
-  "sameAs": ["https://wa.me/573138595695"]
+  "sameAs": ["https://wa.me/573138595695", "https://instagram.com/movial_SVA"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://movial.com.co/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://movial.com.co/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://movial.com.co/#website",
+  "url": "https://movial.com.co/",
+  "name": "Movial",
+  "description": "Soluciones viales en Barranquilla: demarcación, señalización, estoperoles, estudios de tránsito, PMT y PESV.",
+  "inLanguage": "es-CO",
+  "publisher": {
+    "@id": "https://movial.com.co/#organization"
+  }
 }
 </script>
 
@@ -518,7 +552,7 @@
         </article>
       </div>
 
-      <!-- CATÁLOGO INTERACTIVO — Preventivas / Reglamentarias / Informativas -->
+      <!-- CATÁLOGO INTERACTIVO — Preventivas / Reglamentarias / Informativas / Dispositivos / Demarcación -->
       <div class="cat-bloque" id="catBloque">
         <div class="cat-cab">
           <h3>Catálogo de señales</h3>
@@ -552,13 +586,13 @@
           </div>
             <button type="button" class="cat-pest-flecha cat-pest-flecha-der" id="catPestDer" aria-label="Ver más categorías" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
           </div>
-          <p class="cat-ruta"><span>Catálogo</span> <i>/</i> <b id="catRuta">Señales Preventivas</b></p>
+          <p class="cat-ruta"><span>Catálogo</span> <i>/</i> <b id="catRuta">Todo el Catálogo</b></p>
           <div class="cat-buscar">
             <label class="sr-only" for="catBuscar">Buscar señal por nombre</label>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 17 17"/></svg>
             <input type="search" id="catBuscar" placeholder="Buscar: túnel, curva, resalto, animales…" autocomplete="off" spellcheck="false">
           </div>
-          <p class="cat-conteo"><b id="catTotal">87</b> <span id="catTotalUni">señales</span></p>
+          <p class="cat-conteo"><b id="catTotal">232</b> <span id="catTotalUni">productos</span></p>
           <button type="button" class="cat-carrito" id="catCarritoBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.5a2 2 0 0 0 2-1.5L20.5 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg>
             <span>Cotización</span>
@@ -567,7 +601,7 @@
         </div>
 
         <ul class="cat-grid" id="catGrid"></ul>
-        <p class="cat-vacio" id="catVacio" hidden>No encontramos <span id="catVacioUni">señales</span> con ese nombre en esta categoría. Cuéntanos qué necesitas y lo cotizamos.</p>
+        <p class="cat-vacio" id="catVacio" hidden>No encontramos <span id="catVacioUni">productos</span> con ese nombre en esta categoría. Cuéntanos qué necesitas y lo cotizamos.</p>
         <noscript>
           <p class="cat-vacio">El catálogo interactivo necesita JavaScript. También puedes <a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20cotizar%20se%C3%B1ales%20de%20tr%C3%A1nsito." target="_blank" rel="noopener">escribirnos por WhatsApp</a> y te cotizamos la lista que necesites.</p>
         </noscript>
@@ -1005,11 +1039,13 @@
         <h4>Contacto</h4>
         <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
         <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a><br>
-        <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a></p>
+        <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a><br>
+        Barranquilla, Atlántico</p>
       </div>
     </div>
     <div class="legal">
-      <span>© <span id="anio">2026</span> MOVIAL SVA · Soluciones Viales y Arquitectura</span>
+      <span>© <span id="anio">2026</span> Movial Sva Sas Soluciones Viales y Arquitectura Sas</span>
+      <span>NIT 901.941.976-9 · Barranquilla, Atlántico</span>
       <a href="#politica-datos" style="color:var(--amarillo)">Política de tratamiento de datos</a>
     </div>
   </div>
@@ -1184,8 +1220,9 @@
       <h2 id="titulo-politica">Política de Tratamiento de Datos Personales</h2>
       <p><strong>MOVIAL</strong></p>
       <div class="info-corp">
-        <p><strong>Razón Social:</strong> <span class="dato-placeholder">[Razón Social a confirmar]</span></p>
-        <p><strong>NIT:</strong> <span class="dato-placeholder">[NIT a confirmar]</span></p>
+        <p><strong>Razón social:</strong> Movial Sva Sas Soluciones Viales y Arquitectura Sas</p>
+        <p><strong>NIT:</strong> 901.941.976-9</p>
+        <p><strong>Ubicación:</strong> Barranquilla, Atlántico</p>
         <p><strong>Correo corporativo:</strong> <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a></p>
       </div>
       <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2012, le informamos que los datos personales recopilados a través de este formulario serán tratados de manera confidencial y segura, siendo utilizados únicamente para:</p>
@@ -1195,7 +1232,6 @@
         <li>Gestionar la relación comercial y contractual</li>
       </ul>
       <p>Sus datos no serán compartidos con terceros sin su autorización expresa. Para ejercer sus derechos de acceso, rectificación, supresión o revocación, puede contactarnos a través de nuestro WhatsApp o correo electrónico.</p>
-      <p class="nota-leg">Los datos de Razón Social y NIT son informativos y quedarán actualizados una vez se confirme la información oficial.</p>
       <a href="#" class="btn btn-amarillo" style="margin-top:16px;display:inline-block">Entendido</a>
     </div>
   </div>

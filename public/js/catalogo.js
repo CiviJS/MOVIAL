@@ -560,12 +560,15 @@ function htmlTarjeta(p){
 
 function pintarLote(reemplazar){
   var lote = coincidencias.slice(mostradas, mostradas + LOTE);
-  if(!lote.length) return;
-  var h = '';
-  lote.forEach(function(it){ h += htmlTarjeta(it.datos); });
-  if(reemplazar) grid.innerHTML = h;
-  else grid.insertAdjacentHTML('beforeend', h);
-  mostradas += lote.length;
+  if(lote.length){
+    var h = '';
+    lote.forEach(function(it){ h += htmlTarjeta(it.datos); });
+    if(reemplazar) grid.innerHTML = h;
+    else grid.insertAdjacentHTML('beforeend', h);
+    mostradas += lote.length;
+  }
+  /* Se actualiza incluso sin tanda: si una búsqueda deja 0 resultados hay que
+     ocultar el "ver más" y reiniciar los contadores (antes quedaban obsoletos). */
   actualizarMas();
   marcarTarjetas();
 }
