@@ -112,8 +112,8 @@ if(tarjetas.length){
   }
 }
 
-// Lightbox de #proyectos - amplía cualquier mitad de tarjeta (las 16
-// fotos de campo, dos por tarjeta partida) en un modal flotante
+// Lightbox de #proyectos - amplía cualquier foto de campo (una o dos por
+// tarjeta) en un modal flotante
 (function(){
   var caja = document.getElementById('lightbox');
   if(!caja) return;

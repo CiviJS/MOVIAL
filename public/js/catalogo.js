@@ -486,8 +486,12 @@ var meNombre = document.getElementById('meNombre');
 var meEntidad = document.getElementById('meEntidad');
 var meTelefono = document.getElementById('meTelefono');
 var meServicio = document.getElementById('meServicio');
+var meUbicacion = document.getElementById('meUbicacion');
 var meMensaje = document.getElementById('meMensaje');
 var meAcepto = document.getElementById('meAcepto');
+var meAceptoError = document.getElementById('meAceptoError');
+var msCta = document.getElementById('msCta');
+var msPagina = document.getElementById('msPagina');
 
 var productoActual = null;
 var capas = 0;
@@ -970,7 +974,7 @@ function miniaturasCarrito(){
   for(var i = 0; i < tope; i++){
     var it = carrito[i];
     if(it.imagePath){
-      out += '<img src="' + esc(it.imagePath) + '" alt="" loading="lazy" decoding="async">';
+      out += '<img src="' + esc(it.imagePath) + '" alt="" width="40" height="40" loading="lazy" decoding="async">';
     }else{
       out += htmlVacio(it, 'dem-mini');
     }
@@ -991,7 +995,7 @@ function htmlItems(){
       ? it.quantity + ' ' + it.unit
       : it.quantity + ' ' + plural(it.quantity, 'unidad', 'unidades');
     h += '<div class="ci">'
-      + (esDem ? htmlVacio(it, 'ci-img dem-ci') : '<span class="ci-img"><img src="' + esc(it.imagePath) + '" alt="" loading="lazy" decoding="async"></span>')
+      + (esDem ? htmlVacio(it, 'ci-img dem-ci') : '<span class="ci-img"><img src="' + esc(it.imagePath) + '" alt="" width="62" height="62" loading="lazy" decoding="async"></span>')
       + '<div><h3>' + esc(it.name) + '</h3>'
       + '<p class="sub">' + esc(it.category) + (it.color ? ' · <b class="dem-col" style="--c:' + esc(colorDem(it.color).hex) + ';--b:' + esc(colorDem(it.color).borde) + '"></b>' + esc(it.color) : '') + (it.pintura ? ' · ' + esc((opcionDe(PINTURAS_DEM, it.pintura) || {}).c || it.pintura) : '') + (it.superficie ? ' · ' + esc((opcionDe(SUPERFICIES_DEM, it.superficie) || {}).c || it.superficie) : '') + (it.asesoria ? ' · <em class="dem-asesoria">asesoría técnica</em>' : '') + '</p>'
       + (it.details ? '<p class="det">' + esc(it.details) + '</p>' : '')
@@ -1149,6 +1153,8 @@ var SERVICIOS = {
   pesv: {
     etiqueta: 'Plan estratégico de seguridad vial',
     titulo: 'PESV · Resolución 40595 de 2022',
+    pagina: 'servicios/planes-manejo-transito/index.html#pesv',
+    wa: 'Hola Movial, necesito asesoría para implementar el PESV (Resolución 40595 de 2022).',
     descripcion: 'El Plan Estratégico de Seguridad Vial (PESV) es un instrumento de planificación que contiene las acciones, mecanismos y estrategias orientadas a prevenir y disminuir la siniestralidad vial en el entorno corporativo. La Resolución 40595 de 2022 del Ministerio de Transporte adoptó la metodología actual para su diseño, implementación y verificación basada en el ciclo PHVA (Planear, Hacer, Verificar, Actuar).',
     puntos: [
       'Obligatoriedad: Aplica a todas las organizaciones, empresas o entidades públicas y privadas que administren o contraten conductores, o que posean o comercialicen una flota de más de 10 vehículos automotores o no automotores.',
@@ -1159,6 +1165,8 @@ var SERVICIOS = {
   pmt: {
     etiqueta: 'Movilidad y obra vial',
     titulo: 'Planes de Manejo de Tránsito',
+    pagina: 'servicios/planes-manejo-transito/index.html',
+    wa: 'Hola Movial, necesito un Plan de Manejo de Tránsito (PMT).',
     descripcion: 'Un Plan de Manejo de Tránsito (PMT) es una herramienta técnica y de gestión de la movilidad que define las estrategias, desvíos y alternativas para mitigar el impacto generado por la ejecución de obras viales, civiles o la realización de eventos especiales en las vías. Su objetivo fundamental es garantizar la seguridad vial de los peatones, ciclistas, trabajadores y conductores de la zona.',
     puntos: [
       'Diseño: Debe ser elaborado por ingenieros civiles especializados en vías o transporte, basándose estrictamente en el Manual de Señalización Vial de Colombia.',
@@ -1169,6 +1177,8 @@ var SERVICIOS = {
   estudios: {
     etiqueta: 'Análisis y modelación',
     titulo: 'Estudios de Tránsito',
+    pagina: 'servicios/estudios-transito-barranquilla/index.html',
+    wa: 'Hola Movial, necesito un estudio de tránsito.',
     descripcion: 'Un Estudio de Tránsito es un análisis técnico y predictivo que evalúa el comportamiento del flujo vehicular y peatonal en una red vial existente o futura. Se utiliza principalmente para medir el impacto en la movilidad provocado por el desarrollo de grandes proyectos urbanísticos (centros comerciales, complejos residenciales) o nuevas infraestructuras de transporte.',
     puntos: [
       'Metodología: Se fundamenta en la toma de datos de campo a través de aforos volumétricos (conteos manuales o electrónicos), determinación del Tránsito Promedio Diario Anual (TPDA) y análisis de capacidad y niveles de servicio.',
@@ -1179,6 +1189,8 @@ var SERVICIOS = {
   inventarios: {
     etiqueta: 'Levantamiento de información',
     titulo: 'Inventarios Georreferenciados',
+    pagina: 'servicios/estudios-transito-barranquilla/index.html#inventarios',
+    wa: 'Hola Movial, necesito un inventario vial georreferenciado.',
     descripcion: 'Un Inventario Georreferenciado en el sector vial es una base de datos digitalizada que registra la localización geográfica exacta (mediante coordenadas cartográficas o GPS) y las características físicas de toda la infraestructura vial disponible. En Colombia, los datos recopilados alimentan plataformas nacionales como el SINC (Sistema Integral Nacional de Información de Carreteras) administrado por el Ministerio de Transporte.',
     puntos: [
       'Elementos registrados: Incluye el eje de la vía, señales de tránsito verticales y horizontales, semáforos, puentes, peajes y postes de referencia (PR).',
@@ -1199,6 +1211,12 @@ function abrirServicio(id){
   msEtiqueta.textContent = s.etiqueta;
   msTitulo.textContent = s.titulo;
   msDescripcion.textContent = s.descripcion;
+  if(msCta){
+    msCta.href = 'https://wa.me/' + CAT_WA + '?text=' + encodeURIComponent(
+      s.wa || 'Hola Movial, quiero asesoría sobre un servicio.'
+    );
+  }
+  if(msPagina) msPagina.href = s.pagina || 'index.html';
 
   msPuntos.textContent = '';
   s.puntos.forEach(function(texto){
@@ -1278,10 +1296,12 @@ document.addEventListener('keydown', function(e){
 function limpiarMal(campo){
   var w = campo.closest('.campo');
   if(w) w.classList.remove('malo');
+  campo.setAttribute('aria-invalid', 'false');
 }
 function marcarMal(campo, malo){
   var w = campo.closest('.campo');
   if(w) w.classList.toggle('malo', !!malo);
+  campo.setAttribute('aria-invalid', malo ? 'true' : 'false');
   return !malo;
 }
 
@@ -1314,16 +1334,20 @@ function abrirEnvio(){
   meNombre.value = '';
   meEntidad.value = '';
   meTelefono.value = '';
+  meUbicacion.value = '';
   /* Si el carrito solo lleva una familia, el servicio por defecto debe ser el suyo. */
   meServicio.value = soloDem
     ? 'Demarcación horizontal'
     : (soloDispositivos ? 'Dispositivos de seguridad' : 'Señales de tránsito');
   meMensaje.value = '';
   meAcepto.checked = false;
+  meAcepto.setAttribute('aria-invalid', 'false');
+  if(meAceptoError) meAceptoError.hidden = true;
   limpiarMal(meNombre);
   limpiarMal(meEntidad);
   limpiarMal(meTelefono);
   limpiarMal(meServicio);
+  limpiarMal(meUbicacion);
   abrirCapa(modalE);
 }
 document.getElementById('pedirCotizacion').addEventListener('click', abrirEnvio);
@@ -1372,6 +1396,7 @@ function construirMensaje(datos){
   l.push('*Nombre:* ' + datos.nombre);
   l.push('*Empresa o entidad:* ' + datos.entidad);
   l.push('*WhatsApp/Teléfono:* ' + datos.telefono);
+  l.push('*Ubicación del proyecto:* ' + datos.ubicacion);
   l.push('');
   l.push('*Servicio que necesita:*');
   l.push(datos.servicio);
@@ -1412,16 +1437,29 @@ function construirMensaje(datos){
   return l.join('\n');
 }
 
+meAcepto.addEventListener('change', function(){
+  if(meAcepto.checked){
+    meAcepto.setAttribute('aria-invalid', 'false');
+    if(meAceptoError) meAceptoError.hidden = true;
+  }
+});
+
 document.getElementById('meEnviar').addEventListener('click', function(){
   var ok = true;
   ok = marcarMal(meNombre, meNombre.value.trim().length < 3) && ok;
   ok = marcarMal(meEntidad, meEntidad.value.trim().length < 2) && ok;
   ok = marcarMal(meTelefono, meTelefono.value.replace(/\D/g, '').length < 7) && ok;
   ok = marcarMal(meServicio, !meServicio.value) && ok;
+  ok = marcarMal(meUbicacion, meUbicacion.value.trim().length < 3) && ok;
 
   if(!meAcepto.checked){
+    meAcepto.setAttribute('aria-invalid', 'true');
+    if(meAceptoError) meAceptoError.hidden = false;
     meAcepto.focus();
     ok = false;
+  }else{
+    meAcepto.setAttribute('aria-invalid', 'false');
+    if(meAceptoError) meAceptoError.hidden = true;
   }
   if(!ok){
     var primero = modalE.querySelector('.campo.malo input, .campo.malo select');
@@ -1433,6 +1471,7 @@ document.getElementById('meEnviar').addEventListener('click', function(){
     nombre: meNombre.value.trim(),
     entidad: meEntidad.value.trim(),
     telefono: meTelefono.value.trim(),
+    ubicacion: meUbicacion.value.trim(),
     servicio: meServicio.value,
     mensaje: meMensaje.value.trim().slice(0, 600)
   });
@@ -1495,7 +1534,7 @@ function irAlCatalogo(){
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
   });
 }
-var enlacesCatalogo = document.querySelectorAll('#irCatalogo, .btn-nav[href="#productos"], .hero-acciones a[href="#productos"], #proyectos a[href="#productos"], .ms-cta[href="#productos"]');
+var enlacesCatalogo = document.querySelectorAll('#irCatalogo, .btn-nav[href="#productos"], .contacto-acciones a[href="#productos"]');
 Array.prototype.forEach.call(enlacesCatalogo, function(a){
   a.addEventListener('click', function(e){
     /* El cierre del modal corre en otro manejador: se deja pasar para que abra y cierre bien. */
@@ -1503,4 +1542,9 @@ Array.prototype.forEach.call(enlacesCatalogo, function(a){
     irAlCatalogo();
     if(history.replaceState) history.replaceState(null, '', '#productos');
   });
+});
+
+/* Al llegar desde una página de servicio con #productos, el catálogo debe abrirse. */
+window.addEventListener('load', function(){
+  if(location.hash === '#productos') irAlCatalogo();
 });

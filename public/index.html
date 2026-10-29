@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Movial | Soluciones Viales y Señalización en Barranquilla</title>
 <meta name="description" content="Movial: soluciones viales en Barranquilla. Demarcación y señalización vial, estoperoles, dispositivos de tránsito e ingeniería de tránsito. ¡Cotiza hoy!">
-<meta name="keywords" content="soluciones viales Barranquilla, demarcación vial Barranquilla, señalización vial, señalización horizontal, dispositivos de control de tránsito, venta de estoperoles, instaladores viales, señales de tránsito reglamentarias, señales preventivas, señales informativas, ingeniería de tránsito, seguridad vial, PESV, plan de manejo de tránsito, reductores de velocidad, mobiliario urbano, empresas de señalización en Barranquilla, Colombia">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Movial">
 <meta name="theme-color" content="#16181A">
 <link rel="canonical" href="https://movial.com.co/">
+<link rel="preload" as="image" href="images/hero-bg-mobile.webp" media="(max-width:768px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-bg.webp" media="(min-width:769px)" fetchpriority="high">
 
 <!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
 <meta property="og:title" content="Movial | Soluciones Viales y Señalización en Barranquilla">
@@ -100,6 +101,71 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://movial.com.co/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué servicios ofrece Movial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Movial ofrece estudios y consultoría (PESV, PMT, estudios de tránsito y planes de movilidad), diseño y modelación, inventarios viales georreferenciados, demarcación, señalización vertical y horizontal, dispositivos de seguridad vial y obra civil complementaria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Atienden proyectos fuera de Barranquilla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nuestra base está en Barranquilla, Atlántico, y tenemos presencia nacional. Escríbanos con la ubicación del proyecto para confirmar cobertura, logística y alcance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo solicito una cotización de un proyecto o servicio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escríbanos por WhatsApp o use el formulario de cotización. Indíquenos el tipo de proyecto, la ubicación, el alcance y, si los tiene, planos o cantidades. Si hace falta, coordinamos una visita técnica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo compro señales o dispositivos viales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Abra el catálogo, elija las referencias, ajuste las cantidades y envíe la solicitud por WhatsApp. Confirmamos disponibilidad, medidas y precio antes de facturar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los precios del catálogo están publicados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El catálogo es una solicitud de cotización: no es una tienda en línea ni publica precios. Confirmamos disponibilidad, medidas y precio antes de facturar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué necesito para cotizar demarcación vial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indique la ubicación, el tipo de vía o parqueadero, los metros lineales o el área aproximada y si requiere pintura en frío o termoplástico. Si no tiene las especificaciones, solicite asesoría técnica y las definimos con usted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué normativa aplican?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabajamos con el Manual de Señalización Vial vigente y la Resolución 40595 de 2022. Los PESV se articulan con el SG-SST y los PMT se ajustan a la autoridad de tránsito competente."
+      }
+    }
+  ]
+}
+</script>
 
 <!-- Favicon e Icono para Google -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -122,7 +188,7 @@
 <header>
   <div class="wrap nav">
     <a class="marca" href="#inicio">
-      <img src="images/logo-movial.webp" alt="Movial - Soluciones viales, señalización y demarcación en Barranquilla" width="44" height="44">
+      <img src="images/logo-movial.webp" alt="Movial - Soluciones viales, señalización y demarcación en Barranquilla" width="300" height="192">
       <span style="display:block">
         <b>MOVIAL</b>
         <span>SOLUCIONES VIALES</span>
@@ -143,7 +209,7 @@
         </div>
         <a href="#proyectos">Proyectos</a>
         <a href="#nosotros">Nosotros</a>
-        <a href="#mapa">Contacto</a>
+        <a href="#contacto">Contacto</a>
         <a href="#cotizacion" class="menu-cot" id="navCot">
           Cotización
           <span class="menu-cot-cnt" id="navCotCount" aria-hidden="true">0</span>
@@ -151,7 +217,7 @@
         </a>
       <a class="btn btn-nav" href="#productos">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
-        Cotizar
+        Catálogo
       </a>
     </nav>
   </div>
@@ -164,15 +230,15 @@
     <div class="hero-foto" aria-hidden="true"></div>
     <div class="hero-velo" aria-hidden="true"></div>
     <div class="wrap">
-      <h1>Soluciones Viales en Barranquilla: Demarcación, Señalización e Ingeniería de Tránsito</h1>
+      <h1>Soluciones viales y señalización en Barranquilla</h1>
       <p class="frase-marca">"Hacemos que la seguridad vial se entienda, se vea y se viva."</p>
-      <p class="bajada">Estudios, diseños, señalización, demarcación, implementación y obra para municipios, concesiones, contratistas y empresas privadas. Del diagnóstico en campo a la señal instalada.</p>
+      <p class="bajada">Demarcación, señalización vertical y horizontal, dispositivos viales e ingeniería de tránsito para municipios, concesiones, contratistas y empresas. Del diagnóstico en campo a la obra terminada.</p>
       <div class="hero-acciones">
         <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
           Solicitar asesoría
         </a>
-        <a class="btn btn-borde" href="#productos">Cotizar un proyecto</a>
+        <a class="btn btn-borde" href="#contacto">Cotizar un proyecto</a>
       </div>
       <div class="placas">
         <button type="button" class="placa" data-servicio="pesv" aria-haspopup="dialog" aria-expanded="false">
@@ -294,10 +360,10 @@
         <article class="trabajo-item" data-pie="Demarcación y señalización horizontal ejecutadas en jornada nocturna">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/CarreteraDeNoche1.webp" alt="Carretera demarcada de noche" loading="lazy" decoding="async">
+              <img height="900" width="1200" class="trabajo-img" src="images/trabajos/CarreteraDeNoche1.webp" alt="Carretera demarcada de noche" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/CarreteraDeNoche2.webp" alt="Carretera con señalización horizontal de noche" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/CarreteraDeNoche2.webp" alt="Carretera con señalización horizontal de noche" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -312,10 +378,10 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Cebreado y demarcación de cruces y bifurcaciones en vía nocturna">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/ifurcacionVialConCebreadoNocturno.webp" alt="Bifurcación vial con cebreado nocturno" loading="lazy" decoding="async">
+              <img height="1200" width="900" class="trabajo-img" src="images/trabajos/ifurcacionVialConCebreadoNocturno.webp" alt="Bifurcación vial con cebreado nocturno" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/DemarcacionvialyCrucesDeCebraNocturnas.webp" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
+              <img height="900" width="1200" class="trabajo-img" src="images/trabajos/DemarcacionvialyCrucesDeCebraNocturnas.webp" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -330,10 +396,10 @@
         <article class="trabajo-item" data-pie="Estoperoles reflectivos colocados y puestos en servicio en vía principal">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/estoperolesSiendoInstalados.webp" alt="Estoperoles plásticos siendo instalados en la vía" loading="lazy" decoding="async">
+              <img height="933" width="1200" class="trabajo-img" src="images/trabajos/estoperolesSiendoInstalados.webp" alt="Estoperoles plásticos siendo instalados en la vía" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/estoperolesInstalados1.webp" alt="Estoperoles plásticos instalados en la vía" loading="lazy" decoding="async">
+              <img height="584" width="847" class="trabajo-img" src="images/trabajos/estoperolesInstalados1.webp" alt="Estoperoles plásticos instalados en la vía" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -348,10 +414,10 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Dispositivos de seguridad vial instalados en la calzada">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/estoperolesInstalados2.webp" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/estoperolesInstalados2.webp" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.webp" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/calleConReductoresDeVelocidadDesdeLejos.webp" alt="Vía con reductores de velocidad instalados vistos desde la distancia" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -366,10 +432,10 @@
         <article class="trabajo-item" data-pie="Marcas direccionales y reductores de velocidad en zona urbana">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/demarcacionFlecha.webp" alt="Flecha demarcada en la calzada" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/demarcacionFlecha.webp" alt="Flecha demarcada en la calzada" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/reductoresDeVelocidad.webp" alt="Reductores de velocidad instalados en la calzada" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/reductoresDeVelocidad.webp" alt="Reductores de velocidad instalados en la calzada" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -384,10 +450,10 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Señales de tránsito instaladas por el personal de campo">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/trabajadorPoniendoSeñal.webp" alt="Trabajador instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
+              <img height="1195" width="896" class="trabajo-img" src="images/trabajos/trabajadorPoniendoSeñal.webp" alt="Trabajador instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/3TrabajadoresPoniendo1Señal.webp" alt="Tres trabajadores instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
+              <img height="1195" width="896" class="trabajo-img" src="images/trabajos/3TrabajadoresPoniendo1Señal.webp" alt="Tres trabajadores instalando señal de tránsito en vía pública" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -402,10 +468,10 @@
         <article class="trabajo-item" data-pie="Cuadrilla en obra durante la instalación de reductores de velocidad">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/4TrabjadoresIniciandoAponerReductores.webp" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
+              <img height="896" width="1195" class="trabajo-img" src="images/trabajos/4TrabjadoresIniciandoAponerReductores.webp" alt="Cuatro trabajadores iniciando la instalación de reductores de velocidad" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.webp" alt="Cuatro trabajadores colocando reductores de velocidad" loading="lazy" decoding="async">
+              <img height="912" width="1166" class="trabajo-img" src="images/trabajos/4TrabajadoresPoniendoReductoresDeVelocidad.webp" alt="Cuatro trabajadores colocando reductores de velocidad" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -420,10 +486,10 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Señal de tránsito instalada y generador de apoyo para la cuadrilla">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/trabajadorPoniendo1Señal.webp" alt="Trabajador colocando una señal de tránsito" loading="lazy" decoding="async">
+              <img height="1200" width="900" class="trabajo-img" src="images/trabajos/trabajadorPoniendo1Señal.webp" alt="Trabajador colocando una señal de tránsito" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/trabajadorCargandoGeneradorEnergia.webp" alt="Trabajador cargando el generador de energía" loading="lazy" decoding="async">
+              <img height="768" width="1024" class="trabajo-img" src="images/trabajos/trabajadorCargandoGeneradorEnergia.webp" alt="Trabajador cargando el generador de energía" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -438,10 +504,10 @@
         <article class="trabajo-item" data-pie="Adecuación y preparación de huecos para rampas de acceso">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/huecoRampa2EnProceso.webp" alt="Hueco para rampa de acceso en proceso de adecuación" loading="lazy" decoding="async">
+              <img height="980" width="1024" class="trabajo-img" src="images/trabajos/huecoRampa2EnProceso.webp" alt="Hueco para rampa de acceso en proceso de adecuación" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/huecoderampa1terminada.webp" alt="Hueco para rampa de acceso terminado" loading="lazy" decoding="async">
+              <img height="541" width="1024" class="trabajo-img" src="images/trabajos/huecoderampa1terminada.webp" alt="Hueco para rampa de acceso terminado" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -456,10 +522,10 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Rampas de acceso 1 y 2 terminadas en obra">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--a">
-              <img class="trabajo-img" src="images/trabajos/huecoRampa1Y2Terminados.webp" alt="Rampas de acceso 1 y 2 terminadas" loading="lazy" decoding="async">
+              <img height="1024" width="995" class="trabajo-img" src="images/trabajos/huecoRampa1Y2Terminados.webp" alt="Rampas de acceso 1 y 2 terminadas" loading="lazy" decoding="async">
             </figure>
             <figure class="trabajo-foto trabajo-foto--b">
-              <img class="trabajo-img" src="images/trabajos/huecoRampa1Terminado.webp" alt="Hueco de la rampa de acceso 1 terminado" loading="lazy" decoding="async">
+              <img height="461" width="1024" class="trabajo-img" src="images/trabajos/huecoRampa1Terminado.webp" alt="Hueco de la rampa de acceso 1 terminado" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -474,7 +540,7 @@
         <article class="trabajo-item" data-pie="Rampa de acceso 1 terminada en obra">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--unica">
-              <img class="trabajo-img" src="images/trabajos/rampa1terminada.webp" alt="Rampa de acceso 1 terminada en obra" loading="lazy" decoding="async">
+              <img height="604" width="555" class="trabajo-img" src="images/trabajos/rampa1terminada.webp" alt="Rampa de acceso 1 terminada en obra" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -489,7 +555,7 @@
         <article class="trabajo-item trabajo-item--espejo" data-pie="Rampa de acceso 2 terminada en obra">
           <div class="trabajo-diptico">
             <figure class="trabajo-foto trabajo-foto--unica">
-              <img class="trabajo-img" src="images/trabajos/rampa2terminada.webp" alt="Rampa de acceso 2 terminada en obra" loading="lazy" decoding="async">
+              <img height="1024" width="994" class="trabajo-img" src="images/trabajos/rampa2terminada.webp" alt="Rampa de acceso 2 terminada en obra" loading="lazy" decoding="async">
             </figure>
             <div class="trabajo-info">
               <div class="trabajo-info-bloque">
@@ -503,7 +569,7 @@
       </div>
 
       <div class="cta-centro">
-        <a class="btn btn-amarillo" href="#productos">Cotizar un proyecto similar</a>
+        <a class="btn btn-amarillo" href="#contacto">Cotizar un proyecto similar</a>
       </div>
     </div>
   </section>
@@ -594,7 +660,7 @@
       <div class="rejilla g3">
         <article class="producto">
           <div class="producto-img">
-            <img src="images/señales.webp" alt="Señales de tránsito preventivas, reglamentarias e informativas" loading="lazy" decoding="async">
+            <img height="796" width="1200" src="images/señales.webp" srcset="images/señales-600.webp 600w, images/señales.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:900px) 50vw, 33vw" alt="Señales de tránsito preventivas, reglamentarias e informativas" loading="lazy" decoding="async">
           </div>
             <h3><a href="servicios/senalizacion-vial/index.html">Señalización Vial</a></h3>
 
@@ -602,7 +668,7 @@
         </article>
         <article class="producto">
           <div class="producto-img">
-            <img src="images/trabajos/demarcacionFlecha.webp" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
+            <img height="768" width="1024" src="images/trabajos/demarcacionFlecha.webp" alt="Demarcación vial y cruces de cebra nocturnos" loading="lazy" decoding="async">
           </div>
             <h3><a href="servicios/demarcacion-vial/index.html">Demarcación Vial</a></h3>
 
@@ -610,7 +676,7 @@
         </article>
         <article class="producto">
           <div class="producto-img">
-            <img src="images/trabajos/estoperolesInstalados1.webp" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
+            <img height="584" width="847" src="images/trabajos/estoperolesInstalados1.webp" alt="Estoperoles instalados en la vía" loading="lazy" decoding="async">
           </div>
             <h3><a href="servicios/senalizacion-vial/index.html">Dispositivos de seguridad vial</a></h3>
 
@@ -801,7 +867,7 @@
           </div>
         </div>
         <div>
-          <div class="placa-logo"><img src="images/logo-movial-footer.webp" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
+          <div class="placa-logo"><img height="498" width="520" src="images/logo-movial-footer.webp" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
           <p class="frase">Seguridad vial con cumplimiento normativo.</p>
         </div>
       </div>
@@ -1072,16 +1138,62 @@
 
   </section>
 
-  <!-- MAPA -->
-  <section class="mapa" id="mapa">
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="seccion claro" id="preguntas">
+    <span class="marcador" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="intro">
+        <h2>Preguntas frecuentes</h2>
+        <p class="lead">Respuestas rápidas para decidir cómo empezar, qué información enviar y cómo se confirma una cotización.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Qué servicios ofrece Movial?</summary>
+          <p>Movial ofrece estudios y consultoría (PESV, PMT, estudios de tránsito y planes de movilidad), diseño y modelación, inventarios viales georreferenciados, demarcación, señalización vertical y horizontal, dispositivos de seguridad vial y obra civil complementaria.</p>
+        </details>
+        <details>
+          <summary>¿Atienden proyectos fuera de Barranquilla?</summary>
+          <p>Nuestra base está en Barranquilla, Atlántico, y tenemos presencia nacional. Escríbanos con la ubicación del proyecto para confirmar cobertura, logística y alcance.</p>
+        </details>
+        <details>
+          <summary>¿Cómo solicito una cotización de un proyecto o servicio?</summary>
+          <p>Escríbanos por WhatsApp o use el formulario de cotización. Indíquenos el tipo de proyecto, la ubicación, el alcance y, si los tiene, planos o cantidades. Si hace falta, coordinamos una visita técnica.</p>
+        </details>
+        <details>
+          <summary>¿Cómo compro señales o dispositivos viales?</summary>
+          <p>Abra el catálogo, elija las referencias, ajuste las cantidades y envíe la solicitud por WhatsApp. Confirmamos disponibilidad, medidas y precio antes de facturar.</p>
+        </details>
+        <details>
+          <summary>¿Los precios del catálogo están publicados?</summary>
+          <p>No. El catálogo es una solicitud de cotización: no es una tienda en línea ni publica precios. Confirmamos disponibilidad, medidas y precio antes de facturar.</p>
+        </details>
+        <details>
+          <summary>¿Qué necesito para cotizar demarcación vial?</summary>
+          <p>Indique la ubicación, el tipo de vía o parqueadero, los metros lineales o el área aproximada y si requiere pintura en frío o termoplástico. Si no tiene las especificaciones, solicite asesoría técnica y las definimos con usted.</p>
+        </details>
+        <details>
+          <summary>¿Qué normativa aplican?</summary>
+          <p>Trabajamos con el Manual de Señalización Vial vigente y la Resolución 40595 de 2022. Los PESV se articulan con el SG-SST y los PMT se ajustan a la autoridad de tránsito competente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO Y COBERTURA -->
+  <section class="mapa" id="contacto">
+    <span id="mapa" class="ancla-mapa" aria-hidden="true"></span>
     <div class="mapa-overlay">
       <div class="mapa-contenido">
-        <h2>¿Dónde estamos?</h2>
-        <p>Atlántico — Barranquilla · Con presencia nacional</p>
-        <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
-          Escríbenos por WhatsApp
-        </a>
+        <h2>Hablemos de su proyecto</h2>
+        <p>Barranquilla, Atlántico · Con presencia nacional. Cuéntenos si necesita un estudio, una obra de señalización o comprar señales y dispositivos.</p>
+        <div class="contacto-acciones">
+          <a class="btn btn-amarillo" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20cotizar%20un%20proyecto%20o%20servicio." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.15-1.18-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.15.16-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42z"/></svg>
+            Cotizar un proyecto o servicio
+          </a>
+          <a class="btn btn-borde" href="#productos">Comprar señales y dispositivos</a>
+        </div>
+        <p class="contacto-datos">WhatsApp <a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">+57 313 859 5695</a> · <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a></p>
       </div>
     </div>
   </section>
@@ -1092,17 +1204,19 @@
   <div class="wrap">
     <div class="cols">
       <div>
-        <div class="placa-logo"><img src="images/logo-movial-grande.webp" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
+        <div class="placa-logo"><img height="498" width="520" src="images/logo-movial-grande.webp" alt="Movial Soluciones Viales y Arquitectura" loading="lazy" decoding="async"></div>
         <p>Soluciones viales y arquitectura.<br>Estudios, diseños, señalización y obra.</p>
       </div>
       <div>
-        <h4>Servicios</h4>
+        <h3>Servicios</h3>
         <p><a href="servicios/planes-manejo-transito/index.html">Planes de Manejo de Tránsito</a><br>
         <a href="servicios/demarcacion-vial/index.html">Demarcación Vial</a><br>
-        <a href="servicios/senalizacion-vial/index.html">Señalización Vial</a></p>
+        <a href="servicios/senalizacion-vial/index.html">Señalización Vial</a><br>
+        <a href="servicios/estudios-transito-barranquilla/index.html">Estudios de tránsito y movilidad</a><br>
+        <a href="#preguntas">Preguntas frecuentes</a></p>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <p><a href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20seguridad%20vial." target="_blank" rel="noopener">WhatsApp +57 313 859 5695</a><br>
         <a href="https://instagram.com/movial_SVA" target="_blank" rel="noopener">@movial_SVA</a><br>
         <a href="mailto:contacto@movial.com.co">contacto@movial.com.co</a><br>
@@ -1146,7 +1260,7 @@
   <button type="button" class="lb-cerrar" data-lb-cerrar aria-label="Cerrar imagen ampliada">&times;</button>
   <button type="button" class="lb-nav lb-prev" data-lb-prev aria-label="Imagen anterior">&#10094;</button>
   <figure class="lb-fig">
-    <img class="lb-img" id="lbImg" src="" alt="">
+    <img class="lb-img" id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" alt="">
     <figcaption class="lb-pie"><span class="lb-badge" id="lbBadge"></span><span class="lb-txt" id="lbTxt"></span></figcaption>
   </figure>
   <button type="button" class="lb-nav lb-next" data-lb-next aria-label="Imagen siguiente">&#10095;</button>
@@ -1156,7 +1270,7 @@
 <div class="mjs" id="modalProducto" role="dialog" aria-modal="true" aria-labelledby="mpNombre" aria-hidden="true">
   <div class="mjs-caja">
     <button type="button" class="mjs-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
-    <div class="mjs-img"><img id="mpImg" src="" alt=""><span class="mjs-ico" id="mpIcono" hidden></span></div>
+    <div class="mjs-img"><img id="mpImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" alt=""><span class="mjs-ico" id="mpIcono" hidden></span></div>
     <div class="mjs-cuerpo">
       <p class="mjs-cat" id="mpCat"></p>
       <h2 id="mpNombre"></h2>
@@ -1219,22 +1333,22 @@
       <p class="mjs-cat" id="meResumen"></p>
       <div class="campo">
         <label for="meNombre">Nombre completo <span class="req">*</span></label>
-        <input type="text" id="meNombre" name="nombre" autocomplete="name" required>
-        <span class="error">Escriba su nombre completo.</span>
+        <input type="text" id="meNombre" name="nombre" autocomplete="name" required aria-required="true" aria-describedby="meNombreError" aria-invalid="false">
+        <span class="error" id="meNombreError">Escriba su nombre completo.</span>
       </div>
       <div class="campo">
         <label for="meEntidad">Empresa o entidad <span class="req">*</span></label>
-        <input type="text" id="meEntidad" name="entidad" autocomplete="organization" required>
-        <span class="error">Indique la empresa o entidad.</span>
+        <input type="text" id="meEntidad" name="entidad" autocomplete="organization" required aria-required="true" aria-describedby="meEntidadError" aria-invalid="false">
+        <span class="error" id="meEntidadError">Indique la empresa o entidad.</span>
       </div>
       <div class="campo">
         <label for="meTelefono">WhatsApp o teléfono <span class="req">*</span></label>
-        <input type="tel" id="meTelefono" name="telefono" inputmode="tel" autocomplete="tel" required>
-        <span class="error">Escriba un número de contacto.</span>
+        <input type="tel" id="meTelefono" name="telefono" inputmode="tel" autocomplete="tel" required aria-required="true" aria-describedby="meTelefonoError" aria-invalid="false">
+        <span class="error" id="meTelefonoError">Escriba un número de contacto.</span>
       </div>
       <div class="campo">
         <label for="meServicio">Servicio que necesita <span class="req">*</span></label>
-        <select id="meServicio" name="servicio" required>
+        <select id="meServicio" name="servicio" required aria-required="true" aria-describedby="meServicioError" aria-invalid="false">
           <option value="">Seleccione una opción...</option>
           <option value="Señales de tránsito" selected>Señales de tránsito (preventivas, reglamentarias, informativas)</option>
           <option value="Demarcación horizontal">Demarcación horizontal (líneas, cebras, flechas)</option>
@@ -1248,16 +1362,22 @@
           <option value="Obra civil">Obra civil, rampas, andenes</option>
           <option value="Otro">Otro</option>
         </select>
-        <span class="error">Seleccione el servicio que necesita.</span>
+        <span class="error" id="meServicioError">Seleccione el servicio que necesita.</span>
+      </div>
+      <div class="campo">
+        <label for="meUbicacion">Ubicación del proyecto <span class="req">*</span></label>
+        <input type="text" id="meUbicacion" name="ubicacion" autocomplete="address-level2" placeholder="Ciudad, municipio o dirección" required aria-required="true" aria-describedby="meUbicacionError" aria-invalid="false">
+        <span class="error" id="meUbicacionError">Indique la ciudad o municipio del proyecto.</span>
       </div>
       <div class="campo">
         <label for="meMensaje">Cuéntenos brevemente</label>
-        <textarea id="meMensaje" name="mensaje" placeholder="Cantidad, ubicación, plazos, detalles adicionales..."></textarea>
+        <textarea id="meMensaje" name="mensaje" placeholder="Alcance, cantidades, plazos, detalles adicionales..."></textarea>
       </div>
       <label class="acepto">
-        <input type="checkbox" id="meAcepto" required>
+        <input type="checkbox" id="meAcepto" required aria-required="true" aria-describedby="meAceptoError">
         <span>Autorizo el tratamiento de mis datos personales para ser contactado, conforme a la Ley 1581 de 2012.</span>
       </label>
+      <p class="acepto-error" id="meAceptoError" role="alert" hidden>Para continuar, autorice el tratamiento de datos personales.</p>
       <button type="button" class="btn btn-amarillo btn-ancho" id="meEnviar">Enviar solicitud por WhatsApp</button>
       <p class="mjs-nota">Se abrirá WhatsApp con el detalle de tu cotización para que la revises y la confirmes.</p>
     </div>
@@ -1274,7 +1394,8 @@
       <p class="ms-desc" id="msDescripcion"></p>
       <h3 class="ms-subtitulo">Puntos clave</h3>
       <ul class="ms-puntos" id="msPuntos"></ul>
-      <a class="btn btn-amarillo btn-ancho ms-cta" href="#productos" data-cerrar-modal>Cotizar este servicio</a>
+      <a class="btn btn-amarillo btn-ancho ms-cta" id="msCta" href="https://wa.me/573138595695?text=Hola%20Movial%2C%20quiero%20asesor%C3%ADa%20sobre%20un%20servicio." target="_blank" rel="noopener" data-cerrar-modal>Cotizar este servicio por WhatsApp</a>
+      <a class="ms-pagina" id="msPagina" href="index.html">Ver detalle del servicio</a>
     </div>
   </div>
 </div>
