@@ -492,6 +492,8 @@ html.reveal .trabajo-item.visible{opacity:1;transform:none;box-shadow:var(--shad
 /* Tarjetas pares: el corte se espeja para ritmo alternado. */
 .trabajo-item--espejo .trabajo-foto--a{clip-path:polygon(100% 0, 18px 0, 100% 100%)}
 .trabajo-item--espejo .trabajo-foto--b{clip-path:polygon(0 100%, 0 0, calc(100% - 18px) 100%)}
+/* Tarjeta de una sola foto: la imagen ocupa todo el marco, sin corte ni hueco. */
+.trabajo-foto--unica{clip-path:none}
 .trabajo-img{
   display:block;width:100%;height:100%;
   object-fit:cover;object-position:center;

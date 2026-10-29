@@ -5,26 +5,9 @@
 skills-lock.json
 __dom.html
 __diag.html
-__dom.json
-__sesion_legible.txt
-__test.html
-__diag*.html
-__dom*.html
-*.log
-shot.log
-temp/
-tmp/
-.opencode/
-~/.opencode/
-*.tmp
-*.bak
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
 
 .git/
 .wrangler/
 node_modules/
 .agents/
+test/
